@@ -19,6 +19,12 @@ Route::get('/courses', 'CourseController@name');
 
 Route::get('/vocabulary', 'VocabularyController@add_course');
 
+Route::get('/reading', 'ReadingController@all');
+
+Route::get('/readingMore', 'ReadingMoreController@text');
+
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

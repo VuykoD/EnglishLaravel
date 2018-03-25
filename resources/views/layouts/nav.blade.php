@@ -8,7 +8,8 @@
     <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
     <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
     <link href="css/bootstrap/bootstrap-responsive.min.css" rel="stylesheet">
-    <link href="js/icons/general/stylesheets/general_foundicons.css" media="screen" rel="stylesheet" type="text/css" />   
+    <link href="js/icons/general/stylesheets/general_foundicons.css" media="screen" rel="stylesheet" type="text/css" /> 
+    <link href="js/icons/social/stylesheets/social_foundicons.css" media="screen" rel="stylesheet" type="text/css" /> 
     <link href="css/custom.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -119,11 +120,11 @@
                                     </ul>
                                 </li>
                                 <li class="dropdown ">
-                                    <a href="reading.php?type=0" class="dropdown-toggle">Чтение<br><b class="caret"></b></a>
+                                    <a href="reading?type=9" class="dropdown-toggle">Чтение<br><b class="caret"></b></a>
                                     <ul class="dropdown-menu">
-                                                        <li><a href="reading.php?type=1">Юмор</a></li>
-                                                        <li><a href="reading.php?type=2">Цитаты</a></li>
-                                                        <li><a href="reading.php?type=3">Советы</a></li>
+                                                        <li><a href="reading?type=1">Юмор</a></li>
+                                                        <li><a href="reading?type=2">Цитаты</a></li>
+                                                        <li><a href="reading?type=3">Советы</a></li>
                                                         <li><a href="#2-column.html">Занимательные картинки</a></li>
                                     </ul>
                                 </li>
