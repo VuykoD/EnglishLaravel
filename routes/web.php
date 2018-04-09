@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/courses', 'CourseController@name');
+Route::get('/course', 'CourseController@name');
 
 Route::get('/vocabulary', 'VocabularyController@add_course');
 
@@ -23,15 +23,15 @@ Route::get('/reading', 'ReadingController@all');
 
 Route::get('/readingMore', 'ReadingMoreController@text');
 
+Route::get('/video', 'VideoController@all');
+
+Route::get('/video_training', 'VideoTrainingController@video');
+
+Route::get('/training', 'TrainingController@general');
+
+
 
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
- 
-
-
-// Route::get('/courses', function () {
-//     return view('course');
-// });

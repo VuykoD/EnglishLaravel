@@ -71,7 +71,7 @@
                                 <li class="dropdown ">
                                     <a class="dropdown-toggle">Курсы<br><b class="caret"></b></a>
                                     <ul class="dropdown-menu ">
-                                                        <li><a href="courses?course=English_before_school">Раннее развитие</a></li>
+                                                        <li><a href="course?course=English_before_school">Раннее развитие</a></li>
                                                         <li><a href="#full.html">1-ый класс</a></li>
                                                         <li class="dropdown">
                                                           <a href="#" class="dropdown-toggle">2-ой класс &nbsp;&raquo;</a>
@@ -129,14 +129,14 @@
                                     </ul>
                                 </li>
                                 <li class="dropdown ">
-                                    <a href="video.php?type=0" class="dropdown-toggle">Видео<br><b class="caret"></b></a>
+                                    <a href="video?type=9" class="dropdown-toggle">Видео<br><b class="caret"></b></a>
                                     <ul class="dropdown-menu">
-                                                        <li><a href="video.php?type=0">Все видео</a></li>
-                                                        <li><a href="video.php?type=1">Мультфильмы</a></li>
-                                                        <li><a href="video.php?type=2">Интересное</a></li>
-                                                        <li><a href="video.php?type=3">Видеоуроки</a></li>
-                                                        <li><a href="video.php?type=4">Музыка</a></li>
-                                                        <li><a href="video.php?type=5">Фильмы</a></li>
+                                                        <li><a href="video?type=9">Все видео</a></li>
+                                                        <li><a href="video?type=1">Мультфильмы</a></li>
+                                                        <li><a href="video?type=2">Интересное</a></li>
+                                                        <li><a href="video?type=3">Видеоуроки</a></li>
+                                                        <li><a href="video?type=4">Музыка</a></li>
+                                                        <li><a href="video?type=5">Фильмы</a></li>
                                     </ul>
 
                                 </li>
@@ -145,9 +145,12 @@
                                     <ul class="dropdown-menu">
 
                                                         <li><a href="game.php">Star wars</a></li>
-                                                        <li><a href="#2-column.html" disabled>Аркада</a></li>
+                                                        <li><a href="#2-column.html" disabled>ЗвукоДанетка</a></li>
                                                         <li><a href="#2-column.html" disabled>Тесты</a></li>
-                                                        <li><a href="training.php">Тренажеры</a></li>
+                                                        <li><a href="training?user=@guest none @else{{Auth::user()->id}}@endguest">Тренажеры</a></li>
+                                                          
+                                                          
+         
                                     </ul>
                                 </li>
                             </ul>

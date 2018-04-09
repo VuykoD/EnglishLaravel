@@ -68,14 +68,14 @@ class RegisterController extends Controller
     {
 
 
-        $name=explode('@',$data['email']);
-        Schema::connection('mysql_second')->create($name[0], function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('id_type');
-            $table->integer('id_base')->unique();
-            $table->integer('quantity');
-            $table->date('next_date');
-        });
+        // $name=explode('@',$data['email']);
+        // Schema::connection('mysql_second')->create($name[0], function (Blueprint $table) {
+        //     $table->increments('id');
+        //     $table->integer('id_type');
+        //     $table->integer('id_base')->unique();
+        //     $table->integer('quantity');
+        //     $table->date('next_date');
+        // });
 
        return User::create([
             'name' => $data['name'],

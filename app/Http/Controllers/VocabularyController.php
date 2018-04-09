@@ -12,7 +12,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Carbon\Carbon;
 use App\Base_course;
 use App\Base_word;
-
+use App\Progress;
 
 class VocabularyController extends Controller
 {
@@ -21,24 +21,29 @@ class VocabularyController extends Controller
          //проверяем, есть ли что добавлять в наш словарь
         if ($id_course_add = request('id_course')){
 
-          
 
-        	 //узнаем название таблицы - оно совпадает с email пользователя до знака @
-           $user = explode('@',request('user'));
-           $user = $user[0];
+
 
            //записывает  в переменую сегодняшнюю дату
-           $date = Carbon::today();
-
-           // указываем что хотим запись делать во воруую базу данных где будут только пользователи
-           $table=DB::connection('mysql_second');
-           //указываем какая именно это таблица и есть мой словарь(словарь пользователя),
-           $my_table=$table->table($user);
+           $date = Carbon::today()->toDateString();
            
-
+  
+           //указываем какая именно это таблица и есть мой словарь(словарь пользователя),
+           $my_table=Progress::all();
+           
+            
+          //узнаю id первого предложение в данном курсе
+          $first_id = Base_course::where('id_course',$id_course_add)->first()->value('id');
+          //dd($first_id); 
            //узнаю добавлялся ли этот курс в личный словарь пользователя
-            $exist_my_table = $my_table->where('id_base',$id_course_add)->get()->toarray();
+            
+            $exist_my_table = Progress::where('id_base',$first_id)->get();
+
+            
+            
             $exist_my_table = count($exist_my_table);
+            
+            
                   // если есть то выдаем сообщение что этоn курс уже был добавлен
                   if ($exist_my_table>=1){
                    $message='Этот курс уже был добавлен';
@@ -73,16 +78,19 @@ class VocabularyController extends Controller
                   // там массивы в масссиве, мне нужен первый массив
                   $word_id = $word_id[0];
                   
-                    // уазываем какая именно это таблица и есть мой словарь(словарь пользователя),
-                  	$my_table_word=$table->table($user);
+                    
                     //узнаю есть ли такое слово в моем словаре
-           	        $z = $my_table_word->where('id_base',$word_id['id'])->get()->toarray();
+                    
+           	        $z = Progress::where('id_base',$word_id['id'])->get();
            	        $z = count($z);
+                    
            	         // если нет то выполняется дальнешший сценарий
            	        if ($z<1){
                       // добавляем в  мой словарь текущее слово
-                     $my_table_word->insert(array(
-                    'id_type'  => '0', 
+
+                     Progress::insert(array(
+
+                     'id_users'  => '1',  
                     'id_base' => $word_id['id'],
                     'quantity'   => '0',
                     'next_date' => $date
@@ -90,17 +98,17 @@ class VocabularyController extends Controller
                      }}
                 }
                 //конец цикла по добавлению слов на каждое предложение
-            // уазываем какая именно это таблица и есть мой словарь(словарь пользователя),
-           	$my_table_sentense=$table->table($user);
+
             //узнаю есть ли такое предложение в моем словаре
-           	$i = $my_table_sentense->where('id_base',$item['id'])->get()->toarray();
+           	$i = Progress::where('id_base',$item['id'])->get();
            	$i = count($i);
            	// если нет то выполняется дальнешший сценарий
            	if ($i<1){
             // добавляем в  мой словарь текущее слово
-           $my_table_sentense->insert(array(
-           'id_type'  => $id_course_add, 
-           'id_base' => $item['id'],
+           Progress::insert(array(
+
+          'id_users'  => '1', 
+          'id_base' => $item['id'],
           'quantity'   => '0',
           'next_date' => $date
            ));
@@ -114,7 +122,7 @@ class VocabularyController extends Controller
  
            
 
-        	 return view('vocabulary')->with(['user'=>$user,'id_course_add'=>$id_course_add,'message'=>$message]);
+        	 return view('vocabulary')->with(['id_course_add'=>$id_course_add,'message'=>$message]);
           
         }
 

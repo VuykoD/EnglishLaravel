@@ -10,8 +10,7 @@
 
                     <a class="btn btn-info btn-large centered_menu_2" href="vocabulary?id_course={{$id_course}}&user={{ Auth::user()->email }}" >Отобрать курс на изучение</a>
                     </div>
-{{ Auth::user()->email }}
-{{$id_course}}
+
 @endguest                    
 
 <br><br><br><br>

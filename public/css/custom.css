@@ -140,7 +140,7 @@ img {max-width:100%;height:auto;width:auto;-moz-box-sizing:border-box;-webkit-bo
 
 /* Responsive Video from Zurb Foundation. Copyright (c) 2011 ZURB, http://www.zurb.com/ License: MIT */
 
-.flex-video {z-index: 1 !important;position:relative;padding-top:25px;padding-bottom:120px;height:0px;margin-bottom:16px;overflow: none;}
+.flex-video {position:relative;padding-top:25px;padding-bottom:120px;height:0px;margin-bottom:16px;}
 
 
 
@@ -168,7 +168,7 @@ img {max-width:100%;height:auto;width:auto;-moz-box-sizing:border-box;-webkit-bo
 
     
 #divBoxed {position:relative}
- 
+ .brdradius{border-radius: 7px !important;padding-right: 10px}
 .nav-links > a {margin-right:20px;}
 
 .btn-secondary, .btn-secondary:hover {text-shadow:none;}
@@ -323,6 +323,9 @@ display: none;
 }
 .margin_top {
 margin-top: 90px !important;
+}
+.margin_top_0 {
+margin-top: 0px !important;
 }
 
 .absolute {
@@ -497,7 +500,7 @@ h6,.page-content h6 a {font-weight: normal; font-style: normal; font-family: 'So
   margin-bottom: 3px; padding:5px 10px;
 }
 .margin_b_7 {  margin-bottom: 7px; }
-
+.edit_base{ height: 25px !important; width: 350px; margin: 7px; outline:none; }
 
 .list-group {
   padding-left: 0;
@@ -552,7 +555,7 @@ meter{height: 7px; margin-bottom: 5px; padding: 0 7px 0 7px; border-radius: 3px;
 #startGame{z-index: 1000 !important; position: absolute; width: 14%; top: 120px; left: 43%;}
 .enemy b{color: rgb(230,230,230);}
 .defender{width: 390px; height: 390px; position: relative; }
-.footer {height: 38px; width: 100%; position: fixed;bottom: 0px;left: 0px; background: rgb(80, 180, 121);}
+.footer {height: 38px; width: 100%; position: fixed;bottom: 0px;left: 0px; background: rgb(80, 180, 121);z-index: 1000000 !important;}
 .defender_footer {height: 40px; position: relative;top:-8px; }
 .xp {font-size: 15px; position: relative; bottom: -10px;left: 20px;color: white; font-family: 'Source Sans Pro', sans-serif}
 .level{width: 100px ; text-align: center; position: relative;left:  10px;color: white;font-family: 'Century Gothic', sans-serif;}

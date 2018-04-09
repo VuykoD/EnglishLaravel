@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Progres extends Model
+class Video_time extends Model
 {
     //
 }

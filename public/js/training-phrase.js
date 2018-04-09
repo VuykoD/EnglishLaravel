@@ -129,6 +129,22 @@ function try_training_cod()   {
               $(".microphon" ).hide();
 };
 
+function edit_base() {
+
+  $(".rus_" ).val($getRus).hide(); 
+  $(".eng_" ).val($getSentence).hide();
+
+$(".edit_button").on("click", function () {
+  result = prompt(title, default);
+  var years = prompt('Сколько вам лет?', 100);
+
+alert('Вам ' + years + ' лет!')
+  $(".rus_" ).show();
+  $(".eng_" ).show();
+})
+
+}
+
 function prompt()   {
               $(".prompt_button").on("click", function () {
                $mistake=2;
@@ -220,7 +236,7 @@ function select_sentense()   {
                      row_arr.push(i+1)
                      row_arr_id_base.push(arr_id[i]*1)
                     }
-                     console.log(row_arr_id_base)
+                     
                       // console.log(row_arr)
                      break;
                  }         
@@ -238,8 +254,7 @@ function select_sentense()   {
                      row_arr_id_base.push(arr_id[i]*1)
                      
                     }
-                     console.log(row_arr_id_base)
-                       console.log(row_arr)
+                    
                      break;
                  }
 
@@ -264,7 +279,7 @@ function write_in_memory(){
                       row_arr_id_base.push(arr_id[i]*1)
                      row_arr.push(i+1)
                     }
-                      console.log(row_arr_id_base)
+                      
                      break;
 }
 
@@ -851,7 +866,7 @@ function put_words_right_written_cod()   {
               $mistake=0;
 
              
-                $(".rus" ).append('<button class="btn btn-secondary btn-large">'+ $getRus+'</button>')
+                $(".rus" ).append('<button class="btn btn-info btn-large">'+ $getRus+'</button>')
                
                 // $(".rus" ).show(); 
                 
@@ -901,6 +916,7 @@ function put_words_right_written_cod()   {
                $el++;
                $(".input2" ).css("opacity","1")
                if ($sentense==1) {$(".btn_input2" ).text($(".btn_input2" ).text()+word+' ' )}else{$(".btn_input2" ).append($(".btn_input2" ).text($(".btn_input2" ).text()+ word))}
+                console.log($sentense)
               if ($el==$RightLenght) {
                 $('#time_game').text(1*$('#time_game').text()+25*$koef)
                      
@@ -988,7 +1004,7 @@ function put_words_right_written_cod()   {
                 var randIndex = Math.floor(Math.random() * 2);
 
 
-                $(".rus" ).append('<button class="btn btn-secondary btn-large">'+ $getRus+'</button>')
+                $(".rus" ).append('<button class="btn btn-info btn-large">'+ $getRus+'</button>')
                 if ($getSentence.indexOf(' ') > 0 ) {$sentense=1} else{$sentense=0}
                 
                 if (randIndex==1) { $(".btn_input2" ).text($getSentence)}else{$false_sent=1;random_selelect_false_sentense();$(".btn_input2" ).text($falseSentence)}
@@ -1105,7 +1121,8 @@ function put_words_right_written_cod()   {
  function put_words_right_audition_cod()   {   
               clear_table()
               $(".sound" ).show();
-              $(".rus" ).append('<button class="btn btn-secondary btn-large">'+ $getRus+'</button>');
+              $(".rus" ).append('<button class="btn btn-info btn-large">'+ $getRus+'</button>');
+
                $el=0;
               $mistake=0;
                random_voice();
@@ -1215,7 +1232,7 @@ function audition_letters_yes_no()   {
               $mistake=0;
               
                 
-$(".rus" ).append('<button class="btn btn-secondary btn-large">'+ $getRus+'</button>')
+$(".rus" ).append('<button class="btn btn-info btn-large">'+ $getRus+'</button>')
                 var randIndex = Math.floor(Math.random() * 2);
                 
 
@@ -1299,10 +1316,10 @@ function letter___written()   {
 
 function letter___written_cod()   {  
              clear_table()
-
+             edit_base()
               var $el=0;
               $mistake=0;
-              $(".rus" ).append('<button class="btn btn-secondary btn-large">'+ $getRus+'</button>')
+              $(".rus" ).append('<button class="btn btn-info btn-large">'+ $getRus+'</button>')
 
                var $RightLenght=$getSentence.length;
 
@@ -1409,10 +1426,10 @@ function first_letter___written()   {
 
 function first_letter___written_cod()   {  
              clear_table()
-
+ console.log('qweqw')            
               var $el=0;
               $mistake=0;
-              $(".rus" ).append('<button class="btn btn-secondary btn-large">'+ $getRus+'</button>')
+              $(".rus" ).append('<button class="btn btn-info btn-large">'+ $getRus+'</button>')
 
                var $newText2=   $getSentence.split(" ");
                var $RightLenght=$newText2.length;
@@ -1514,10 +1531,10 @@ function first_letter_written()   {
 
 function first_letter_written_cod()   {  
               clear_table()
-
+console.log('qweqw')
               var $el=0;
               $mistake=0;
-              $(".rus" ).append('<button class="btn btn-secondary btn-large">'+ $getRus+'</button>')
+              $(".rus" ).append('<button class="btn btn-info btn-large">'+ $getRus+'</button>')
 
                var $newText2=   $getSentence.split(" ");
                var $RightLenght=$newText2.length;
@@ -1646,7 +1663,7 @@ function first_letter___audition_cod()   {
                    $('#time_game').text(1*$('#time_game').text()+25*$koef)
                   meter_();
 
-                  $(".rus" ).append('<button class="btn btn-secondary btn-large">'+ $getRus+'</button>');
+                  $(".rus" ).append('<button class="btn btn-info btn-large">'+ $getRus+'</button>');
                 $(".prompt2" ).append( '<button class="press btn_green">1</button>' ).css("opacity","0.01");
                  if (cycle==0){setTimeout(hide_training, 500);return;}
                if (task_new>=max_task-1){   show_training=1  }           
@@ -1730,7 +1747,7 @@ function letter___audition_cod()   {
                 if ($el==$RightLenght) {
                    $('#time_game').text(1*$('#time_game').text()+25*$koef)
                   meter_();
-                  $(".rus" ).append('<button class="btn btn-secondary btn-large">'+ $getRus+'</button>');
+                  $(".rus" ).append('<button class="btn btn-info btn-large">'+ $getRus+'</button>');
                 $(".prompt2" ).append( '<button class="press btn_green">1</button>' ).css("opacity","0.01");
                  if (cycle==0){setTimeout(hide_training, 500);return;}
                if (task_new>=max_task-1){   show_training=1  }           
@@ -1810,7 +1827,7 @@ function first_letter_audition_cod()   {
                    $('#time_game').text(1*$('#time_game').text()+25*$koef)
                   meter_();
 
-                $(".rus" ).append('<button class="btn btn-secondary btn-large">'+ $getRus+'</button>')
+                $(".rus" ).append('<button class="btn btn-info btn-large">'+ $getRus+'</button>')
  
                 if (cycle==0){setTimeout(hide_training, 500);return;}
                if (task_new>=max_task-1){   show_training=1  }           
@@ -1859,7 +1876,7 @@ function one_rus_4_eng_cod()   {
                clear_table()
               var $el=0;
               $mistake=0;
-               $(".rus" ).append('<button class="btn btn-secondary btn-large">'+ $getRus+'</button>')
+               $(".rus" ).append('<button class="btn btn-info btn-large">'+ $getRus+'</button>')
                $(".input" ).children().remove();
                $(".microphon" ).css("display","none");
                var random_number=4
@@ -1913,7 +1930,7 @@ function one_eng_4_rus_cod()   {
                
                $(".input" ).children().remove();
                $(".microphon" ).css("display","none");
-               $(".rus" ).append('<button class="btn btn-secondary btn-large">'+ $getSentence+'</button>')
+               $(".rus" ).append('<button class="btn btn-info btn-large">'+ $getSentence+'</button>')
                var random_number=4
                if (video_==1) {random_number=3}
                 var randIndex2 = Math.floor(Math.random() * (random_number-1));
@@ -1984,7 +2001,7 @@ function four_rus_audition_cod()   {
                
 
                for (var i=1; i<=random_number; i++){
-                if (i==1*randIndex2+1){ $(".rus" ).append('<button class="btn btn-info btn-large height_25 answer">' +$getRus+'</button><br>' )}else{
+                if (i==1*randIndex2+1){ $(".rus" ).append('<button class="btn btn-info btn-info height_25 answer">' +$getRus+'</button><br>' )}else{
                random_selelect_false_sentense() ;
                    $(".rus" ).append('<button class="btn btn-info btn-large height_25 answer">' +$falseRus+'</button><br>' );}}
                 
@@ -2051,6 +2068,7 @@ function dictophon_word_()   {
 
 function dictophon___cod2()   {    
                clear_table()
+
             stop_dictophon=0
             $(".microphon" ).css("display","block");
               $newText2=0
@@ -2059,12 +2077,12 @@ function dictophon___cod2()   {
               $(".microphon" ).show();
               $(".sound" ).show();
               $(".prompt3" ).hide(); 
-              $(".rus" ).append('<button class="btn btn-secondary btn-large">'+ $getRus+'</button>');
+              $(".rus" ).append('<button class="btn btn-info btn-large">'+ $getRus+'</button>');
               random_voice();
                $('#time_game').text(1*$('#time_game').text()+25*$koef)
               var $newText3=$getSentence.replace(/[a-zA-Z]/g,".")
                var $newText3=  $newText3.split(" ");
-               
+           $(".title_sound" ).attr("title", $getSentence)    
          myTime=$getSentence.length*250
         if (myTime<3000) {myTime=3000}
         $(".meter2").attr('max',myTime)
@@ -2131,7 +2149,7 @@ function dictophon___cod()   {
 $(".si-btn").click();
 
               clear_table()
-              $(".rus" ).append('<button class="btn btn-secondary btn-large">'+ $getRus+'</button>');
+              $(".rus" ).append('<button class="btn btn-info btn-large">'+ $getRus+'</button>');
               var $newText3=$getSentence.replace(/[a-zA-Z]/g,".")
                var $newText3=  $newText3.split(" ");
                if (video_==0) {jQuery.each($newText3, function(i, value) {
