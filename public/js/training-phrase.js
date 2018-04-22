@@ -64,7 +64,7 @@ $("#meter2").val($("#meter2").val()+1)
 $("#meter").text($("#meter2").val()+" из "+$meter_max)
 
 if ($("meter").val()>$meter_max-max_task) { 
-  if (row_mistake[task_new]==1) {$getQuantity=1*$getQuantity-1} else {$getQuantity=1*$getQuantity+1}
+  if (row_mistake[task_new]==1) {$getQuantity=1*$getQuantity} else {$getQuantity=1*$getQuantity+1}
   if ($getQuantity==0) {$getQuantity=1}
     polygon()
   if ($getQuantity==1) {var $polygon_number=".polygon_1"}
@@ -127,23 +127,36 @@ function try_training_cod()   {
               $(".speech-input, .si-btn" ).css("visibility", 'hidden');
               $(".sound" ).hide();
               $(".microphon" ).hide();
+              edit_base();
 };
 
 function edit_base() {
 
   $(".rus_" ).val($getRus).hide(); 
   $(".eng_" ).val($getSentence).hide();
+  $(".arr_base_course_id_" ).val($get_base_course_id).hide();
+  $(".edit_button" ).hide();
+  $(".edit_password" ).hide();
+      
 
-$(".edit_button").on("click", function () {
-  result = prompt(title, default);
-  var years = prompt('Сколько вам лет?', 100);
-
-alert('Вам ' + years + ' лет!')
-  $(".rus_" ).show();
-  $(".eng_" ).show();
+$("body").on("dblclick", function () {
+  $(".edit_password").val('').show().focus();
 })
 
+$(".edit_password").on('input', function () {
+  
+  if ($(".edit_password" ).val()=="456"){
+
+  
+  $(".edit_password" ).hide();
+  $(".rus_" ).show();
+  $(".eng_" ).show();
+  $(".edit_button" ).show();
+
+}})
 }
+
+
 
 function prompt()   {
               $(".prompt_button").on("click", function () {
@@ -158,19 +171,6 @@ function mistake()   {
                $("#firstLetter").css("background","rgb(250,250,100)");
                
 
- //var randIndex12 = Math.floor(Math.random() * 4);
-
-//if (randIndex12==0) {var sound1="ой"}
-//if (randIndex12==1) {var sound1="ай"}
-//if (randIndex12==2) {var sound1="нет"} 
-//if (randIndex12==3) {var sound1="еще"} 
-//utterance = new SpeechSynthesisUtterance(sound1);
-//utterance.volume = 0.6;
-//utterance.rate =2;
-//window.speechSynthesis.speak(utterance);
-//utterance.volume = 1;
-//utterance.rate =1; 
-
                if ($mistake==3) {
                 $('#time_game').text(1*$('#time_game').text()-5)
                 $mistake=0
@@ -180,8 +180,7 @@ function mistake()   {
                 
                   return;}
                 if (repeat_training>=1){row_mistake[task_new]=1; }
-                console.log(row_mistake[task_new])
-                console.log(task_new)
+
                if (try_answer==0) {random_voice()};
                 $(".prompt").empty().append('<button class="btn btn-secondary btn-large  height_25 Iknow">'+ $getSentence+'</button>');
                 $(".prompt").animate({opacity: "1"},700 );
@@ -195,7 +194,15 @@ function random_selelect_sentense()   {
                  randIndex1 = Math.floor(Math.random() * arr_English.length);
                      $getSentence= arr_English[randIndex1].toUpperCase();
                      $getSentence=$getSentence.replace(/\./g, "");
-                     $getRus=arr_Rus[randIndex1].toUpperCase();     
+                     $getRus=arr_Rus[randIndex1].toUpperCase();
+                     $get_base_course_id=arr_base_course_id[randIndex1];
+                     $number_in_array=i    
+                     if ($sound_type=="video") {
+                      $start=arr_start[randIndex1]
+                      $end=arr_end[randIndex1]
+                      $adress=arr_adress[randIndex1]
+                      
+                     }
                  if ($sentense==1){if (arr_English[randIndex1].indexOf(' ') > 0 )  {break;}} 
                  if ($sentense==0){if (arr_English[randIndex1].indexOf(' ') <= 0 )  {break;}}         
                       
@@ -208,7 +215,13 @@ function random_selelect_false_sentense()   {
    for (var i = 0; i < 1000; i++) {
                  randIndex1 = Math.floor(Math.random() * arr_English.length);
                        $falseSentence= arr_English[randIndex1].toUpperCase().replace(/\./g, "");  
-                  $falseRus= arr_Rus[randIndex1].toUpperCase().replace(/\./g, ""); 
+                  $falseRus= arr_Rus[randIndex1].toUpperCase().replace(/\./g, "");
+                  if ($sound_type=="video") {
+                      $start=arr_start[randIndex1]
+                      $end=arr_end[randIndex1]
+                      $adress=arr_adress[randIndex1]
+                     } 
+                  $get_base_course_id=arr_base_course_id[randIndex1];
                   //console.log($sentense)
                  if ($sentense==1){
     if (arr_English[randIndex1].indexOf(' ') > 0 && arr_English[randIndex1].toUpperCase().replace(/\./g, "")!=$getSentence){ break;}}
@@ -229,6 +242,13 @@ function select_sentense()   {
                     $getSentence=$getSentence.replace(/\./g, "");
                      $getRus=arr_Rus[i].toUpperCase();
                      $getQuantity=arr_quantity[i];
+                     $get_base_course_id=arr_base_course_id[i];
+                     $number_in_array=i
+                     if ($sound_type=="video") {
+                      $start=arr_start[i]
+                      $end=arr_end[i]
+                      $adress=arr_adress[i]
+                     }
                     // $id_arr=arr_id[i]
                      setTimeout(polygon,1500);
                      row_new=i
@@ -245,7 +265,13 @@ function select_sentense()   {
                     $getSentence=$getSentence.replace(/\./g, "");
                      $getRus=arr_Rus[i].toUpperCase();
                      $getQuantity=arr_quantity[i];
-
+                     $get_base_course_id=arr_base_course_id[i];
+                     if ($sound_type=="video") {
+                      $start=arr_start[i]
+                      $end=arr_end[i]
+                      $adress=arr_adress[i]
+                     }
+                     $number_in_array=i
                      //$id_arr=arr_id[i]
                      setTimeout(polygon,1500);
                      row_new=i
@@ -273,6 +299,12 @@ function write_in_memory(){
                       $getSentence=$getSentence.replace(/\./g, "");
                      $getRus=arr_Rus[i].toUpperCase();
                      $getQuantity=arr_quantity[i];
+                     if ($sound_type=="video") {
+                      $start=arr_start[i]
+                      $end=arr_end[i]
+                      $adress=arr_adress[i]
+                      
+                     }
                      setTimeout(polygon,1500);
                      row_new=i
                      if  (new_task==1){ 
@@ -304,9 +336,16 @@ function select_old_sentense()   {
    for (var i = row_new; i < 60000; i++) {
                  if ((arr_English[i].indexOf(' ') > 0 )&&(arr_quantity[i]>=1) && (arr_quantity[i]<=3) && (today>=arr_date[i])&&($meter_max>0)){$sentense=1;
                   $getSentence= arr_English[i].toUpperCase();
-                      $getSentence=$getSentence.replace(/\./g, "");
+                     $getSentence=$getSentence.replace(/\./g, "");
                      $getRus=arr_Rus[i].toUpperCase();
                      $getQuantity=arr_quantity[i];
+                     $get_base_course_id=arr_base_course_id[i];
+                     if ($sound_type=="video") {
+                      $start=arr_start[i]
+                      $end=arr_end[i]
+                      $adress=arr_adress[i]
+                     }
+                     $number_in_array=i
                      setTimeout(polygon,1500);
                      row_new=i
                      if  (new_task==1){ 
@@ -315,15 +354,21 @@ function select_old_sentense()   {
                      row_mistake.push(0)
 
                     }
-                        console.log(row_arr_id_base)
-                      // console.log(row_arr)
+
                      break;
                  }
                  if ((arr_English[i].indexOf(' ') == -1 )&&(arr_quantity[i]>=1) && (arr_quantity[i]<=3) && (today>=arr_date[i])&&($meter_max>0)){$sentense=0;
                   $getSentence= arr_English[i].toUpperCase();
-                      $getSentence=$getSentence.replace(/\./g, "");
+                     $getSentence=$getSentence.replace(/\./g, "");
                      $getRus=arr_Rus[i].toUpperCase();
                      $getQuantity=arr_quantity[i];
+                     $get_base_course_id=arr_base_course_id[i];
+                     if ($sound_type=="video") {
+                      $start=arr_start[i]
+                      $end=arr_end[i]
+                      $adress=arr_adress[i]
+                     }
+                     $number_in_array=i
                      setTimeout(polygon,1500);
                      row_new=i
                      if  (new_task==1){ 
@@ -354,6 +399,13 @@ function select_test_sentense()   {
                       $getSentence=$getSentence.replace(/\./g, "");
                      $getRus=arr_Rus[i].toUpperCase();
                      $getQuantity=arr_quantity[i];
+                     $get_base_course_id=arr_base_course_id[i];
+                     if ($sound_type=="video") {
+                      $start=arr_start[i]
+                      $end=arr_end[i]
+                      $adress=arr_adress[i]
+                     }
+                     $number_in_array=i
                      setTimeout(polygon,1500);
                      row_new=i
                      if  (new_task==1){ 
@@ -362,7 +414,7 @@ function select_test_sentense()   {
                      row_mistake.push(0)
 
                     }
-                        console.log(row_arr_id_base)
+                        
                       // console.log(row_arr)
                      break;
                  }
@@ -371,6 +423,13 @@ function select_test_sentense()   {
                       $getSentence=$getSentence.replace(/\./g, "");
                      $getRus=arr_Rus[i].toUpperCase();
                      $getQuantity=arr_quantity[i];
+                     $get_base_course_id=arr_base_course_id[i];
+                     if ($sound_type=="video") {
+                      $start=arr_start[i]
+                      $end=arr_end[i]
+                      $adress=arr_adress[i]
+                     }
+                     $number_in_array=i
                      setTimeout(polygon,1500);
                      row_new=i
                      if  (new_task==1){ 
@@ -496,6 +555,10 @@ $(".try_answer" ).show();
   try_answer=1;
   $getSentence1=[];
   $getRus1=[];
+  $start1=[];
+  $end1=[];
+  $adress1=[];
+
   $(".costumer").hide();
 
   
@@ -503,6 +566,11 @@ $(".try_answer" ).show();
 select_sentense()
 $getSentence1[i]=$getSentence
 $getRus1[i]=$getRus
+if ($sound_type=="video") {
+$start1[i]=$start
+$end1[i]=$end
+$adress1[i]=$adress
+}
 $(".try_answer"+i ).show()
 $(".IDontknow"+i ).show()
 if (first_time==0){
@@ -531,18 +599,18 @@ row_new=0
 
   IknowButton=0
 
-$(".Iknow1").on("click", function () { IknowButton=1; $getSentence=$getSentence1[1];  $getRus=$getRus1[1]; Iknow();})
-$(".Iknow2").on("click", function () { IknowButton=2; $getSentence=$getSentence1[2];  $getRus=$getRus1[2]; Iknow();})
-$(".Iknow3").on("click", function () { IknowButton=3; $getSentence=$getSentence1[3];  $getRus=$getRus1[3]; Iknow();})
-$(".Iknow4").on("click", function () { IknowButton=4; $getSentence=$getSentence1[4];  $getRus=$getRus1[4]; Iknow();})
-$(".Iknow5").on("click", function () { IknowButton=5; $getSentence=$getSentence1[5];  $getRus=$getRus1[5]; Iknow();})
-$(".Iknow6").on("click", function () { IknowButton=6; $getSentence=$getSentence1[6];  $getRus=$getRus1[6]; Iknow();})
-$(".Iknow7").on("click", function () { IknowButton=7; $getSentence=$getSentence1[7];  $getRus=$getRus1[7]; Iknow();})
-$(".Iknow8").on("click", function () { IknowButton=8; $getSentence=$getSentence1[8];  $getRus=$getRus1[8]; Iknow();})
-$(".Iknow9").on("click", function () { IknowButton=9; $getSentence=$getSentence1[9];  $getRus=$getRus1[9]; Iknow();})
-$(".Iknow10").on("click", function () { IknowButton=10; $getSentence=$getSentence1[10];  $getRus=$getRus1[10]; Iknow();})
-$(".Iknow11").on("click", function () { IknowButton=11; $getSentence=$getSentence1[11];  $getRus=$getRus1[11]; Iknow();})
-$(".Iknow12").on("click", function () { IknowButton=12; $getSentence=$getSentence1[12];  $getRus=$getRus1[12]; Iknow();})
+$(".Iknow1").on("click", function () { IknowButton=1; $getSentence=$getSentence1[1];  $getRus=$getRus1[1]; if ($sound_type=="video") {$start=$start1[1];$end=$end1[1];$adress=$adress1[1]};   Iknow();})
+$(".Iknow2").on("click", function () { IknowButton=2; $getSentence=$getSentence1[2];  $getRus=$getRus1[2]; if ($sound_type=="video") {$start=$start1[2];$end=$end1[2];$adress=$adress1[2]};  Iknow();})
+$(".Iknow3").on("click", function () { IknowButton=3; $getSentence=$getSentence1[3];  $getRus=$getRus1[3]; if ($sound_type=="video") {$start=$start1[3];$end=$end1[3];$adress=$adress1[3]};  Iknow();})
+$(".Iknow4").on("click", function () { IknowButton=4; $getSentence=$getSentence1[4];  $getRus=$getRus1[4]; if ($sound_type=="video") {$start=$start1[4];$end=$end1[4];$adress=$adress1[4]};  Iknow();})
+$(".Iknow5").on("click", function () { IknowButton=5; $getSentence=$getSentence1[5];  $getRus=$getRus1[5]; if ($sound_type=="video") {$start=$start1[5];$end=$end1[5];$adress=$adress1[5]};  Iknow();})
+$(".Iknow6").on("click", function () { IknowButton=6; $getSentence=$getSentence1[6];  $getRus=$getRus1[6]; if ($sound_type=="video") {$start=$start1[6];$end=$end1[6];$adress=$adress1[6]};  Iknow();})
+$(".Iknow7").on("click", function () { IknowButton=7; $getSentence=$getSentence1[7];  $getRus=$getRus1[7]; if ($sound_type=="video") {$start=$start1[7];$end=$end1[7];$adress=$adress1[7]};  Iknow();})
+$(".Iknow8").on("click", function () { IknowButton=8; $getSentence=$getSentence1[8];  $getRus=$getRus1[8]; if ($sound_type=="video") {$start=$start1[8];$end=$end1[8];$adress=$adress1[8]};  Iknow();})
+$(".Iknow9").on("click", function () { IknowButton=9; $getSentence=$getSentence1[9];  $getRus=$getRus1[9]; if ($sound_type=="video") {$start=$start1[9];$end=$end1[9];$adress=$adress1[9]};  Iknow();})
+$(".Iknow10").on("click", function () { IknowButton=10; $getSentence=$getSentence1[10];  $getRus=$getRus1[10]; if ($sound_type=="video") {$start=$start1[10];$end=$end1[10];$adress=$adress1[10]};  Iknow();})
+$(".Iknow11").on("click", function () { IknowButton=11; $getSentence=$getSentence1[11];  $getRus=$getRus1[11]; if ($sound_type=="video") {$start=$start1[11];$end=$end1[11];$adress=$adress1[11]};  Iknow();})
+$(".Iknow12").on("click", function () { IknowButton=12; $getSentence=$getSentence1[12];  $getRus=$getRus1[12]; if ($sound_type=="video") {$start=$start1[12];$end=$end1[12];$adress=$adress1[12]};  Iknow();})
 }
 
 function GoOn_() {
@@ -560,18 +628,18 @@ $(".goOn").on("click", function () {
 
 function IDontknow111() {
   
-  $(".IDontknow1").on("click", function () {  $(this).text($getSentence1[1]).removeClass("btn-info").addClass("btn-success");$(".Iknow1").hide();$getSentence=$getSentence1[1];random_voice();})
-$(".IDontknow2").on("click", function () {  $(this).text($getSentence1[2]).removeClass("btn-info").addClass("btn-success");$(".Iknow2").hide();$getSentence=$getSentence1[2];random_voice();})
-$(".IDontknow3").on("click", function () {  $(this).text($getSentence1[3]).removeClass("btn-info").addClass("btn-success");$(".Iknow3").hide();$getSentence=$getSentence1[3];random_voice()})
-$(".IDontknow4").on("click", function () {  $(this).text($getSentence1[4]).removeClass("btn-info").addClass("btn-success");$(".Iknow4").hide();$getSentence=$getSentence1[4];random_voice()})
-$(".IDontknow5").on("click", function () {  $(this).text($getSentence1[5]).removeClass("btn-info").addClass("btn-success");$(".Iknow5").hide();$getSentence=$getSentence1[5];random_voice()})
-$(".IDontknow6").on("click", function () {  $(this).text($getSentence1[6]).removeClass("btn-info").addClass("btn-success");$(".Iknow6").hide();$getSentence=$getSentence1[6];random_voice()})
-$(".IDontknow7").on("click", function () {  $(this).text($getSentence1[7]).removeClass("btn-info").addClass("btn-success");$(".Iknow7").hide();$getSentence=$getSentence1[7];random_voice()})
-$(".IDontknow8").on("click", function () {  $(this).text($getSentence1[8]).removeClass("btn-info").addClass("btn-success");$(".Iknow8").hide();$getSentence=$getSentence1[8];random_voice()})
-$(".IDontknow9").on("click", function () {  $(this).text($getSentence1[9]).removeClass("btn-info").addClass("btn-success");$(".Iknow9").hide();$getSentence=$getSentence1[9];random_voice()})
-$(".IDontknow10").on("click", function () {  $(this).text($getSentence1[10]).removeClass("btn-info").addClass("btn-success");$(".Iknow10").hide();$getSentence=$getSentence1[10];random_voice()})
-$(".IDontknow11").on("click", function () {  $(this).text($getSentence1[11]).removeClass("btn-info").addClass("btn-success");$(".Iknow11").hide();$getSentence=$getSentence1[11];random_voice()})
-$(".IDontknow12").on("click", function () {  $(this).text($getSentence1[12]).removeClass("btn-info").addClass("btn-success");$(".Iknow12").hide();$getSentence=$getSentence1[12];random_voice()})
+  $(".IDontknow1").on("click", function () {  $(this).text($getSentence1[1]).removeClass("btn-info").addClass("btn-success");$(".Iknow1").hide();$getSentence=$getSentence1[1];if ($sound_type=="video") {$start=$start1[1];$end=$end1[1];$adress=$adress1[1]};random_voice();})
+$(".IDontknow2").on("click", function () {  $(this).text($getSentence1[2]).removeClass("btn-info").addClass("btn-success");$(".Iknow2").hide();$getSentence=$getSentence1[2];if ($sound_type=="video") {$start=$start1[2];$end=$end1[2];$adress=$adress1[2]};random_voice();})
+$(".IDontknow3").on("click", function () {  $(this).text($getSentence1[3]).removeClass("btn-info").addClass("btn-success");$(".Iknow3").hide();$getSentence=$getSentence1[3];if ($sound_type=="video") {$start=$start1[3];$end=$end1[3];$adress=$adress1[3]};random_voice();})
+$(".IDontknow4").on("click", function () {  $(this).text($getSentence1[4]).removeClass("btn-info").addClass("btn-success");$(".Iknow4").hide();$getSentence=$getSentence1[4];if ($sound_type=="video") {$start=$start1[4];$end=$end1[4];$adress=$adress1[4]};random_voice();})
+$(".IDontknow5").on("click", function () {  $(this).text($getSentence1[5]).removeClass("btn-info").addClass("btn-success");$(".Iknow5").hide();$getSentence=$getSentence1[5];if ($sound_type=="video") {$start=$start1[5];$end=$end1[5];$adress=$adress1[5]};random_voice();})
+$(".IDontknow6").on("click", function () {  $(this).text($getSentence1[6]).removeClass("btn-info").addClass("btn-success");$(".Iknow6").hide();$getSentence=$getSentence1[6];if ($sound_type=="video") {$start=$start1[6];$end=$end1[6];$adress=$adress1[6]};random_voice();})
+$(".IDontknow7").on("click", function () {  $(this).text($getSentence1[7]).removeClass("btn-info").addClass("btn-success");$(".Iknow7").hide();$getSentence=$getSentence1[7];if ($sound_type=="video") {$start=$start1[7];$end=$end1[7];$adress=$adress1[7]};random_voice();})
+$(".IDontknow8").on("click", function () {  $(this).text($getSentence1[8]).removeClass("btn-info").addClass("btn-success");$(".Iknow8").hide();$getSentence=$getSentence1[8];if ($sound_type=="video") {$start=$start1[8];$end=$end1[8];$adress=$adress1[8]};random_voice();})
+$(".IDontknow9").on("click", function () {  $(this).text($getSentence1[9]).removeClass("btn-info").addClass("btn-success");$(".Iknow9").hide();$getSentence=$getSentence1[9];if ($sound_type=="video") {$start=$start1[9];$end=$end1[9];$adress=$adress1[9]};random_voice();})
+$(".IDontknow10").on("click", function () {  $(this).text($getSentence1[10]).removeClass("btn-info").addClass("btn-success");$(".Iknow10").hide();$getSentence=$getSentence1[10];if ($sound_type=="video") {$start=$start1[10];$end=$end1[10];$adress=$adress1[10]};random_voice();})
+$(".IDontknow11").on("click", function () {  $(this).text($getSentence1[11]).removeClass("btn-info").addClass("btn-success");$(".Iknow11").hide();$getSentence=$getSentence1[11];if ($sound_type=="video") {$start=$start1[11];$end=$end1[11];$adress=$adress1[11]};random_voice();})
+$(".IDontknow12").on("click", function () {  $(this).text($getSentence1[12]).removeClass("btn-info").addClass("btn-success");$(".Iknow12").hide();$getSentence=$getSentence1[12];if ($sound_type=="video") {$start=$start1[12];$end=$end1[12];$adress=$adress1[12]};random_voice();})
 }
 
 
@@ -777,10 +845,10 @@ if(($("#Sentence23_8").prop('checked') == true) && (training_sentense_8==1)) {
 if(($("#Sentence23_9").prop('checked') == true) && (training_sentense_9==1)) {try_training_cod(); four_rus_audition_cod();return;}
 if(($("#Sentence23_10").prop('checked') == true) && (training_sentense_10==1)) {try_training_cod(); dictophon___cod2();return;}
 
-  row_is_learned_old()
+row_is_learned_old()
 quantity_repeat()
 quantity_test()
-
+quantity_leanrt() 
 new_task=0
 setTimeout(hide_training, 1000)
 
@@ -825,8 +893,10 @@ if(($("#Sentence1_10").prop('checked') == true) && (training_sentense_10==1)) {t
 
 
 
-  row_is_learned()
+row_is_learned()
 quantity_new()
+quantity_repeat()
+quantity_test()
 new_task=0
 setTimeout(hide_training, 1000)
 }
@@ -861,6 +931,8 @@ function put_letters_right_written()   {
 
 
 function put_words_right_written_cod()   {
+
+               training_type=1
                clear_table()   
                $el=0;
               $mistake=0;
@@ -916,7 +988,7 @@ function put_words_right_written_cod()   {
                $el++;
                $(".input2" ).css("opacity","1")
                if ($sentense==1) {$(".btn_input2" ).text($(".btn_input2" ).text()+word+' ' )}else{$(".btn_input2" ).append($(".btn_input2" ).text($(".btn_input2" ).text()+ word))}
-                console.log($sentense)
+                
               if ($el==$RightLenght) {
                 $('#time_game').text(1*$('#time_game').text()+25*$koef)
                      
@@ -994,6 +1066,8 @@ function put_words_right_written_cod()   {
 
 
  function written_yes_no_cod()   { 
+
+              training_type=2
               clear_table()
               //$(".input2" ).css("opacity","1")
               //$(".input2" ).css("opacity","1")
@@ -1009,7 +1083,7 @@ function put_words_right_written_cod()   {
                 
                 if (randIndex==1) { $(".btn_input2" ).text($getSentence)}else{$false_sent=1;random_selelect_false_sentense();$(".btn_input2" ).text($falseSentence)}
                $(".input2").css("opacity","0.99")
-               console.log($(".input2" ).css("opacity"))
+              
                 $(".prompt3" ).hide();
                 $(".prompt2" ).empty().append('<button class="prompt_button btn btn-info btn-large" id="No">&lArr; Нет</button> <button class="prompt_button btn btn-info btn-large" id="Yes">Да &rArr;</button>')
                  
@@ -1118,10 +1192,12 @@ function put_words_right_written_cod()   {
 
 
 
- function put_words_right_audition_cod()   {   
+ function put_words_right_audition_cod()   { 
+
+              training_type=3  
               clear_table()
               $(".sound" ).show();
-              $(".rus" ).append('<button class="btn btn-info btn-large">'+ $getRus+'</button>');
+             // $(".rus" ).append('<button class="btn btn-info btn-large">'+ $getRus+'</button>');
 
                $el=0;
               $mistake=0;
@@ -1225,14 +1301,17 @@ function audition_letters_yes_no()   {
 
 
  function audition_yes_no_cod()   { 
+  
+              training_type=4
               clear_table()
+
                 $(".sound" ).show();
 
               var $el=0;
               $mistake=0;
               
                 
-$(".rus" ).append('<button class="btn btn-info btn-large">'+ $getRus+'</button>')
+              $(".rus" ).append('<button class="btn btn-info btn-large">'+ $getRus+'</button>')
                 var randIndex = Math.floor(Math.random() * 2);
                 
 
@@ -1314,7 +1393,9 @@ function letter___written()   {
 };
 
 
-function letter___written_cod()   {  
+function letter___written_cod()   { 
+
+             training_type=5
              clear_table()
              edit_base()
               var $el=0;
@@ -1424,9 +1505,11 @@ function first_letter___written()   {
 };
 
 
-function first_letter___written_cod()   {  
+function first_letter___written_cod()   { 
+
+             training_type=6 
              clear_table()
- console.log('qweqw')            
+           
               var $el=0;
               $mistake=0;
               $(".rus" ).append('<button class="btn btn-info btn-large">'+ $getRus+'</button>')
@@ -1530,8 +1613,9 @@ function first_letter_written()   {
 };
 
 function first_letter_written_cod()   {  
+
+              training_type=7
               clear_table()
-console.log('qweqw')
               var $el=0;
               $mistake=0;
               $(".rus" ).append('<button class="btn btn-info btn-large">'+ $getRus+'</button>')
@@ -1627,6 +1711,8 @@ function first_letter___audition()   {
 };
 
 function first_letter___audition_cod()   { 
+
+              training_type=8
               clear_table()
               $(".sound" ).show();
               var $el=0;
@@ -1710,6 +1796,8 @@ function letter___audition()   {
 };
 
 function letter___audition_cod()   { 
+
+              training_type=9
               clear_table()
               $(".sound" ).show();
               var $el=0;
@@ -1797,7 +1885,9 @@ function first_letter_audition()   {
 
 
 
-function first_letter_audition_cod()   { 
+function first_letter_audition_cod()   {
+
+               training_type=10 
                clear_table()
                $(".sound" ).show();
               var $el=0;
@@ -1873,6 +1963,8 @@ function one_rus_4_eng()   {
 };
 
 function one_rus_4_eng_cod()   { 
+
+               training_type=11
                clear_table()
               var $el=0;
               $mistake=0;
@@ -1924,6 +2016,8 @@ function one_eng_4_rus()   {
 };
 
 function one_eng_4_rus_cod()   { 
+
+               training_type=12
                clear_table()
               var $el=0;
               $mistake=0;
@@ -1935,9 +2029,13 @@ function one_eng_4_rus_cod()   {
                if (video_==1) {random_number=3}
                 var randIndex2 = Math.floor(Math.random() * (random_number-1));
                for (var i=1; i<=random_number; i++){
-                if (i==1*randIndex2+1){ $(".input" ).append('<button class="btn btn-info btn-large height_25 answer">' +$getRus+'</button><br>' )}else{
+                if (i==1*randIndex2+1){ $(".input" ).append('<button class="btn btn-info btn-large height_25 answer">' +$getRus+'</button><br>' )
+                  console.log($getRus)
+              }else{
                random_selelect_false_sentense() ;
-                   $(".input" ).append('<button class="btn btn-info btn-large height_25 answer">' +$falseRus+'</button><br>' );}}  
+                   $(".input" ).append('<button class="btn btn-info btn-large height_25 answer">' +$falseRus+'</button><br>' );
+                   console.log($falseRus)
+                 }}  
              $(".height320").addClass('animated fadeIn')
               setTimeout(removeClass_animated,500)
               $(".answer").on("click", function () {
@@ -1984,6 +2082,8 @@ function four_rus_words_audition()   {
 
 
 function four_rus_audition_cod()   { 
+
+                training_type=13
                clear_table()
                $(".sound" ).show();
               var $el=0;
@@ -2001,7 +2101,7 @@ function four_rus_audition_cod()   {
                
 
                for (var i=1; i<=random_number; i++){
-                if (i==1*randIndex2+1){ $(".rus" ).append('<button class="btn btn-info btn-info height_25 answer">' +$getRus+'</button><br>' )}else{
+                if (i==1*randIndex2+1){ $(".rus" ).append('<button class="btn btn-info btn-large height_25 answer">' +$getRus+'</button><br>' )}else{
                random_selelect_false_sentense() ;
                    $(".rus" ).append('<button class="btn btn-info btn-large height_25 answer">' +$falseRus+'</button><br>' );}}
                 
@@ -2015,6 +2115,8 @@ function four_rus_audition_cod()   {
                   meter_();
                 if (video_==1) { number_video++;if (number_video<arr_English.length) {$video_.attr('src', src + '?autoplay=1&rel=0&start='+start_video[number_video]+'&end='+end_video[number_video]+'&rel=0');} setTimeout(select_type_training_, 1000);  return;}
                 if (cycle==0){setTimeout(hide_training, 500);return;}
+                console.log(task_new)
+  
                if (task_new>=max_task-1){ show_training=1  }           
                 
                 if(show_training==1){
@@ -2078,28 +2180,29 @@ function dictophon___cod2()   {
               $(".sound" ).show();
               $(".prompt3" ).hide(); 
               $(".rus" ).append('<button class="btn btn-info btn-large">'+ $getRus+'</button>');
-              random_voice();
+              if (video_==0) {random_voice()};
                $('#time_game').text(1*$('#time_game').text()+25*$koef)
               var $newText3=$getSentence.replace(/[a-zA-Z]/g,".")
                var $newText3=  $newText3.split(" ");
-           $(".title_sound" ).attr("title", $getSentence)    
-         myTime=$getSentence.length*250
+           $(".title_sound" ).attr("title", $getSentence)
+           $(".microphon" ).attr("title", $getSentence)
+         myTime=$getSentence.length*300
+         
+         if ($sound_type=="video" ){myTime=myTime*1.5}
+         if (video_==1 ){myTime=myTime*1.5}
         if (myTime<3000) {myTime=3000}
         $(".meter2").attr('max',myTime)
         
         var MyIntervalID =  setInterval (function(){ $(".meter2").val($(".meter2").val()+10) }, 10);
+
               setTimeout(function(){ clearInterval (MyIntervalID )},myTime)
               var myTime2=myTime-2000
               setTimeout( meter_,myTime2)
               
-              
-            
-  
-
                
 
                   setTimeout(function(){
-                
+                if (video_==1) { number_video++;if (number_video<arr_English.length) {$video_.attr('src', src + '?autoplay=1&rel=0&start='+start_video[number_video]+'&end='+end_video[number_video]+'&rel=0');} setTimeout(select_type_training_, 1000);  return;}
                if (task_new>=max_task-1){   show_training=1  } 
        
                 
@@ -2127,7 +2230,7 @@ function dictophon___cod2()   {
                   task_new++    
                  row_new++
                 if  (repeat_training==0){ select_sentense() ;} else{select_old_sentense();} 
-               
+                if (video_==1) { number_video++}
                 dictophon___cod2()
                 
                 

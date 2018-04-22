@@ -13,6 +13,9 @@ use Carbon\Carbon;
 use App\Base_course;
 use App\Base_word;
 use App\Progress;
+use App\Progresses_of_video;
+use App\Video_time;
+use App\Services\CourseService;
 
 class VocabularyController extends Controller
 {
@@ -29,48 +32,53 @@ class VocabularyController extends Controller
            
   
            //указываем какая именно это таблица и есть мой словарь(словарь пользователя),
-           $my_table=Progress::all();
-           
+           //$my_table=Progress::all();
+           $i=0;
             
           //узнаю id первого предложение в данном курсе
-          $first_id = Base_course::where('id_course',$id_course_add)->first()->value('id');
+           if ($id_course_add>100000){
+          $first_id = Base_course::where('id_course',$id_course_add)->first()->id;
+          }else{
+            $first_id = Video_time::where('id_video_name',$id_course_add)->first()->id;
+          }
+
           //dd($first_id); 
            //узнаю добавлялся ли этот курс в личный словарь пользователя
+            if ($id_course_add>100000){   
+             $exist_table = Progress::where('id_base',$id_course_add)->where('id_users',request('id_user'))->count();
+             $max_id = DB::table('progresses')->max("id");
+            }else{
+               $exist_table =  Progresses_of_video::where('id_base',$id_course_add)->where('id_users',request('id_user'))->count();
+               $max_id = DB::table('progresses_of_videos')->max("id");
+            }
             
-            $exist_my_table = Progress::where('id_base',$first_id)->get();
-
-            
-            
-            $exist_my_table = count($exist_my_table);
-            
+     
             
                   // если есть то выдаем сообщение что этоn курс уже был добавлен
-                  if ($exist_my_table>=1){
-                   $message='Этот курс уже был добавлен';
+                  if ($exist_table>=1){
+                   $message='Этот курс/видео уже был добавлен';
                  }// если данный курс не добавлялся то добавляем
                  else{
-                  $message='Курс удачно добавлен';
+                  $message='Курс/видео удачно добавлен';
           //узнаю все  предложения что нужно добавить
-           $course = Base_course::where('id_course',$id_course_add)->get()->toarray();
+          if ($id_course_add>100000){
+           $sentenses = Base_course::where('id_course',$id_course_add)->get()->toarray();
+           }else{
+            $sentenses = Video_time::where('id_video_name',$id_course_add)->get()->toarray();
+           }
+           //dd($sentenses);
 
            //запускаю цикл по добавлению каждого предложения в свой словарь
-           foreach ($course as $item){
+           foreach ($sentenses as $sentense){
+            
+           if (request('GetWords')==1) {
             //раскладываю предложения на слова, с удалением всех ненужных знаков.
-            $words= $item['english'];
-           	$words= str_replace("!","",$words);
-           	$words= str_replace(",","",$words);
-           	$words= str_replace(".","",$words);
-           	$words= str_replace(";","",$words);
-           	$words= str_replace(":","",$words);
-           	$words= str_replace("?","",$words);
-           	$words= str_replace("-","",$words);
-           	$words = preg_replace("/(\s){2,}/",' ',$words);
-           	$words=explode(' ',$words);
+            $words = CourseService::getWordsFromSentense($sentense);
 
                 //запускаю цикл по добавлению каждого слова в свой словарь
                 foreach ($words as $el){
                   //узнаю есть ли такое слово в таблице Base_word 
-                  $word_id = Base_word::where('english',$el)->get()->toarray();
+                  $word_id = Base_course::where('english',$el)->get()->toarray();
                   $y= count($word_id);
                   // если есть то выполняется дальнешший сценарий
                   if ($y>=1){
@@ -81,37 +89,52 @@ class VocabularyController extends Controller
                     
                     //узнаю есть ли такое слово в моем словаре
                     
-           	        $z = Progress::where('id_base',$word_id['id'])->get();
-           	        $z = count($z);
+           	        $z = Progress::where('base_course_id',$word_id['id'])->where('id_users',request('id_user'))->count();
+           	        
                     
            	         // если нет то выполняется дальнешший сценарий
            	        if ($z<1){
                       // добавляем в  мой словарь текущее слово
-
-                     Progress::insert(array(
-
-                     'id_users'  => '1',  
-                    'id_base' => $word_id['id'],
+                    $i++;
+                    $id=$max_id+$i*10;
+                   
+                     Progress::insert([
+                     'id' => $id, 
+                    'id_base'  => request('id_course'),
+                     'id_users'  => request('id_user'),  
+                    'base_course_id' => $word_id['id'],
                     'quantity'   => '0',
                     'next_date' => $date
-                     ));
+                     ]);
                      }}
                 }
+             }
                 //конец цикла по добавлению слов на каждое предложение
 
-            //узнаю есть ли такое предложение в моем словаре
-           	$i = Progress::where('id_base',$item['id'])->get();
-           	$i = count($i);
-           	// если нет то выполняется дальнешший сценарий
-           	if ($i<1){
-            // добавляем в  мой словарь текущее слово
-           Progress::insert(array(
-
-          'id_users'  => '1', 
-          'id_base' => $item['id'],
+             
+                $i++; 
+ 
+           //$sentense_id = Base_course::where('english',$sentense)->first()->id;	
+            // добавляем в  мой словарь текущее предложение
+             $id=$max_id+$i*10;
+          if ($id_course_add>100000){   
+           Progress::insert([
+          'id' => $id, 
+          'id_base'  => $id_course_add,
+          'id_users'  => request('id_user'), 
+          'base_course_id' => $sentense['id'],
           'quantity'   => '0',
           'next_date' => $date
-           ));
+           ]);
+           }else{
+           Progresses_of_video::insert([
+          'id' => $id, 
+          'id_base'  => $id_course_add,
+          'id_users'  => request('id_user'), 
+          'base_course_id' => $sentense['id'],
+          'quantity'   => '0',
+          'next_date' => $date
+           ]);
            }
            }
            }
@@ -122,7 +145,7 @@ class VocabularyController extends Controller
  
            
 
-        	 return view('vocabulary')->with(['id_course_add'=>$id_course_add,'message'=>$message]);
+        	 return view('welcome')->with(['message'=>$message]);;
           
         }
 

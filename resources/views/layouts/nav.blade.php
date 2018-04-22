@@ -147,7 +147,7 @@
                                                         <li><a href="game.php">Star wars</a></li>
                                                         <li><a href="#2-column.html" disabled>ЗвукоДанетка</a></li>
                                                         <li><a href="#2-column.html" disabled>Тесты</a></li>
-                                                        <li><a href="training?user=@guest none @else{{Auth::user()->id}}@endguest">Тренажеры</a></li>
+                                                        <li><a href="training?user=@guest none @else{{Auth::user()->id}}@endguest&type=video">Тренажеры</a></li>
                                                           
                                                           
          

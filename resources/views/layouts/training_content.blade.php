@@ -1,14 +1,14 @@
 <br>
 
-
 <div class="costumer">    
 <form>
                    <div class="container">
                     <div class="row-fluid">
-                    <div class="span3">
+                    <div class="span2">
+                      <center>  <a href="training?user=@guest none @else{{Auth::user()->id}}@endguest&type=video" class="btn btn-primary btn-large ">из видео</a>  </center>
                     </div>
                     <div class="span8">
-                        
+                      <center>  
                  <div class="Game"> 
                     <a class="btn btn-info btn-large centered_menu_2  " id="new_training">
                         Изучить новое
@@ -45,8 +45,10 @@
                     
 
                        </div>
+                       </center>
                     </div>
-                    <div class="span1">
+                    <div class="span2">
+                        <center>  <a href="training?user=@guest none @else{{Auth::user()->id}}@endguest&type=course" class="btn btn btn-primary btn-large ">из курсов</a>  </center>
                     </div>
                     </div>
                     </div>
@@ -303,24 +305,28 @@
 <p align="center" class="input2"><button class="btn btn-secondary btn-large btn_input2"></button></p>
 <p align="center" class="input" id="focus"></p>
 <p align="center" class="prompt font_green "></p>
-<p align="center" class="microphon"><meter class="meter2" value="0" max="100"  optimum="1"></meter><br><textarea   placeholder="Повторите сколько успеете" id ="repeat"></textarea></p>
+<p align="center" class="microphon"><meter class="meter2" value="0" max="100"  optimum="1"></meter><br><textarea   placeholder="Повторите сколько успеете. Наведите мышку" id ="repeat"></textarea></p>
 <p align="center" class="prompt2"></p>
 <p align="center" class="prompt3"><button class="prompt_button btn btn-info btn-large">Подсказка</button></p>
-<p align="center" class="edit"><input class="eng_ edit_base"/><button class="edit_button btn btn-secondary">Редактировать</button><input class="rus_ edit_base"/></p>
+<p align="center" class="edit"><input class="edit_password"  type="password" placeholder="password"/>
+    <center>
+    <input class="arr_base_course_id_" name="arr_base_course_id_"/>    
+    <input class="eng_ edit_base" name="eng_"/><button type="submit" class="edit_button btn btn-secondary">Редактировать</button><input class="rus_ edit_base" name="rus_"/>
+    </center>
+</p>
 
 </div>
 </div>
 </div>
+<iframe id="video" class="opasity_04" width="1" height="1"  allowfullscreen=""></iframe>
 
 
-
-    <link rel="stylesheet" href="css/speech-input.css">
     <link rel="stylesheet" href="css/animate.css">
  
      <script src="js/general-data.js"></script>
      <script src="js/training-phrase.js"></script>
      <script src="js/random_voice.js"></script>
-     <script src="js/jquery-1.8.2.min.js"></script>
+     <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
      <script src="js/speech-input.js"></script>
      <script src="js/ajax_framework.js"></script>
 
@@ -330,7 +336,72 @@
 
 
 
+<script type="text/javascript">
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
 
+
+
+    $(".edit_button").click(function(e){
+        e.preventDefault();
+
+
+
+        var arr_base_course_id_ = $("input[name=arr_base_course_id_]").val();
+
+        var eng_ = $("input[name=eng_]").val();
+
+        var rus_ = $("input[name=rus_]").val();
+
+        var sound_type = $sound_type;
+
+
+
+        $.ajax({
+
+           type:'POST',
+
+           url:'/ajaxRequest',
+
+           data:{sound_type:sound_type, arr_base_course_id_:arr_base_course_id_, eng_:eng_, rus_:rus_, _token: '{{csrf_token()}}'},
+
+           success:function(data){
+              $(".rus_" ).hide();
+              $(".eng_" ).hide();
+              $(".edit_button" ).hide();
+  $getSentence=eng_;
+  $getRus=rus_;
+  arr_English[$number_in_array]=eng_;
+  arr_Rus[$number_in_array]=rus_;
+  if (training_type==1){put_words_right_written_cod()}
+  if (training_type==2){written_yes_no_cod()}
+  if (training_type==3){put_words_right_audition_cod()}
+  if (training_type==4){audition_yes_no_cod()}
+  if (training_type==5){letter___written_cod()}  
+  if (training_type==6){first_letter___written_cod()} 
+  if (training_type==7){first_letter_written_cod()} 
+  if (training_type==8){first_letter___audition_cod()}  
+  if (training_type==9){letter___audition_cod()}  
+  if (training_type==10){first_letter_audition_cod()}  
+  if (training_type==11){one_rus_4_eng_cod()}  
+  if (training_type==12){one_eng_4_rus_cod()} 
+  if (training_type==13){four_rus_audition_cod()}
+              // alert(data.success);
+
+              // $(".submit2").text($(".submit2").text()+data.success);
+
+           }
+
+        });
+
+
+
+    });
+
+</script>
 
 
 
@@ -376,7 +447,9 @@ for ( var i=1; i <= 12; i++){ $(".IDontknow"+i ).hide()}
         row_arr=[];
         row_mistake=[];
     $('#select_new option:selected').text()
-
+ @guest
+ @else
+                        
         arr_English=[@foreach ($my_table as $list)"{{$list->base_course->english}}",@endforeach] 
         arr_Rus=[@foreach ($my_table as $list)'{{$list->base_course->russian}}',@endforeach] 
 
@@ -385,6 +458,19 @@ for ( var i=1; i <= 12; i++){ $(".IDontknow"+i ).hide()}
          arr_id=[@foreach ($my_table as $list)'{{$list['id']}}',@endforeach]  
          arr_quantity=[@foreach ($my_table as $list)'{{$list['quantity']}}',@endforeach]
          arr_date=[@foreach ($my_table as $list)'{{$list['next_date']}}',@endforeach]
+         arr_base_course_id=[@foreach ($my_table as $list)'{{$list['base_course_id']}}',@endforeach]
+$sound_type="{{$type}}";
+
+ @if ($type=="video") {
+  arr_adress=[@foreach ($my_table as $list)"{{$list->youtube->path_youtube}}",@endforeach]
+  arr_start=[@foreach ($my_table as $list)"{{$list->base_course->start_}}",@endforeach]
+  arr_end=[@foreach ($my_table as $list)"{{$list->base_course->end_}}",@endforeach]
+}
+@endif;
+
+@endguest
+$video_ = $('#video');
+//src = $video_.attr('src');
 
   $.each(arr_English, function(index, value){
         arr_English[index]=value.replace("&#039;", "'");

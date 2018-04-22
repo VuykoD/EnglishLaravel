@@ -8,7 +8,7 @@
                     </div>
                     <div class="span6">
 
-                    <a class="btn btn-info btn-large centered_menu_2" href="vocabulary?id_course={{$id_course}}&user={{ Auth::user()->email }}" >Отобрать курс на изучение</a>
+                    <a class="btn btn-info btn-large centered_menu_2" href="vocabulary?id_course={{$id_course}}&id_user={{ Auth::user()->id}}&GetWords=1" >Отобрать на изучение</a>
                     </div>
 
 @endguest                    
@@ -98,7 +98,7 @@
 
 
 window.onload = function (){
-
+$sound_type="course"
     utterance = new SpeechSynthesisUtterance("1");
 utterance.volume = 0;
 window.speechSynthesis.speak(utterance);

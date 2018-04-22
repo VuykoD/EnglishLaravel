@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Video_name;
 
+use App\Video_time;
+
 class VideoController extends Controller
 {
     //

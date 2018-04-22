@@ -1,5 +1,5 @@
 function random_voice()   { 
-
+if ($sound_type=="course"){
 var $getSentence1=$getSentence.toLowerCase();
 if($false_sent==1) {var $getSentence1=$falseSentence.toLowerCase()}
 if(	$yes_no==1) {return;}
@@ -18,5 +18,11 @@ speechSynthesis.speak(new SpeechSynthesisUtterance(""));
 window.speechSynthesis.speak(utterance);
 
 return;}
+}
+}
+if ($sound_type=="video"){
+	src="http://www.youtube.com/embed/" + $adress
+	
+$video_.attr('src', src + '?autoplay=1&rel=0&start='+$start+'&end='+$end+'&rel=0');
 }
 }

@@ -125,6 +125,7 @@ select:focus { outline: none; }
 .margin_l__10_ {margin-left: -20px !important; padding-bottom: 54px !important;}
 .centered_menu_2 {width: 65%;z-index: 1032 !important;}
 .centered_menu_3 {width: 85%; margin-left: 15%}
+.four_block {opacity: 0.2; height: 260px; border-radius: 10px; border: 1px solid rgba(0, 0, 0,0.3); margin-top: 15px;margin-right: 15px; padding: 5px; background-color: rgb(120, 180, 130);box-shadow: 11px 11px 10px rgba(0,0,0,0.7);}
 
 /* Footer elements */
 
@@ -346,12 +347,11 @@ margin-top: 0px !important;
     padding: 15px !important;
     height: 213px;
     opacity: 0.93;
-
+    margin-left: 30px !important;
 }
 
 
-
-#decorative1{position: relative; background-color: rgb(240, 240, 240); background-image: url(bob-van-aubel-ray-bans.jpg); -webkit-background-size: cover; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;
+#decorative1{position: relative; background-color: rgb(240, 240, 240); background-image: url(bob-van-aubel-ray-bans.jpg); height: 600px; -webkit-background-size: cover; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat no-repeat;
 -webkit-box-shadow: 0px 3px 11px rgba(0, 0, 0, 0.7);
 -moz-box-shadow:    0px 3px 11px rgba(0, 0, 0, 0.7);
 box-shadow:         0px 3px 11px rgba(0, 0, 0, 0.7);}
@@ -374,7 +374,7 @@ h2 {font-weight: normal; font-style: normal; font-family: 'Source Sans Pro', san
 	letter-spacing: 0px;
 	word-spacing: 0px;
     width: 220px !important;
-    margin-left: -30px !important;
+    
 	margin-top: 100px;
 	color: rgb(51,51,51);
 	font-size: 38px;
@@ -391,7 +391,7 @@ h2 {font-weight: normal; font-style: normal; font-family: 'Source Sans Pro', san
 }
 
 
-#divHeaderLine2 {margin-left: -30px !important;  font-size: 22px; line-height: 30px; width: 220px !important;   height: auto; margin-right: 30px; letter-spacing: 1px; margin-top: 11px; font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif; color: rgb(255, 255, 255); text-shadow: none; text-align: center !important; font-weight: normal; font-style: italic; background-color: rgb(0, 0, 0); opacity: 0.65; padding: 3px 10px; background-position: initial initial; background-repeat: initial initial;}
+#divHeaderLine2 {  font-size: 22px; line-height: 30px; width: 220px !important;   height: auto; margin-right: 30px; letter-spacing: 1px; margin-top: 11px; font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif; color: rgb(255, 255, 255); text-shadow: none; text-align: center !important; font-weight: normal; font-style: italic; background-color: rgb(0, 0, 0); opacity: 0.65; padding: 3px 10px; background-position: initial initial; background-repeat: initial initial;}
 
 
 #divHeaderLine3{margin-top: 18px; color: rgb(0, 0, 0); text-align: center; line-height: 16px; text-transform: none; font-size: 15px;}
@@ -474,7 +474,7 @@ h6,.page-content h6 a {font-weight: normal; font-style: normal; font-family: 'So
 .ddmenu.nav-pills>li>a {display:block; position: relative; font-family: Tahoma , sans-serif; word-spacing: 10px; letter-spacing: 0.5px; font-size: 17px; text-shadow: none; line-height: 15px;  margin-left: 5px; height: 15px; padding-left: 15px; padding-right: 15px; text-align:center; vertical-align: middle;}
 
 
-
+#repeat {width: 300px;}
 .longer {width: 133px;}
 .short {width: 103px;}
 
@@ -484,6 +484,7 @@ h6,.page-content h6 a {font-weight: normal; font-style: normal; font-family: 'So
 
  body {padding-top:85px}
  .center_ {text-align: center;}
+ .Z_inex {z-index: 1 !important}
 
 .lead h2 {font-size: 37px; line-height: 57px; font-family: 'Open Sans';}
 
@@ -547,6 +548,8 @@ button.list-group-item-warning:focus {
 /*svg{width: 390px; height: 390px;position: absolute;top: -150px; left: -150px; bottom: 0; right: 0;z-index: 7}*/
 .map{ border: 1px solid lightgrey; padding: 5px; min-width: 1240px !important; width: 1240px !important; margin-top: 10px; position: absolute; left:10px;z-index: 0 !important;}
 .enemy{width: 80px; position: absolute; text-align: center;}
+.absolute_auth {position: absolute; top:100px; left: 50}
+.opasity_04 {opacity: 0.2;}
 meter{height: 7px; margin-bottom: 5px; padding: 0 7px 0 7px; border-radius: 3px;}
 .meter {width: 200px !important; margin-right: 15px;}
 .meter2 {width: 300px  !important; border-radius: 3px; }
@@ -610,6 +613,7 @@ textarea {height: 30px; }
 #time_game {width: 50px; border: 1px solid; border-radius: 5px; padding: 2px 10px 2px 10px; margin-left: 15px; background:  rgb(55, 155, 95) ; }
 
 .hidden1 {visibility: hidden;}
+.unvisible {display: none;}
 .training_hide {visibility: hidden;}
 .checkbox {white-space:  nowrap; padding-top: 0px !important; padding-bottom: 0px !important; padding-left: 0px !important; margin-left: -5px !important; margin-bottom:-3px !important;  margin-top:-3px !important;}
 .border_1 {width: 55px !important; border-top: 1px solid #ddd; border-right: 1px solid #ddd; border-bottom: 1px solid #ddd; border-bottom-right-radius: 13px; border-top-right-radius: 13px; background-color: rgb(265,265,250); margin-bottom: 3px; }
@@ -640,9 +644,13 @@ small {color: rgb(150,150,150); font-size: 13px; padding-left: 25px ;  padding-r
 .speech-input, .si-btn {visibility: hidden;}
 
 .dropdown-toggle {color: rgb(255, 255, 255);}
+@media (max-width: 1024px) {
 
+    .alert { margin-left: 20px !important;}
+}
 
 @media (max-width: 979px) {
+    .absolute_auth { top:200px;}
     .defender_footer {display: none;}
      .centered_menu_3 {margin-left: 5%}
      .svg1 {margin-left: 30%}
@@ -650,7 +658,7 @@ small {color: rgb(150,150,150); font-size: 13px; padding-left: 25px ;  padding-r
 
      .img-sort-big {display: none;margin-bottom: -250px;}
 
-    .alert { margin-left: 0px !important;}
+    .alert { margin-left: 20px !important;}
 
     .navbar .btn-navbar-highlight {display:inline;padding:9px 14px;margin-top:15px;}
 
@@ -675,7 +683,7 @@ small {color: rgb(150,150,150); font-size: 13px; padding-left: 25px ;  padding-r
 
 
 @media (max-width: 767px) {  
-
+ 
  .defender_footer {display: none;}
    .svg1 {margin-left: 26%}  
     

@@ -8,6 +8,7 @@
         
 
         $(function () {
+          $sound_type="course"
           $yes_no=0;
           $false_sent=0
 utterance = new SpeechSynthesisUtterance("1");

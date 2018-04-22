@@ -29,9 +29,13 @@ Route::get('/video_training', 'VideoTrainingController@video');
 
 Route::get('/training', 'TrainingController@general');
 
+Route::post('/training', 'ChangeBaseController@ChangeSentenseOrWord');
 
+Route::post('ajaxRequest', 'AjaxController@ajaxRequestPost');
+
+Route::get('ajaxRequest', 'AjaxController@ajaxRequest');
 
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');

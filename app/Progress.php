@@ -12,3 +12,5 @@ class Progress extends Model
 }
 
 }
+
+
