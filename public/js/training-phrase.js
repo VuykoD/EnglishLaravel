@@ -1197,7 +1197,7 @@ function put_words_right_written_cod()   {
               training_type=3  
               clear_table()
               $(".sound" ).show();
-             // $(".rus" ).append('<button class="btn btn-info btn-large">'+ $getRus+'</button>');
+              $(".rus" ).append('<button class="btn btn-info btn-large">'+ $getRus+'</button>')
 
                $el=0;
               $mistake=0;

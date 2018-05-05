@@ -107,6 +107,9 @@ width:530px !important;
 #decorative1 {
 margin-top:-2px;padding-top:2px;    
 }
+.index {width: 40px;display: inline-block; padding-left: 10px}
+.text {width: 500px;display: inline-block;}
+.vocabulary {width: 800px;margin-top: 0px;}
 .fixed {position:fixed; display: block; background: white; z-index: 3;}
 .color_grey{background-color: rgb(230,230,230); margin-left:  -130px !important; margin-top:  -30px !important; padding: 20px 100px 20px 100px; }
 
@@ -145,7 +148,7 @@ img {max-width:100%;height:auto;width:auto;-moz-box-sizing:border-box;-webkit-bo
 
 
 
-.img_for_video {width: 250px;height: 153px;border:none; border-radius: 5px; margin-top: -20px;}
+.img_for_video {width: 250px;height: 153px; border-radius: 5px; margin-top: -20px; border-color: rgb(200,200,200);}
 
 .border_video{border: 1px solid lightgrey; padding: 15px; border-radius: 15px;}
 

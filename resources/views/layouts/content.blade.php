@@ -33,8 +33,8 @@
  </div>
  <div class="absolute_auth">
          <div @guest  class="unvisible" @endguest>
-                          <a href="video?type=9">
-                               <div class=" span8 four_block pull-left">  
+                          <a href="video?user=@guest none @else{{Auth::user()->id}}@endguest&type=9">
+                               <div class=" span8 four_block pull-left" id="block1">  
                                <center><h4 style="color:white">Изучение с помощью видео.</h4>           
                                 <img src="images/movie12.jpg" class="img-polaroid" >  
                                 <p style="color:black">Вы обучаетесь и развлекаетесь одновременно. Вы развиваете навык восприятия английского языка на слух.
@@ -43,7 +43,7 @@
                                </div>
                           </a>     
 
-                          <a href="reading?type=9"><div class=" span4 text_black four_block pull-right">
+                          <a href="reading?type=9"><div class=" span4 text_black four_block pull-right"  id="block2">
                                 <center>
                                <H4 style="color:white">Чтение</H4>
                                <p>В разделе чтение все самое интересное. 
@@ -56,7 +56,7 @@
                           </a>
 
                           <a href="training?user=@guest none @else{{Auth::user()->id}}@endguest&type=video">
-                               <div class="span4 text_black four_block pull-left">
+                               <div class="span4 text_black four_block pull-left" id="block3">
                                <center><H4 style="color:white">Тренажеры</H4>
                                <p>Это основа этого сайта.
                                 Вы можете выбрать нужный Вам курс в разделе курсы от дошкольного уровня до уровня advance.
@@ -69,10 +69,10 @@
                           </a>
 
                           <a href="game.php">
-                               <div class=" span8 text_black four_block pull-right">
+                               <div class=" span8 text_black four_block pull-right" id="block4">
                                <center><h4 style="color:white">Изучение с помощью игр.</h4>           
                                 <img src="images/15.jpg" class="img-polaroid " >  
-                                <p>Играя в различные игры, обычно балы даются за выпление заданий в игре. И вы, расходуя их, можете развиваться и выходить на более сложные уровни. Здесь же балы будут даваться за выполнение английских заданий.
+                                <p>Играя в различные игры, обычно баллы даются за выпление заданий в игре. И вы, расходуя их, можете развиваться и выходить на более сложные уровни. Здесь же баллы будут даваться за выполнение английских заданий.
                                 </p>></center>
                                </div>
                           </a>  
@@ -92,12 +92,12 @@
                    
                     <h2>На заметку родителям</h2>
 
-                    <p>Многие из детей очень любят играть в различные иргы типа Minecraft или WoT. Вы можете <a href="#">скачать приложение</a>, которое будет блокировать всё, пока ребенок не позанимался. И будет открывать ребенку доступ к играм на час или два после того, как он набрал необходимое количество балов.</p>
+                    <p>Многие из детей очень любят играть в различные иргы типа Minecraft или WoT. Вы можете <a href="#">скачать приложение</a>, которое будет блокировать всё, пока ребенок не позанимался. И будет открывать ребенку доступ к играм на час или два после того, как он набрал необходимое количество баллов.</p>
 
                     <div >
                       <center>
                         <h3>Мы планируем...</h3> 
-                        <p>Постоянно обновлять наш сайт, чтобы у ущащихся не пропадал интерес.</p></center>
+                        <p>Постоянно обновлять наш сайт, чтобы у учащихся не пропадал интерес.</p></center>
                     </div>
                     <br />
 
@@ -121,10 +121,15 @@ window.onload = function (){
 alert("{{$message}}")}
 @endif
 }
-$('.four_block').mouseenter(function(){
-  $('.four_block').stop();
-  $('.four_block').css("opacity","0.2");
-$(this).animate({opacity: "1"},500,"swing" );})
-$('.four_block').mouseleave(function(){
-$('.four_block').animate({opacity: ".2"},500,"swing" );})
+$('#block1').mouseenter(function(){$(this).animate({opacity: "1"},500,"swing" );})
+$('#block1').mouseleave(function(){$(this).animate({opacity: ".2"},800,"swing" );})
+$('#block2').mouseenter(function(){$(this).animate({opacity: "1"},500,"swing" );})
+$('#block2').mouseleave(function(){$(this).animate({opacity: ".2"},800,"swing" );})
+$('#block3').mouseenter(function(){$(this).animate({opacity: "1"},500,"swing" );})
+$('#block3').mouseleave(function(){$(this).animate({opacity: ".2"},800,"swing" );})
+$('#block4').mouseenter(function(){$(this).animate({opacity: "1"},500,"swing" );})
+$('#block4').mouseleave(function(){$(this).animate({opacity: ".2"},800,"swing" );})
+
+
+
 </script>

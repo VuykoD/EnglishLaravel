@@ -2,18 +2,13 @@
 
 namespace App\Http\Controllers;
 
-
+use Illuminate\Http\Request;
 use App\Progress;
 use App\Progresses_of_video;
-use App\Video_name;
-use Carbon\Carbon;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-
-class TrainingController extends Controller
+class MyVocabularyController extends Controller
 {
-    public function general()
+        public function list()
     {
 
 // dd(request('user'));
@@ -29,7 +24,7 @@ class TrainingController extends Controller
             $my_table = 'none';
         }
          
-        return view('training') ->with(['my_table'=>$my_table,'type'=>request('type')]);
+        return view('myVocabulary') ->with(['my_table'=>$my_table,'type'=>request('type')]);
 
     }
 }

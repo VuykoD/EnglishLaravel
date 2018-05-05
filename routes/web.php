@@ -19,6 +19,8 @@ Route::get('/course', 'CourseController@name');
 
 Route::get('/vocabulary', 'VocabularyController@add_course');
 
+Route::get('/myvocabulary', 'MyVocabularyController@list');
+
 Route::get('/reading', 'ReadingController@all');
 
 Route::get('/readingMore', 'ReadingMoreController@text');

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+// namespace App\Http\Controllers\Auth;
 
 use App\Video_time;
 use Illuminate\Http\Request;
@@ -9,8 +10,12 @@ class VideoTrainingController extends Controller
 {
     public function video()
     {
-
+        
         // if ($index_id = request('index_id')){}
+        if (request('user')=="none"){
+            return redirect()->back();
+        }
+
         $adress = request('adress');
         $number = request('number');
         $hide_title = request('hide_title');

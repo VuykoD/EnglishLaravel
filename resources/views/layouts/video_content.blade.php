@@ -6,13 +6,15 @@
 
 
                 <div class="span12">
-
+@if(Session::has('message'))
+        {{Session::get('message')}}
+    @endif
 
                         <ul id="tiles_2"> 
 
  @foreach ($video as $item)
-                <li ><article class="youtube video flex-video pull-left">
-                <a href="video_training?adress={{ $item['path_youtube']}}&number={{$item['id']}}&hide_title={{$item['hide']}}">    
+                <li class ="none_user_message"><article class="youtube video flex-video pull-left">
+                <a href="@guest # @else video_training?user={{Auth::user()->id}}&adress={{ $item['path_youtube']}}&number={{$item['id']}}&hide_title={{$item['hide']}}@endguest">    
                 <img src="images/video/{{$item['id']}}.jpg" class="img_for_video" ></a></article>
                 <div class="pull-right"><div class="meta"><span>{{$item['type']}}</span>
                 <span class="pull-right">{{$item['level']}}</span></div>
@@ -81,10 +83,10 @@
                            
  @foreach ($video as $item)
                  @if ($loop->index>1)
-                 <li class ="height250 {{$item['level']}} {{$item['type']}}">
+                 <li class ="height250 {{$item['level']}} {{$item['type']}} none_user_message">
 
                 
-                <a href="video_training?adress={{ $item['path_youtube']}}&number={{$item['id']}}&hide_title={{$item['hide']}}" class="youtube video pull-left">    
+                <a href="@guest # @else video_training?user={{Auth::user()->id}}&adress={{ $item['path_youtube']}}&number={{$item['id']}}&hide_title={{$item['hide']}}@endguest">  
                 <img src="images/video/{{$item['id']}}.jpg" class="img_for_video margin_top_0" ></a>
                 <div class="pull-right"><div class="meta"><span>{{$item['type']}}</span>
                 <span class="pull-right">{{$item['level']}}</span></div>
@@ -92,7 +94,7 @@
                 <img src="images/sort/puzzle.png" class="img-sort pull-left"><span>0 предложений, 0 слов</span></button>
                 <h5 align="center">{{$item['name']}}</h5></div></li>
                 @endif
-                @if ($loop->index==9)
+                @if ($loop->index==19)
                     @break
                 @endif
 @endforeach 
@@ -104,9 +106,6 @@
                 
 </div>
 </div>
-
-
-
 
                 <div class="pagination centered_menu">
                     <ul>
@@ -126,6 +125,11 @@
 
  <script type="text/javascript">
 
+@guest
+     $(".none_user_message").on("click", function () {
+         alert("Необходимо авторизироваться или зарегистрироваться")
+     });
+@endguest
 
 $type={{$type}}
 if ($type==9){$("#type_video_button").text("Все видео")}

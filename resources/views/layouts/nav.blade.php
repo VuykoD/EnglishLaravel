@@ -39,7 +39,7 @@
                                <li class="dropdown">
                                     <a href="#about.html" class="dropdown-toggle">{{ Auth::user()->name }}<br><b class="caret"></b></a>
                                     <ul class="dropdown-menu">
-                                                        <li disabled><a href="#full.html" class="disabled" disabled>Мой словарь</a></li>
+                                                        <li disabled><a href="myvocabulary?user=@guest none @else{{Auth::user()->id}}@endguest&type=video" class="disabled" disabled>Мой словарь</a></li>
                                                         <li><a href="#2-column.html">Настройки</a></li>
                                                         <li> <a class="dropdown-item" href="{{ route('logout') }}"
                                                                 onclick="event.preventDefault();
@@ -112,8 +112,6 @@
                                                               <ul class="dropdown-menu sub-menu">
 
                                                                  <li><a href="courses.php?course=1000_popular_phrases">1000 популярных фраз</a></li>
-                               
-
                                                                  <li><a href="courses.php?course=tourist_phrases">Фразы для туриста</a></li>
                                                             </ul>
                                                         </li> 
@@ -129,14 +127,14 @@
                                     </ul>
                                 </li>
                                 <li class="dropdown ">
-                                    <a href="video?type=9" class="dropdown-toggle">Видео<br><b class="caret"></b></a>
+                                    <a href="video?user=@guest none @else{{Auth::user()->id}}@endguest&type=9" class="dropdown-toggle">Видео<br><b class="caret"></b></a>
                                     <ul class="dropdown-menu">
-                                                        <li><a href="video?type=9">Все видео</a></li>
-                                                        <li><a href="video?type=1">Мультфильмы</a></li>
-                                                        <li><a href="video?type=2">Интересное</a></li>
-                                                        <li><a href="video?type=3">Видеоуроки</a></li>
-                                                        <li><a href="video?type=4">Музыка</a></li>
-                                                        <li><a href="video?type=5">Фильмы</a></li>
+                                                        <li><a href="video?user=@guest none @else{{Auth::user()->id}}@endguest&type=9">Все видео</a></li>
+                                                        <li><a href="video?user=@guest none @else{{Auth::user()->id}}@endguest&type=1">Мультфильмы</a></li>
+                                                        <li><a href="video?user=@guest none @else{{Auth::user()->id}}@endguest&type=2">Интересное</a></li>
+                                                        <li><a href="video?user=@guest none @else{{Auth::user()->id}}@endguest&type=3">Видеоуроки</a></li>
+                                                        <li><a href="video?user=@guest none @else{{Auth::user()->id}}@endguest&type=4">Музыка</a></li>
+                                                        <li><a href="video?user=@guest none @else{{Auth::user()->id}}@endguest&type=5">Фильмы</a></li>
                                     </ul>
 
                                 </li>
