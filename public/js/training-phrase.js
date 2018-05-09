@@ -150,26 +150,16 @@ function edit_base() {
       
 
 $("body").on("dblclick", function () {
-  $(".edit_password").val('').show().focus();
-})
 
-$(".edit_password").on('input', function () {
-  
-  if ($(".edit_password" ).val()=="456"){
+  if ($sound_type=="video") {
+    $(".start_video" ).show();
+    $(".end_video" ).show();
+  }
 
-  
-  $(".edit_password" ).hide();
-
-if ($sound_type=="video") {
-  $(".start_video" ).show();
-  $(".end_video" ).show();
-}
-  //$(".arr_base_course_id_" ).show();
   $(".rus_" ).show();
   $(".eng_" ).show();
   $(".edit_button" ).show();
-
-}})
+})
 }
 
 

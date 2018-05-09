@@ -60,7 +60,7 @@
  @guest
       @else
  @if (Auth::user()->id==1)
-<p align="center" class="edit" ><input class="edit_password"  type="password" placeholder="password"/>
+<p align="center" class="edit" >
     <center>
     <input class="arr_base_course_id_" name="arr_base_course_id_"/>    
     <input class="start_video" name="start_video"/>
