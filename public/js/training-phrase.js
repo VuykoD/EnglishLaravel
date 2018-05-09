@@ -4,33 +4,33 @@ $(document).keyup(function(e){
 if (e.which == 13) { $(".si-btn").click();}  
 if (e.which == 37) { $("#No").click();} 
 if (e.which == 39) { $("#Yes").click();} 
-if ((e.which >= 65) && (e.which <= 90)) { value2=$newText2[$el].replace('?','').replace("'",'').replace(',','').replace('(','').replace(')','')}
-if (e.which == 65) { if ($newText2[$el].substr(0,1)=="A"){ $('#'+value2)[0].click();}else{ mistake()}} 
-if (e.which == 66) { if ($newText2[$el].substr(0,1)=="B"){ $('#'+value2)[0].click();}else{ mistake()}} 
-if (e.which == 67) { if ($newText2[$el].substr(0,1)=="C"){ $('#'+value2)[0].click();}else{ mistake()}} 
-if (e.which == 68) { if ($newText2[$el].substr(0,1)=="D"){ $('#'+value2)[0].click();}else{ mistake()}} 
-if (e.which == 69) { if ($newText2[$el].substr(0,1)=="E"){ $('#'+value2)[0].click();}else{ mistake()}} 
-if (e.which == 70) { if ($newText2[$el].substr(0,1)=="F"){ $('#'+value2)[0].click();}else{ mistake()}} 
-if (e.which == 71) { if ($newText2[$el].substr(0,1)=="G"){ $('#'+value2)[0].click();}else{ mistake()}} 
-if (e.which == 72) { if ($newText2[$el].substr(0,1)=="H"){ $('#'+value2)[0].click();}else{ mistake()}} 
-if (e.which == 73) { if ($newText2[$el].substr(0,1)=="I"){ $('#'+value2)[0].click();}else{ mistake()}} 
-if (e.which == 74) { if ($newText2[$el].substr(0,1)=="J"){ $('#'+value2)[0].click();}else{ mistake()}} 
-if (e.which == 75) { if ($newText2[$el].substr(0,1)=="K"){ $('#'+value2)[0].click();}else{ mistake()}} 
-if (e.which == 76) { if ($newText2[$el].substr(0,1)=="L"){ $('#'+value2)[0].click();}else{ mistake()}} 
-if (e.which == 77) { if ($newText2[$el].substr(0,1)=="M"){ $('#'+value2)[0].click();}else{ mistake()}} 
-if (e.which == 78) { if ($newText2[$el].substr(0,1)=="N"){ $('#'+value2)[0].click();}else{ mistake()}} 
-if (e.which == 79) { if ($newText2[$el].substr(0,1)=="O"){ $('#'+value2)[0].click();}else{ mistake()}} 
-if (e.which == 80) { if ($newText2[$el].substr(0,1)=="P"){ $('#'+value2)[0].click();}else{ mistake()}} 
-if (e.which == 81) { if ($newText2[$el].substr(0,1)=="Q"){ $('#'+value2)[0].click();}else{ mistake()}} 
-if (e.which == 82) { if ($newText2[$el].substr(0,1)=="R"){ $('#'+value2)[0].click();}else{ mistake()}} 
-if (e.which == 83) { if ($newText2[$el].substr(0,1)=="S"){ $('#'+value2)[0].click();}else{ mistake()}} 
-if (e.which == 84) { if ($newText2[$el].substr(0,1)=="T"){ $('#'+value2)[0].click();}else{ mistake()}} 
-if (e.which == 85) { if ($newText2[$el].substr(0,1)=="U"){ $('#'+value2)[0].click();}else{ mistake()}} 
-if (e.which == 86) { if ($newText2[$el].substr(0,1)=="V"){ $('#'+value2)[0].click();}else{ mistake()}} 
-if (e.which == 87) { if ($newText2[$el].substr(0,1)=="W"){ $('#'+value2)[0].click();}else{ mistake()}} 
-if (e.which == 88) { if ($newText2[$el].substr(0,1)=="X"){ $('#'+value2)[0].click();}else{ mistake()}} 
-if (e.which == 89) { if ($newText2[$el].substr(0,1)=="Y"){ $('#'+value2)[0].click();}else{ mistake()}} 
-if (e.which == 90) { if ($newText2[$el].substr(0,1)=="Z"){ $('#'+value2)[0].click();}else{ mistake()}} 
+//if ((e.which >= 65) && (e.which <= 90)) { value2=$newText2[$el].replace('?','').replace("'",'').replace(',','').replace('(','').replace(')','')}
+// if (e.which == 65) { if ($newText2[$el].substr(0,1)=="A"){ $('#'+value2)[0].click();}else{ mistake()}} 
+// if (e.which == 66) { if ($newText2[$el].substr(0,1)=="B"){ $('#'+value2)[0].click();}else{ mistake()}} 
+// if (e.which == 67) { if ($newText2[$el].substr(0,1)=="C"){ $('#'+value2)[0].click();}else{ mistake()}} 
+// if (e.which == 68) { if ($newText2[$el].substr(0,1)=="D"){ $('#'+value2)[0].click();}else{ mistake()}} 
+// if (e.which == 69) { if ($newText2[$el].substr(0,1)=="E"){ $('#'+value2)[0].click();}else{ mistake()}} 
+// if (e.which == 70) { if ($newText2[$el].substr(0,1)=="F"){ $('#'+value2)[0].click();}else{ mistake()}} 
+// if (e.which == 71) { if ($newText2[$el].substr(0,1)=="G"){ $('#'+value2)[0].click();}else{ mistake()}} 
+// if (e.which == 72) { if ($newText2[$el].substr(0,1)=="H"){ $('#'+value2)[0].click();}else{ mistake()}} 
+// if (e.which == 73) { if ($newText2[$el].substr(0,1)=="I"){ $('#'+value2)[0].click();}else{ mistake()}} 
+// if (e.which == 74) { if ($newText2[$el].substr(0,1)=="J"){ $('#'+value2)[0].click();}else{ mistake()}} 
+// if (e.which == 75) { if ($newText2[$el].substr(0,1)=="K"){ $('#'+value2)[0].click();}else{ mistake()}} 
+// if (e.which == 76) { if ($newText2[$el].substr(0,1)=="L"){ $('#'+value2)[0].click();}else{ mistake()}} 
+// if (e.which == 77) { if ($newText2[$el].substr(0,1)=="M"){ $('#'+value2)[0].click();}else{ mistake()}} 
+// if (e.which == 78) { if ($newText2[$el].substr(0,1)=="N"){ $('#'+value2)[0].click();}else{ mistake()}} 
+// if (e.which == 79) { if ($newText2[$el].substr(0,1)=="O"){ $('#'+value2)[0].click();}else{ mistake()}} 
+// if (e.which == 80) { if ($newText2[$el].substr(0,1)=="P"){ $('#'+value2)[0].click();}else{ mistake()}} 
+// if (e.which == 81) { if ($newText2[$el].substr(0,1)=="Q"){ $('#'+value2)[0].click();}else{ mistake()}} 
+// if (e.which == 82) { if ($newText2[$el].substr(0,1)=="R"){ $('#'+value2)[0].click();}else{ mistake()}} 
+// if (e.which == 83) { if ($newText2[$el].substr(0,1)=="S"){ $('#'+value2)[0].click();}else{ mistake()}} 
+// if (e.which == 84) { if ($newText2[$el].substr(0,1)=="T"){ $('#'+value2)[0].click();}else{ mistake()}} 
+// if (e.which == 85) { if ($newText2[$el].substr(0,1)=="U"){ $('#'+value2)[0].click();}else{ mistake()}} 
+// if (e.which == 86) { if ($newText2[$el].substr(0,1)=="V"){ $('#'+value2)[0].click();}else{ mistake()}} 
+// if (e.which == 87) { if ($newText2[$el].substr(0,1)=="W"){ $('#'+value2)[0].click();}else{ mistake()}} 
+// if (e.which == 88) { if ($newText2[$el].substr(0,1)=="X"){ $('#'+value2)[0].click();}else{ mistake()}} 
+// if (e.which == 89) { if ($newText2[$el].substr(0,1)=="Y"){ $('#'+value2)[0].click();}else{ mistake()}} 
+// if (e.which == 90) { if ($newText2[$el].substr(0,1)=="Z"){ $('#'+value2)[0].click();}else{ mistake()}} 
 });  
   }
 
@@ -41,6 +41,9 @@ function select_type_training_(){
          $getSentence=arr_English[number_video].toUpperCase();
          $getSentence=$getSentence.replace(/\./g, "");
     $getRus=arr_Rus[number_video].toUpperCase();
+    $start=start_video[number_video]
+    $end=end_video[number_video]
+    $get_base_course_id=arr_base_course_id[number_video]
     //$(".input2").show()
    if ($("#type_training_button").text()=='Сложить слова') {put_words_right_written_cod();}
    if ($("#type_training_button").text()=='Первые буквы (...)') {first_letter___written_cod();}
@@ -132,6 +135,13 @@ function try_training_cod()   {
 
 function edit_base() {
 
+  if ($sound_type=="video") {
+    $(".start_video" ).val($start); 
+    $(".end_video" ).val($end);
+  }
+
+  $(".start_video" ).hide(); 
+  $(".end_video" ).hide();
   $(".rus_" ).val($getRus).hide(); 
   $(".eng_" ).val($getSentence).hide();
   $(".arr_base_course_id_" ).val($get_base_course_id).hide();
@@ -149,6 +159,12 @@ $(".edit_password").on('input', function () {
 
   
   $(".edit_password" ).hide();
+
+if ($sound_type=="video") {
+  $(".start_video" ).show();
+  $(".end_video" ).show();
+}
+  //$(".arr_base_course_id_" ).show();
   $(".rus_" ).show();
   $(".eng_" ).show();
   $(".edit_button" ).show();
@@ -266,6 +282,7 @@ function select_sentense()   {
                      $getRus=arr_Rus[i].toUpperCase();
                      $getQuantity=arr_quantity[i];
                      $get_base_course_id=arr_base_course_id[i];
+
                      if ($sound_type=="video") {
                       $start=arr_start[i]
                       $end=arr_end[i]
@@ -299,6 +316,7 @@ function write_in_memory(){
                       $getSentence=$getSentence.replace(/\./g, "");
                      $getRus=arr_Rus[i].toUpperCase();
                      $getQuantity=arr_quantity[i];
+                     console.log("1")
                      if ($sound_type=="video") {
                       $start=arr_start[i]
                       $end=arr_end[i]
@@ -340,11 +358,13 @@ function select_old_sentense()   {
                      $getRus=arr_Rus[i].toUpperCase();
                      $getQuantity=arr_quantity[i];
                      $get_base_course_id=arr_base_course_id[i];
+
                      if ($sound_type=="video") {
                       $start=arr_start[i]
                       $end=arr_end[i]
                       $adress=arr_adress[i]
                      }
+
                      $number_in_array=i
                      setTimeout(polygon,1500);
                      row_new=i
@@ -400,7 +420,9 @@ function select_test_sentense()   {
                      $getRus=arr_Rus[i].toUpperCase();
                      $getQuantity=arr_quantity[i];
                      $get_base_course_id=arr_base_course_id[i];
+                     console.log("4")
                      if ($sound_type=="video") {
+                      console.log("4")
                       $start=arr_start[i]
                       $end=arr_end[i]
                       $adress=arr_adress[i]
@@ -508,8 +530,6 @@ $quantity_test_All=0
             
                 $("#test").text("Экзамен ("+$quantity_test+" из "+$quantity_test_All+")");
 }
-
-
 function quantity_leanrt()   {
 $quantity_learnt=0
 
@@ -931,7 +951,7 @@ function put_letters_right_written()   {
 
 
 function put_words_right_written_cod()   {
-
+ 
                training_type=1
                clear_table()   
                $el=0;

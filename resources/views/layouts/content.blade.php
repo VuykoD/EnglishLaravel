@@ -31,7 +31,9 @@
 
                         <div id="headerSeparator2"></div>
  </div>
- <div class="absolute_auth">
+ <div class="row-fluid absolute_auth">
+      <div class="span12"> 
+        <div class="container">
          <div @guest  class="unvisible" @endguest>
                           <a href="video?user=@guest none @else{{Auth::user()->id}}@endguest&type=9">
                                <div class=" span8 four_block pull-left" id="block1">  
@@ -78,6 +80,8 @@
                           </a>  
 
            </div>
+      </div>  
+   </div>        
 </div>
 
 <div id="contentOuterSeparator"></div>
@@ -121,14 +125,14 @@ window.onload = function (){
 alert("{{$message}}")}
 @endif
 }
-$('#block1').mouseenter(function(){$(this).animate({opacity: "1"},500,"swing" );})
-$('#block1').mouseleave(function(){$(this).animate({opacity: ".2"},800,"swing" );})
-$('#block2').mouseenter(function(){$(this).animate({opacity: "1"},500,"swing" );})
-$('#block2').mouseleave(function(){$(this).animate({opacity: ".2"},800,"swing" );})
-$('#block3').mouseenter(function(){$(this).animate({opacity: "1"},500,"swing" );})
-$('#block3').mouseleave(function(){$(this).animate({opacity: ".2"},800,"swing" );})
-$('#block4').mouseenter(function(){$(this).animate({opacity: "1"},500,"swing" );})
-$('#block4').mouseleave(function(){$(this).animate({opacity: ".2"},800,"swing" );})
+$('#block1').mouseenter(function(){$(this).animate({opacity: "1"},200,"swing" );})
+$('#block1').mouseleave(function(){$(this).animate({opacity: ".2"},300,"swing" );})
+$('#block2').mouseenter(function(){$(this).animate({opacity: "1"},200,"swing" );})
+$('#block2').mouseleave(function(){$(this).animate({opacity: ".2"},300,"swing" );})
+$('#block3').mouseenter(function(){$(this).animate({opacity: "1"},200,"swing" );})
+$('#block3').mouseleave(function(){$(this).animate({opacity: ".2"},300,"swing" );})
+$('#block4').mouseenter(function(){$(this).animate({opacity: "1"},200,"swing" );})
+$('#block4').mouseleave(function(){$(this).animate({opacity: ".2"},300,"swing" );})
 
 
 

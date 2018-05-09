@@ -16,7 +16,7 @@
                     </a>
                     
                     <select class="select" id="select_new">
-                        <option  hidden>6</option>
+                        <option  hidden>5</option>
                         <option>3</option> <option>4</option> <option>5</option> <option>6</option>
                         <option>7</option> <option>8</option> <option>9</option> <option>10</option>
                         <option>11</option> <option>12</option> 
@@ -308,12 +308,23 @@
 <p align="center" class="microphon"><meter class="meter2" value="0" max="100"  optimum="1"></meter><br><textarea   placeholder="Повторите сколько успеете. Наведите мышку" id ="repeat"></textarea></p>
 <p align="center" class="prompt2"></p>
 <p align="center" class="prompt3"><button class="prompt_button btn btn-info btn-large">Подсказка</button></p>
+
+ @guest
+      @else
+ @if (Auth::user()->id==1)
 <p align="center" class="edit"><input class="edit_password"  type="password" placeholder="password"/>
     <center>
     <input class="arr_base_course_id_" name="arr_base_course_id_"/>    
-    <input class="eng_ edit_base" name="eng_"/><button type="submit" class="edit_button btn btn-secondary">Редактировать</button><input class="rus_ edit_base" name="rus_"/>
+    <input class="start_video" name="start_video"/>
+    <input class="end_video" name="end_video"/>
+    <input class="eng_ edit_base" name="eng_"/>
+    <button type="submit" class="edit_button btn btn-secondary">Редактировать</button>
+    <input class="rus_ edit_base" name="rus_"/>
     </center>
 </p>
+
+    @endif                             
+ @endguest
 
 </div>
 </div>
@@ -333,9 +344,9 @@
 
 
 
-
-
-
+ @guest
+      @else
+ @if (Auth::user()->id==1)
 <script type="text/javascript">
     $.ajaxSetup({
         headers: {
@@ -351,11 +362,10 @@
 
 
         var arr_base_course_id_ = $("input[name=arr_base_course_id_]").val();
-
         var eng_ = $("input[name=eng_]").val();
-
         var rus_ = $("input[name=rus_]").val();
-
+        var start_video = $("input[name=start_video]").val();
+        var end_video = $("input[name=end_video]").val();
         var sound_type = $sound_type;
 
 
@@ -366,7 +376,7 @@
 
            url:'/ajaxRequest',
 
-           data:{sound_type:sound_type, arr_base_course_id_:arr_base_course_id_, eng_:eng_, rus_:rus_, _token: '{{csrf_token()}}'},
+           data:{sound_type:sound_type, arr_base_course_id_:arr_base_course_id_, eng_:eng_, rus_:rus_, start_video:start_video, end_video:end_video, _token: '{{csrf_token()}}'},
 
            success:function(data){
               $(".rus_" ).hide();
@@ -376,6 +386,11 @@
   $getRus=rus_;
   arr_English[$number_in_array]=eng_;
   arr_Rus[$number_in_array]=rus_;
+  arr_start[$number_in_array]=start_video;
+  arr_end[$number_in_array]=end_video;
+  $start=start_video;
+  $end=end_video;
+
   if (training_type==1){put_words_right_written_cod()}
   if (training_type==2){written_yes_no_cod()}
   if (training_type==3){put_words_right_audition_cod()}
@@ -403,7 +418,8 @@
 
 </script>
 
-
+    @endif                             
+ @endguest
 
 
 
@@ -429,7 +445,8 @@ for ( var i=1; i <= 12; i++){ $(".IDontknow"+i ).hide()}
         if (day<10) {day="0"+day};
         if (month<10) {month="0"+month};  
        today = d.getFullYear() + '-' + month+ '-' + day  ;
-      
+
+          
           video_=0;
           max_task=0;
           test=0;
@@ -448,13 +465,17 @@ for ( var i=1; i <= 12; i++){ $(".IDontknow"+i ).hide()}
         row_mistake=[];
     $('#select_new option:selected').text()
  @guest
+        arr_English=[];
+        arr_Rus=[];
+         arr_id=[];
+         arr_quantity=[];
+         arr_date=[];
+         arr_base_course_id=[];
+         $sound_type="{{$type}}";
  @else
                         
         arr_English=[@foreach ($my_table as $list)"{{$list->base_course->english}}",@endforeach] 
         arr_Rus=[@foreach ($my_table as $list)'{{$list->base_course->russian}}',@endforeach] 
-
-
-
          arr_id=[@foreach ($my_table as $list)'{{$list['id']}}',@endforeach]  
          arr_quantity=[@foreach ($my_table as $list)'{{$list['quantity']}}',@endforeach]
          arr_date=[@foreach ($my_table as $list)'{{$list['next_date']}}',@endforeach]
