@@ -10140,7 +10140,7 @@
 		 * Note that the `pageLength` property will be automatically set to the
 		 * first value given in this array, unless `pageLength` is also provided.
 		 *  @type array
-		 *  @default [ 10, 25, 50, 100 ]
+		 *  @default [ 15, 25, 50, 100 ]
 		 *
 		 *  @dtopt Option
 		 *  @name DataTable.defaults.lengthMenu
@@ -10148,11 +10148,11 @@
 		 *  @example
 		 *    $(document).ready( function() {
 		 *      $('#example').dataTable( {
-		 *        "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]]
+		 *        "lengthMenu": [[15, 25, 50, -1], [15, 25, 50, "All"]]
 		 *      } );
 		 *    } );
 		 */
-		"aLengthMenu": [ 10, 25, 50, 100 ],
+		"aLengthMenu": [ 15, 25, 50, 100 ],
 	
 	
 		/**
@@ -10356,7 +10356,7 @@
 	
 		/**
 		 * Allows the end user to select the size of a formatted page from a select
-		 * menu (sizes are 10, 25, 50 and 100). Requires pagination (`paginate`).
+		 * menu (sizes are 15, 25, 50 and 100). Requires pagination (`paginate`).
 		 *  @type boolean
 		 *  @default true
 		 *
@@ -11156,7 +11156,7 @@
 		 *      } );
 		 *    } )
 		 */
-		"iDisplayLength": 10,
+		"iDisplayLength": 15,
 	
 	
 		/**

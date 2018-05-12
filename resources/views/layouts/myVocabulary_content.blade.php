@@ -1,12 +1,34 @@
 <script src="js/jquery.min.js"></script>
-<link rel="stylesheet" type="text/css" href="js/DataTables/datatables.min.css"/>
+<link rel="stylesheet" type="text/css" href="js/DataTables/datatables.css"/>
  
-<script type="text/javascript" src="js/DataTables/datatables.min.js"></script>
+<script type="text/javascript" src="js/DataTables/datatables.js"></script>
 
 
 <script>
 $(document).ready(function() {
-    $('#example').DataTable();
+    $('#example').DataTable({
+      "columnDefs": [
+            {
+                "targets": [ 0 ],
+                "searchable": false
+            },
+            {
+                "targets": [ 1 ],
+                "orderable": false,
+                "searchable": false
+            },
+            {
+               "targets": [ 2 ],
+                "orderable": false,
+                "searchable": false
+            },
+            {
+               "targets": [ 7 ],
+                "searchable": false
+            } 
+        ]
+    }
+      );
 } );
 </script> 
 
@@ -27,19 +49,6 @@ $(document).ready(function() {
             </tr>
         </thead>
         <tbody Class="rows">
-        </tfoot>
-        <thead>
-            <tr>
-                <th>№</th>
-                <th>Начало</th>
-                <th>Конец</th>
-                <th>Английский</th>
-                <th>Русский</th>
-                <th>id-курса</th>
-                <th>Кол.</th>
-                <th>Дата</th>
-            </tr>
-        </thead>
     </table>
    <br>
   </div> 
