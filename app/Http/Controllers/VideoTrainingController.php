@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Video_time;
 use Illuminate\Http\Request;
+use App\Progresses_of_video;
 
 class VideoTrainingController extends Controller
 {
@@ -25,6 +26,7 @@ class VideoTrainingController extends Controller
         } else {
             $hide_title = 'visible_none';
         }
+
 
         //dd($video_time->toArray());
         return view('video_training')->with([

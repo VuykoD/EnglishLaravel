@@ -43,7 +43,7 @@ $(document).ready(function() {
                 <th>Конец</th>
                 <th>Английский</th>
                 <th>Русский</th>
-                <th>id-курса</th>
+                <th>Название</th>
                 <th>Кол.</th>
                 <th>Дата</th>
             </tr>
@@ -58,6 +58,7 @@ $(document).ready(function() {
 <!-- @foreach ($my_table as $list)
    {{$loop->index+1}} -
    {{$list['id']}} -
+   {{$list->youtube->name}} - 
    {{$list->base_course->english}} - 
    {{$list->base_course->russian}} -
    {{$list['quantity']}} -
@@ -73,7 +74,6 @@ $(document).ready(function() {
 
 $myVocabulary = {!!$my_table!!}
 
-console.log($myVocabulary)
 function list()   { 
 $.each($myVocabulary,function(index,value) {
   var $index1=index+1
@@ -85,7 +85,7 @@ $.each($myVocabulary,function(index,value) {
     '<td>' +value['base_course']['end_']+"</td>"+
     '<td>' +value['base_course']['english']+"</td>"+
     '<td>' +value['base_course']['russian']+"</td>"+
-    '<td>' +value['base_course']['id_video_name']+"</td>"+
+    '<td>' +value['youtube']['name']+"</td>"+
     '<td>' +value['quantity']+"</td>"+
     '<td>' +value['next_date']+"</td>"+
     "</tr>"

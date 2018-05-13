@@ -18,7 +18,12 @@ class VideoController extends Controller
 
         	$video = Video_name::latest()->get();
 
-        	 return view('video')->with(['video'=>$video,'type'=>$type]);
+            foreach ($video as $video_item) {
+            	$count = Video_time::where('id_video_name',$video_item['id'])->count();
+            	$video_item->count= $count;
+             }
+
+        	 return view('video')->with(['video'=>$video,'type'=>$type,]);
 
         	
         }

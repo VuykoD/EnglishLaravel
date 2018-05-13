@@ -7,26 +7,25 @@
 
                 <div class="span12">
 @if(Session::has('message'))
-        {{Session::get('message')}}
-    @endif
+     {{Session::get('message')}}
+@endif
 
                         <ul id="tiles_2"> 
 
  @foreach ($video as $item)
                 <li class ="none_user_message"><article class="youtube video flex-video pull-left">
-                <a href="@guest # @else video_training?user={{Auth::user()->id}}&adress={{ $item['path_youtube']}}&number={{$item['id']}}&hide_title={{$item['hide']}}@endguest">    
+                <a href="video_training?user={{Auth::user()->id}}&adress={{ $item['path_youtube']}}&number={{$item['id']}}&hide_title={{$item['hide']}}">    
                 <img src="images/video/{{$item['id']}}.jpg" class="img_for_video" ></a></article>
                 <div class="pull-right"><div class="meta"><span>{{$item['type']}}</span>
                 <span class="pull-right">{{$item['level']}}</span></div>
                 <div class="list-group"><button type="button" class="list-group-item list-group-item-warning height_45">
-                <img src="images/sort/puzzle.png" class="img-sort pull-left"><span>0 предложений, 0 слов</span></button>
+                <img src="images/sort/puzzle.png" class="img-sort pull-left"><center><span>Предложений: {{$item['count']}}</span></center></button>
                 <h5 align="center">{{$item['name']}}</h5></div></li>
                 @if ($loop->index==1)
                     @break
                 @endif
 @endforeach  
 
-                         
 
                           
                 </div>
@@ -86,15 +85,15 @@
                  <li class ="height250 {{$item['level']}} {{$item['type']}} none_user_message">
 
                 
-                <a href="@guest # @else video_training?user={{Auth::user()->id}}&adress={{ $item['path_youtube']}}&number={{$item['id']}}&hide_title={{$item['hide']}}@endguest">  
+                <a href="video_training?user={{Auth::user()->id}}&adress={{ $item['path_youtube']}}&number={{$item['id']}}&hide_title={{$item['hide']}}">  
                 <img src="images/video/{{$item['id']}}.jpg" class="img_for_video margin_top_0" ></a>
                 <div class="pull-right"><div class="meta"><span>{{$item['type']}}</span>
                 <span class="pull-right">{{$item['level']}}</span></div>
                 <div class="list-group"><button type="button" class="list-group-item list-group-item-warning height_45">
-                <img src="images/sort/puzzle.png" class="img-sort pull-left"><span>0 предложений, 0 слов</span></button>
+                <img src="images/sort/puzzle.png" class="img-sort pull-left"><center><span>Предложений: {{$item['count']}}</span></center></button>
                 <h5 align="center">{{$item['name']}}</h5></div></li>
                 @endif
-                @if ($loop->index==19)
+                @if ($loop->index==100)
                     @break
                 @endif
 @endforeach 
