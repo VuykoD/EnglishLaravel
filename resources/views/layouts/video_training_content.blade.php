@@ -72,8 +72,16 @@
 
 </div>
 </div>
-<br><br><br><br>
 <br>
+
+ @guest
+      @else
+ @if (Auth::user()->id==1)
+
+
+
+
+<br><br><br><br>
 <div class="container">
    <div class="row-fluid">
 <table id="example" class="display" style="width:100%">
@@ -95,14 +103,6 @@
 <br>
 <br><br><br><br>
 
-
-
-  
-
-
- @guest
-      @else
- @if (Auth::user()->id==1)
 
 <script type="text/javascript">
     $.ajaxSetup({
@@ -139,6 +139,32 @@ $(document).on('click', '.edit_button', function(e) {
 
   });
 });
+</script>
+
+<script type="text/javascript">
+
+$myVocabulary = {!!$video_time!!}
+
+function list()   { 
+$.each($myVocabulary,function(index,value) {
+  var $index1=index+1
+  //$(".costumer").text($text+$(this)[0]['id']+" - ");
+  $(".rows").append(
+    '<tr>'+
+    '<td>' +$index1+"</td>"+
+    '<td><input class="id ' +$index1+'row" style="width:50px" value=' +value['id']+"></input></td>"+
+    '<td><input class="start ' +$index1+'row" style="width:50px" value=' +value['start_']+"></input></td>"+
+    '<td><input class="end ' +$index1+'row" style="width:50px" value=' +value['end_']+"></input></td>"+
+    '<td><input class="english ' +$index1+'row" style="width:500px" value="' +value['english']+'"></input></td>'+
+    '<td><input class="russian ' +$index1+'row" style="width:500px" value="' +value['russian']+'"></input></td>'+
+    '<td><btn class="btn sound ' +$index1+'row">S</btn></td>'+
+    '<td><btn class="btn edit_button ' +$index1+'row">E</btn></td>'+
+    "</tr>"
+    );
+})
+}
+list() 
+
 </script>
 
 
@@ -239,31 +265,7 @@ $(".height320").css("display","none")
 </script>
 
 
-<script type="text/javascript">
 
-$myVocabulary = {!!$video_time!!}
-
-function list()   { 
-$.each($myVocabulary,function(index,value) {
-  var $index1=index+1
-  //$(".costumer").text($text+$(this)[0]['id']+" - ");
-  $(".rows").append(
-    '<tr>'+
-    '<td>' +$index1+"</td>"+
-    '<td><input class="id ' +$index1+'row" style="width:50px" value=' +value['id']+"></input></td>"+
-    '<td><input class="start ' +$index1+'row" style="width:50px" value=' +value['start_']+"></input></td>"+
-    '<td><input class="end ' +$index1+'row" style="width:50px" value=' +value['end_']+"></input></td>"+
-    '<td><input class="english ' +$index1+'row" style="width:500px" value="' +value['english']+'"></input></td>'+
-    '<td><input class="russian ' +$index1+'row" style="width:500px" value="' +value['russian']+'"></input></td>'+
-    '<td><btn class="btn sound ' +$index1+'row">S</btn></td>'+
-    '<td><btn class="btn edit_button ' +$index1+'row">E</btn></td>'+
-    "</tr>"
-    );
-})
-}
-list() 
-
-</script>
 
 
 
