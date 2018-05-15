@@ -112,6 +112,7 @@ margin-top:-2px;padding-top:2px;
 .vocabulary {width: 800px;margin-top: 0px;}
 .fixed {position:fixed; display: block; background: white; z-index: 3;}
 .color_grey{background-color: rgb(230,230,230); margin-left:  -130px !important; margin-top:  -30px !important; padding: 20px 100px 20px 100px; }
+.odd {background: #49afcd; border: 1px solid grey;height: 45px}
 
 /* Menu Centered */
 

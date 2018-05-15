@@ -101,6 +101,7 @@
   </div> 
 </div>   
 <br>
+<center><button class="btn btn-info btn-large add_row">Добавить строку</button></center>
 <br><br><br><br>
 
 
@@ -115,9 +116,21 @@
 $(document).on('click', '.edit_button', function(e) {
   e.preventDefault();
 
+  $_row="edit";
+
   var $string= $(this).attr('class').split(' ');
   var $row=$string[2];
-  console.log($row)
+  if ($(this).hasClass('save_button')){
+    $_row="new";
+    $(this).removeClass('btn-danger')
+    $(this).removeClass('save_button')
+    $(this).addClass('btn-success')
+  }
+
+  if ($(this).hasClass('delete_row')){
+    $_row="delete";
+    
+  }
 
   var arr_base_course_id_ = $("input.id."+$row).val();
   var start_video=$("input.start."+$row).val();
@@ -130,41 +143,66 @@ $(document).on('click', '.edit_button', function(e) {
 
      type:'POST',
      url:'/ajaxRequest',
-     data:{sound_type:sound_type, arr_base_course_id_:arr_base_course_id_, eng_:eng_, rus_:rus_, start_video:start_video, end_video:end_video, _token: '{{csrf_token()}}'},
+     data:{sound_type:sound_type, arr_base_course_id_:arr_base_course_id_, eng_:eng_, rus_:rus_, start_video:start_video, end_video:end_video, id_base:$id_base, _row:$_row, _token: '{{csrf_token()}}'},
 
-        success:function(data){
-
+        success:function(success){
+            console.log(success)
+            if ($_row=="new"){$('input.id.'+$row).val(success)}
+            if ($_row=="delete"){$("tr."+$row).remove()}        
             $video_.attr('src', src + '?autoplay=1&rel=0&start='+start_video+'&end='+end_video+'&rel=0');
         }
 
   });
 });
+
+
 </script>
 
 <script type="text/javascript">
-
+var $index1=0
 $myVocabulary = {!!$video_time!!}
-
+$id_base = {!!$id_base!!}
 function list()   { 
 $.each($myVocabulary,function(index,value) {
-  var $index1=index+1
+  $index1=index+1
   //$(".costumer").text($text+$(this)[0]['id']+" - ");
+  if ($index1 % 2 == 0){$odd="odd"};
+  if ($index1 % 2 == 1){$odd="eval"};
   $(".rows").append(
-    '<tr>'+
+    '<tr class="' +$index1+'row '+$odd+'">'+
     '<td>' +$index1+"</td>"+
-    '<td><input class="id ' +$index1+'row" style="width:50px" value=' +value['id']+"></input></td>"+
+    '<td><input class="id ' +$index1+'row" style="width:50px" value=' +value['id']+" disabled></input></td>"+
     '<td><input class="start ' +$index1+'row" style="width:50px" value=' +value['start_']+"></input></td>"+
     '<td><input class="end ' +$index1+'row" style="width:50px" value=' +value['end_']+"></input></td>"+
     '<td><input class="english ' +$index1+'row" style="width:500px" value="' +value['english']+'"></input></td>'+
     '<td><input class="russian ' +$index1+'row" style="width:500px" value="' +value['russian']+'"></input></td>'+
-    '<td><btn class="btn sound ' +$index1+'row">S</btn></td>'+
-    '<td><btn class="btn edit_button ' +$index1+'row">E</btn></td>'+
+    '<td><btn class="btn sound ' +$index1+'row btn-info">Sound</btn></td>'+
+    '<td><btn class="btn edit_button ' +$index1+'row btn-success">Save</btn></td>'+
+    '<td><btn class="btn edit_button ' +$index1+'row btn-inverse delete_row">Delete</btn></td>'+
     "</tr>"
     );
 })
 }
 list() 
 
+$(document).on('click', '.add_row', function() {
+  $index1++;
+  if ($index1 % 2 == 0){$odd="odd"};
+  if ($index1 % 2 == 1){$odd="eval"};
+  $(".rows").append(
+    '<tr class="' +$index1+'row '+$odd+'">'+
+    '<td>' +$index1+"</td>"+
+    '<td><input class="id ' +$index1+'row" style="width:50px" disabled' +"></input></td>"+
+    '<td><input class="start ' +$index1+'row" style="width:50px" ' +"></input></td>"+
+    '<td><input class="end ' +$index1+'row" style="width:50px" ' +"></input></td>"+
+    '<td><input class="english ' +$index1+'row" style="width:500px" ' +'"></input></td>'+
+    '<td><input class="russian ' +$index1+'row" style="width:500px" ' +'"></input></td>'+
+    '<td><btn class="btn sound ' +$index1+'row btn-info">Sound</btn></td>'+
+    '<td><btn class="btn edit_button ' +$index1+'row btn-danger save_button">Save</btn></td>'+
+    '<td><btn class="btn edit_button ' +$index1+'row btn-inverse delete_row">Delete</btn></td>'+
+    "</tr>"
+    );
+  })
 </script>
 
 
