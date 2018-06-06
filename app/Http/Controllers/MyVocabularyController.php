@@ -24,7 +24,7 @@ class MyVocabularyController extends Controller
             $my_table = 'none';
         }
          
-        return view('myVocabulary') ->with(['my_table'=>$my_table,'type'=>request('type')]);
+        return view('layouts/myVocabulary') ->with(['my_table'=>$my_table,'type'=>request('type')]);
 
     }
 }

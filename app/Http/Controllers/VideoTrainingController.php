@@ -29,7 +29,7 @@ class VideoTrainingController extends Controller
 
 
         //dd($video_time->toArray());
-        return view('video_training')->with([
+        return view('layouts/video_training')->with([
             'video_time' => $video_time,
             'adress' => $adress,
             'hide_title' => $hide_title,

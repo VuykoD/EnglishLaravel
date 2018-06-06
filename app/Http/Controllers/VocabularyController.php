@@ -145,7 +145,7 @@ class VocabularyController extends Controller
  
            
 
-        	 return view('welcome')->with(['message'=>$message]);;
+        	 return view('layouts/welcome')->with(['message'=>$message]);;
           
         }
 

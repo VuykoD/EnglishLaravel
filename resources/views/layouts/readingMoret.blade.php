@@ -1,4 +1,5 @@
-
+@extends('app')
+@section('content')
      <script src="js/random_voice.js"></script>
      <script src="js/training-phrase.js"></script>
      <script src="js/jquery.min.js" type="text/javascript"></script>    
@@ -348,4 +349,4 @@ context {
 
    </div>
  </div>
-
+@endsection

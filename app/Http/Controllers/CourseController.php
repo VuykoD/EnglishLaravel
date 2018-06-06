@@ -18,7 +18,7 @@ public function name(){
         	$id_course = Course_name::where('course_name',$course)->first()->id;
         	$course = Base_course::where('id_course',$id_course)->get();
         //dd($course);
-        	 return view('course')->with(['course'=>$course,'id_course'=>$id_course]);
+        	 return view('layouts/course')->with(['course'=>$course,'id_course'=>$id_course]);
           
         
 

@@ -1,3 +1,5 @@
+@extends('app')
+@section('content')
 <br>
 
 <div class="costumer">    
@@ -240,7 +242,7 @@
 </button>
 </div>    
 <div class="span1 border_1"> 
-        <label class="checkbox inline"><input type="checkbox" id="Sentence1_9" value="option1"  checked disabled>1 новое</label><br>
+        <label class="checkbox inline"><input type="checkbox" id="Sentence1_9" value="option1">1 новое</label><br>
         <label class="checkbox inline "><input type="checkbox" id="Sentence23_9" value="option2">2-6 повт.</label> 
          
  </div>
@@ -539,3 +541,4 @@ GoOn_();
 buttons();
         });
     </script>
+    @endsection

@@ -29,7 +29,7 @@ class TrainingController extends Controller
             $my_table = 'none';
         }
          
-        return view('training') ->with(['my_table'=>$my_table,'type'=>request('type')]);
+        return view('layouts/training') ->with(['my_table'=>$my_table,'type'=>request('type')]);
 
     }
 }

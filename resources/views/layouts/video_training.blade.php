@@ -1,4 +1,5 @@
-
+@extends('app')
+@section('content')
 
      <script src="js/jquery.min.js" type="text/javascript"></script>
 
@@ -301,7 +302,7 @@ $(document).on('click', '.sound', function() {
 
 $(".height320").css("display","none")
 </script>
-
+@endsection
 
 
 

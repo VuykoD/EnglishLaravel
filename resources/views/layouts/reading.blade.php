@@ -1,3 +1,5 @@
+@extends('app')
+@section('content')
 <div class="container">
 <div class="fixed">
 
@@ -121,4 +123,5 @@ function show_select(){
     if ($('#ifLearned').is(':checked') == true) {$('.learned').hide();}else{$('.learned').show();}
     }
 
-    </script>
+</script>
+@endsection

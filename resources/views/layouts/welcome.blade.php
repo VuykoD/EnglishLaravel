@@ -1,3 +1,5 @@
+@extends('app')
+@section('content')
 <div id="decorative1" ></div>
 
 <div class="row-fluid absolute_auth" >
@@ -137,3 +139,4 @@ $('#block4').mouseleave(function(){$(this).animate({opacity: ".2"},300,"swing" )
 
 
 </script>
+@endsection

@@ -15,7 +15,7 @@ class ReadingController extends Controller
 
         	$article = Reading::latest()->get();
 
-        	 return view('reading')->with(['article'=>$article,'type'=>$type]);
+        	 return view('layouts/reading')->with(['article'=>$article,'type'=>$type]);
 
         	
         }

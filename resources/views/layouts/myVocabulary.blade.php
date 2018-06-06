@@ -1,3 +1,5 @@
+@extends('app')
+@section('content')
 <script src="js/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="js/DataTables/datatables.css"/>
  
@@ -94,7 +96,7 @@ $.each($myVocabulary,function(index,value) {
 }
 list() 
 </script>
-
+@endsection
 
 
 

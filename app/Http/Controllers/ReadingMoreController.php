@@ -16,7 +16,7 @@ class ReadingMoreController extends Controller
         	$article = Reading::where('id',$index_id)->first();
 
              //dd($article_text);
-        	 return view('readingMore')->with(['article_text'=>$article->text,'article_name'=>$article->name,'index_id'=>$article->id]);
+        	 return view('layouts/readingMore')->with(['article_text'=>$article->text,'article_name'=>$article->name,'index_id'=>$article->id]);
 
     }
 }

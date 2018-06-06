@@ -869,6 +869,7 @@ function cycle_for_training(){
 
    show_training=0; 
   select_sentense() ;
+if(($("#Sentence1_10").prop('checked') == true) && (training_sentense_10==1)) {try_training_cod(); dictophon___cod2();return;}  
 if(($("#Sentence1_1").prop('checked') == true) && (training_sentense_1==1)) {try_training_cod(); put_words_right_written_cod();return;}
 if(($("#Sentence1_2").prop('checked') == true) && (training_sentense_2==1)) {try_training_cod(); written_yes_no_cod();return;}
 if(($("#Sentence1_3").prop('checked') == true) && (training_sentense_3==1)) {try_training_cod(); put_words_right_audition_cod();return;}

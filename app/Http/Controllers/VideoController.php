@@ -23,7 +23,7 @@ class VideoController extends Controller
             	$video_item->count= $count;
              }
 
-        	 return view('video')->with(['video'=>$video,'type'=>$type,]);
+        	 return view('layouts/video')->with(['video'=>$video,'type'=>$type,]);
 
         	
         }

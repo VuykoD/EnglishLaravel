@@ -1,4 +1,5 @@
-           
+@extends('app')
+@section('content')           
 
 <br>
                   @guest
@@ -112,4 +113,5 @@ window.speechSynthesis.speak(utterance);
             random_voice() ;
             }
 }
-    </script>
+</script>
+@endsection

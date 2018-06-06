@@ -1,4 +1,5 @@
-
+@extends('app')
+@section('content')
 <body id="pageBody">
 <div class="container">
 <div class="row-fluid color_grey">
@@ -178,3 +179,4 @@ $($level).hide();
 
     </script>
 </body>
+@endsection
