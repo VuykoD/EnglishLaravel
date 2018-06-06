@@ -11,6 +11,11 @@
     <link href="js/icons/general/stylesheets/general_foundicons.css" media="screen" rel="stylesheet" type="text/css" /> 
     <link href="js/icons/social/stylesheets/social_foundicons.css" media="screen" rel="stylesheet" type="text/css" /> 
     <link href="css/custom.css" rel="stylesheet" type="text/css" />
+
+    <script src="js/jquery.min.js"></script>
+
+
+   </script>
 </head>
 
 
@@ -39,8 +44,9 @@
                                <li class="dropdown">
                                     <a href="#about.html" class="dropdown-toggle">{{ Auth::user()->name }}<br><b class="caret"></b></a>
                                     <ul class="dropdown-menu">
-                                                        <li disabled><a href="myvocabulary?user=@guest none @else{{Auth::user()->id}}@endguest&type=video" class="disabled" disabled>Мой словарь</a></li>
-                                                        <li><a href="#2-column.html">Настройки</a></li>
+                                                        <li disabled><a href="myvocabulary?user=@guest none @else{{Auth::user()->id}}@endguest&type=video">Мой словарь</a></li>
+                                                        <li><a href="#" class="disabled" >История</a></li>
+                                                        <li><a href="#2-column.html" class="disabled">Настройки</a></li>
                                                         <li> <a class="dropdown-item" href="{{ route('logout') }}"
                                                                 onclick="event.preventDefault();
                                                                 document.getElementById('logout-form').submit();">
@@ -123,7 +129,7 @@
                                                         <li><a href="reading?type=1">Юмор</a></li>
                                                         <li><a href="reading?type=2">Цитаты</a></li>
                                                         <li><a href="reading?type=3">Советы</a></li>
-                                                        <li><a href="#2-column.html">Занимательные картинки</a></li>
+                                                        <!-- <li><a href="#2-column.html">Занимательные картинки</a></li> -->
                                     </ul>
                                 </li>
                                 <li class="dropdown ">
@@ -143,6 +149,7 @@
                                     <ul class="dropdown-menu">
 
                                                         <li><a href="game.php">Star wars</a></li>
+                                                        <li><a href="#game.php">Иследователи</a></li>
                                                         <li><a href="#2-column.html" disabled>ЗвукоДанетка</a></li>
                                                         <li><a href="#2-column.html" disabled>Тесты</a></li>
                                                         <li><a href="training?user=@guest none @else{{Auth::user()->id}}@endguest&type=video">Тренажеры</a></li>
@@ -162,3 +169,6 @@
 
     </div>
 </div>
+<script>
+      $('.disabled').attr('title',"на стадии разработки");
+</script>
