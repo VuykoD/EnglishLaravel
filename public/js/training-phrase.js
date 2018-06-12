@@ -4,35 +4,8 @@ $(document).keyup(function(e){
 if (e.which == 13) { $(".si-btn").click();}  
 if (e.which == 37) { $("#No").click();} 
 if (e.which == 39) { $("#Yes").click();} 
-//if ((e.which >= 65) && (e.which <= 90)) { value2=$newText2[$el].replace('?','').replace("'",'').replace(',','').replace('(','').replace(')','')}
-// if (e.which == 65) { if ($newText2[$el].substr(0,1)=="A"){ $('#'+value2)[0].click();}else{ mistake()}} 
-// if (e.which == 66) { if ($newText2[$el].substr(0,1)=="B"){ $('#'+value2)[0].click();}else{ mistake()}} 
-// if (e.which == 67) { if ($newText2[$el].substr(0,1)=="C"){ $('#'+value2)[0].click();}else{ mistake()}} 
-// if (e.which == 68) { if ($newText2[$el].substr(0,1)=="D"){ $('#'+value2)[0].click();}else{ mistake()}} 
-// if (e.which == 69) { if ($newText2[$el].substr(0,1)=="E"){ $('#'+value2)[0].click();}else{ mistake()}} 
-// if (e.which == 70) { if ($newText2[$el].substr(0,1)=="F"){ $('#'+value2)[0].click();}else{ mistake()}} 
-// if (e.which == 71) { if ($newText2[$el].substr(0,1)=="G"){ $('#'+value2)[0].click();}else{ mistake()}} 
-// if (e.which == 72) { if ($newText2[$el].substr(0,1)=="H"){ $('#'+value2)[0].click();}else{ mistake()}} 
-// if (e.which == 73) { if ($newText2[$el].substr(0,1)=="I"){ $('#'+value2)[0].click();}else{ mistake()}} 
-// if (e.which == 74) { if ($newText2[$el].substr(0,1)=="J"){ $('#'+value2)[0].click();}else{ mistake()}} 
-// if (e.which == 75) { if ($newText2[$el].substr(0,1)=="K"){ $('#'+value2)[0].click();}else{ mistake()}} 
-// if (e.which == 76) { if ($newText2[$el].substr(0,1)=="L"){ $('#'+value2)[0].click();}else{ mistake()}} 
-// if (e.which == 77) { if ($newText2[$el].substr(0,1)=="M"){ $('#'+value2)[0].click();}else{ mistake()}} 
-// if (e.which == 78) { if ($newText2[$el].substr(0,1)=="N"){ $('#'+value2)[0].click();}else{ mistake()}} 
-// if (e.which == 79) { if ($newText2[$el].substr(0,1)=="O"){ $('#'+value2)[0].click();}else{ mistake()}} 
-// if (e.which == 80) { if ($newText2[$el].substr(0,1)=="P"){ $('#'+value2)[0].click();}else{ mistake()}} 
-// if (e.which == 81) { if ($newText2[$el].substr(0,1)=="Q"){ $('#'+value2)[0].click();}else{ mistake()}} 
-// if (e.which == 82) { if ($newText2[$el].substr(0,1)=="R"){ $('#'+value2)[0].click();}else{ mistake()}} 
-// if (e.which == 83) { if ($newText2[$el].substr(0,1)=="S"){ $('#'+value2)[0].click();}else{ mistake()}} 
-// if (e.which == 84) { if ($newText2[$el].substr(0,1)=="T"){ $('#'+value2)[0].click();}else{ mistake()}} 
-// if (e.which == 85) { if ($newText2[$el].substr(0,1)=="U"){ $('#'+value2)[0].click();}else{ mistake()}} 
-// if (e.which == 86) { if ($newText2[$el].substr(0,1)=="V"){ $('#'+value2)[0].click();}else{ mistake()}} 
-// if (e.which == 87) { if ($newText2[$el].substr(0,1)=="W"){ $('#'+value2)[0].click();}else{ mistake()}} 
-// if (e.which == 88) { if ($newText2[$el].substr(0,1)=="X"){ $('#'+value2)[0].click();}else{ mistake()}} 
-// if (e.which == 89) { if ($newText2[$el].substr(0,1)=="Y"){ $('#'+value2)[0].click();}else{ mistake()}} 
-// if (e.which == 90) { if ($newText2[$el].substr(0,1)=="Z"){ $('#'+value2)[0].click();}else{ mistake()}} 
 });  
-  }
+}
 
 function select_type_training_(){
   if (number_video>=arr_English.length) {$("#new_training1").show();$(".height320").css("display","none") ;$(".over").css("display","none");return}
@@ -1294,9 +1267,10 @@ function put_words_right_written_cod()   {
 };
 
 function audition_yes_no()   {        
-            $("#audition_yes_no").on("click", function () {
+            $("#audition_yes_no, #sound_yes_no").on("click", function () {
+              $game=$(this).attr('name');
               $sentense=1
-             show_training1() 
+              show_training1() 
               audition_yes_no_cod() 
             });
 };
@@ -1346,7 +1320,7 @@ function audition_letters_yes_no()   {
           meter_();
           $yes_no=1;  $yes_no=0; $false_sent=0;$(this).removeClass("btn-info").addClass("btn-success");  $('#time_game').text(1*$('#time_game').text()+25*$koef)//random_voice(); $falseSentence1= 'right';
       
-          
+            if ($game=="sound_yes_no"){random_selelect_sentense();setTimeout(audition_yes_no_cod, 500);return;}
            if (cycle==0){setTimeout(hide_training, 500);return;}
                if (task_new>=max_task-1){   show_training=1  }
                 if(show_training==1){
@@ -1373,6 +1347,7 @@ function audition_letters_yes_no()   {
         if ($false_sent==0){
           meter_();
            $yes_no=1; $yes_no=0;$(this).removeClass("btn-info").addClass("btn-success");  $('#time_game').text(1*$('#time_game').text()+25*$koef)// random_voice(); $falseSentence1= 'right'
+            if ($game=="sound_yes_no"){random_selelect_sentense();setTimeout(audition_yes_no_cod, 500);return;}
             if (cycle==0){setTimeout(hide_training, 500);return;}
                if (task_new>=max_task-1){   show_training=1  }
                 if(show_training==1){

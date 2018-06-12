@@ -7,7 +7,7 @@
                    <div class="container">
                     <div class="row-fluid">
                     <div class="span2">
-                      <center>  <a href="training?user=@guest none @else{{Auth::user()->id}}@endguest&type=video" class="btn btn-primary btn-large ">из видео</a>  </center>
+                      <center><a href="training?user=@guest none @else{{Auth::user()->id}}@endguest&type=video" class="btn btn-primary btn-large centered_menu_2">из видео</a></center>
                     </div>
                     <div class="span8">
                       <center>  
@@ -41,6 +41,12 @@
                         <option>3</option> <option>4</option> <option>5</option> <option>6</option>
                         <option>7</option> <option>8</option> <option>9</option> <option>10</option>
                         <option>11</option> <option>12</option> 
+                      </select>
+
+                      <a class="btn btn-primary btn-large centered_menu_2 training" id="sound_yes_no" name="sound_yes_no">звукоДанетка</a>
+                      <select class="select" id="select_sound_yes_no">
+                        <option hidden>30 cек</option>
+                        <option>30 сек</option> <option>1 мин</option>2 мин<option>3 мин</option>
                       </select>
 
                       
