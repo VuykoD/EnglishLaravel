@@ -1271,6 +1271,7 @@ function audition_yes_no()   {
               $game=$(this).attr('name');
               $sentense=1
               show_training1() 
+              if ($game=="sound_yes_no"){setTimeout(hide_training, 1000);return;}
               audition_yes_no_cod() 
             });
 };
@@ -1294,7 +1295,8 @@ function audition_letters_yes_no()   {
 
               var $el=0;
               $mistake=0;
-              
+       
+                         
                 
               $(".rus" ).append('<button class="btn btn-info btn-large">'+ $getRus+'</button>')
                 var randIndex = Math.floor(Math.random() * 2);
@@ -1319,7 +1321,7 @@ function audition_letters_yes_no()   {
         if ($false_sent==1){
           meter_();
           $yes_no=1;  $yes_no=0; $false_sent=0;$(this).removeClass("btn-info").addClass("btn-success");  $('#time_game').text(1*$('#time_game').text()+25*$koef)//random_voice(); $falseSentence1= 'right';
-      
+
             if ($game=="sound_yes_no"){random_selelect_sentense();setTimeout(audition_yes_no_cod, 500);return;}
            if (cycle==0){setTimeout(hide_training, 500);return;}
                if (task_new>=max_task-1){   show_training=1  }

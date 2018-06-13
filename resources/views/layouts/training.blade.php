@@ -43,12 +43,12 @@
                         <option>11</option> <option>12</option> 
                       </select>
 
-                      <a class="btn btn-primary btn-large centered_menu_2 training" id="sound_yes_no" name="sound_yes_no">звукоДанетка</a>
-                      <select class="select" id="select_sound_yes_no">
-                        <option hidden>30 cек</option>
-                        <option>30 сек</option> <option>1 мин</option>2 мин<option>3 мин</option>
-                      </select>
-
+                        <span  class = "training">
+                        <a class="btn btn-primary btn-large centered_menu_2" id="sound_yes_no" name="sound_yes_no">звукоДанетка</a>
+                        </span>
+                        <select class="select hidden1" disabled>
+                          <option>3</option>
+                        </select>
                       
                     
 
