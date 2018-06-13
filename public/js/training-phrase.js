@@ -1267,11 +1267,25 @@ function put_words_right_written_cod()   {
 };
 
 function audition_yes_no()   {        
-            $("#audition_yes_no, #sound_yes_no").on("click", function () {
-              $game=$(this).attr('name');
+  $("#audition_yes_no, #sound_yes_no").on("click", function () {
+  $game=$(this).attr('name');
+ if ($game=="sound_yes_no"){
+    $Time_sound_game=60000;
+    $(".timer_sound_game").css("display","block");
+    $(".timer_sound_game").show();
+    $(".meter3").attr('max',$Time_sound_game)
+  
+    setTimeout(hide_training, $Time_sound_game);
+    setTimeout(function(){return;}, $Time_sound_game);
+      var MyIntervalID =  setInterval (function(){
+        if ($(".meter3").val() < $Time_sound_game){
+          $(".meter3").val($(".meter3").val()+100) 
+        }
+      }, 100);
+  }
               $sentense=1
               show_training1() 
-              if ($game=="sound_yes_no"){setTimeout(hide_training, 1000);return;}
+              
               audition_yes_no_cod() 
             });
 };
@@ -1958,7 +1972,7 @@ function one_rus_4_eng_cod()   {
               $mistake=0;
                $(".rus" ).append('<button class="btn btn-info btn-large">'+ $getRus+'</button>')
                $(".input" ).children().remove();
-               $(".microphon" ).css("display","none");
+               // $(".microphon" ).css("display","none");
                var random_number=4
                if (video_==1) {random_number=3}
                 var randIndex2 = Math.floor(Math.random() * (random_number-1));
@@ -2011,7 +2025,7 @@ function one_eng_4_rus_cod()   {
               $mistake=0;
                
                $(".input" ).children().remove();
-               $(".microphon" ).css("display","none");
+               // $(".microphon" ).css("display","none");
                $(".rus" ).append('<button class="btn btn-info btn-large">'+ $getSentence+'</button>')
                var random_number=4
                if (video_==1) {random_number=3}
@@ -2080,7 +2094,7 @@ function four_rus_audition_cod()   {
                var $newText2=   $getSentence.split(" ");
                var $RightLenght=$newText2.length;
                $(".input" ).children().remove();
-               $(".microphon" ).css("display","none");
+               // $(".microphon" ).css("display","none");
    
                var random_number=4
                if (video_==1) {random_number=3}

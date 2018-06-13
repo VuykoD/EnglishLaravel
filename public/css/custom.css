@@ -559,7 +559,7 @@ button.list-group-item-warning:focus {
 .opasity_04 {opacity: 0.2;}
 meter{height: 7px; margin-bottom: 5px; padding: 0 7px 0 7px; border-radius: 3px;}
 .meter {width: 200px !important; margin-right: 15px;}
-.meter2 {width: 300px  !important; border-radius: 3px; }
+.meter2, .meter3 {width: 300px  !important; border-radius: 3px; }
 
 
 #startGame{z-index: 1000 !important; position: absolute; width: 14%; top: 120px; left: 43%;}

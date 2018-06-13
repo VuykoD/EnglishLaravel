@@ -290,6 +290,7 @@
 
     <br><button class="btn btn-success btn-large goOn">Перейти к обучению</button><br>
 </p>
+<p align="center" class="timer_sound_game"  style="display: none;"><meter class="meter3" value="0" max="100"  optimum="1"></meter></p>
 <div class="height320">
 <div class="container">
  <div class="row-fluid progress_">  
