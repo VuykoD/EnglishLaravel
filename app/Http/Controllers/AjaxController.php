@@ -12,6 +12,29 @@ class AjaxController extends Controller
 
 {
 
+public function ajaxRequestSoundGame() {
+
+ 
+  if (request('user_record')){
+    $exist_row_with_user=DB::table('statistics')->where('user_id', request('user_id'))->pluck('id')->first();
+
+    if ($exist_row_with_user==Null){
+      DB::table('statistics')->where('user_id', request('user_id'))->insert(['user_id'=>request('user_id'),'record_sound_game' => request('user_record')]);
+    }else{
+      DB::table('statistics')->where('user_id', request('user_id'))->update(['record_sound_game' => request('user_record')]);
+    }
+  }
+
+  $user_record=DB::table('statistics')->where('user_id', request('user_id'))->pluck('record_sound_game')->first();
+ 
+  if (!$user_record){
+    $user_record=0;
+  }
+  $site_record=DB::table('statistics')->pluck('record_sound_game')->max();
+
+  return response()->json(['$user_record'=>$user_record,'$site_record'=>$site_record]);
+} 
+
 public function ajaxRequest()
 
     {

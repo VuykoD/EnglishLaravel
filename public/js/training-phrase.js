@@ -1269,26 +1269,88 @@ function put_words_right_written_cod()   {
 function audition_yes_no()   {        
   $("#audition_yes_no, #sound_yes_no").on("click", function () {
   $game=$(this).attr('name');
- if ($game=="sound_yes_no"){
-    $Time_sound_game=60000;
-    $(".timer_sound_game").css("display","block");
-    $(".timer_sound_game").show();
-    $(".meter3").attr('max',$Time_sound_game)
-  
-    setTimeout(hide_training, $Time_sound_game);
-    setTimeout(function(){return;}, $Time_sound_game);
-      var MyIntervalID =  setInterval (function(){
-        if ($(".meter3").val() < $Time_sound_game){
-          $(".meter3").val($(".meter3").val()+100) 
-        }
-      }, 100);
-  }
+
+if ($game=="sound_yes_no"){
+  sound_yes_no_game();
+}
               $sentense=1
               show_training1() 
               
               audition_yes_no_cod() 
             });
 };
+
+function timer_sound_game() {
+
+  MyIntervalID =  setInterval (function(){
+    $myTimer=$myTimer+100;
+    $(".meter3").val($myTimer) 
+    if ($myTimer>=$Time_sound_game){
+      clearInterval(MyIntervalID);
+      clearInterval(timer_60_sec);
+    }
+  }, 100);
+
+  timer_60_sec =  setInterval (function(){
+
+    $("#time_for_sound_game").text($sec_left--);
+     
+  }, 1000);
+}
+
+function sound_yes_no_game()   { 
+
+  $Time_sound_game=60000;
+
+  leader_sound_game();
+
+  $(".meter3").val(0);
+  $("#time_for_sound_game").text(60);
+  $(".timer_sound_game").css("display","block");
+  $(".timer_sound_game").show();
+  $(".meter3").attr('max',$Time_sound_game);
+
+  $myTimer=0;
+  timer_sound_game();
+
+  setTimeout(function(){
+
+    if ($result_sound_game>$user_record){
+      $user_record=$result_sound_game;
+      insert_statistics_sound_game();
+    }
+
+    $game="";
+    hide_training();
+    $(".timer_sound_game").css("display","none");
+  }, $Time_sound_game);
+
+  $add_sound_game=$Time_sound_game/1000;
+  $result_sound_game=0;
+  $sec_left=60;
+  $add_sound_game=1;
+  print_result_for_sound_game();
+
+
+}
+
+function right_answer_sound_yes_no_game()   {
+  $result_sound_game=$result_sound_game+$add_sound_game;
+  $add_sound_game++;
+  print_result_for_sound_game();
+  random_selelect_sentense();
+  setTimeout(audition_yes_no_cod, 500);
+}
+
+function false_answer_sound_yes_no_game()   {
+  $add_sound_game=0;
+  print_result_for_sound_game();
+}
+
+function print_result_for_sound_game(){
+  $("#result_for_sound_game").text($result_sound_game);
+  $("#add_for_sound_game").text($add_sound_game);
+}
 
 function audition_letters_yes_no()   {        
             $("#audition_letters_yes_no").on("click", function () {
@@ -1336,7 +1398,8 @@ function audition_letters_yes_no()   {
           meter_();
           $yes_no=1;  $yes_no=0; $false_sent=0;$(this).removeClass("btn-info").addClass("btn-success");  $('#time_game').text(1*$('#time_game').text()+25*$koef)//random_voice(); $falseSentence1= 'right';
 
-            if ($game=="sound_yes_no"){random_selelect_sentense();setTimeout(audition_yes_no_cod, 500);return;}
+          if ($game=="sound_yes_no"){right_answer_sound_yes_no_game();return;}
+
            if (cycle==0){setTimeout(hide_training, 500);return;}
                if (task_new>=max_task-1){   show_training=1  }
                 if(show_training==1){
@@ -1356,14 +1419,14 @@ function audition_letters_yes_no()   {
                 }
         }else{
               $yes_no=1; $(this).removeClass("btn-info").addClass("btn-warning");  $mistake++;mistake() //$falseSentence1= 'no';
-             
+              if ($game=="sound_yes_no"){false_answer_sound_yes_no_game();return;}
             };
             });
               $("#Yes").on("click", function () {       
         if ($false_sent==0){
           meter_();
            $yes_no=1; $yes_no=0;$(this).removeClass("btn-info").addClass("btn-success");  $('#time_game').text(1*$('#time_game').text()+25*$koef)// random_voice(); $falseSentence1= 'right'
-            if ($game=="sound_yes_no"){random_selelect_sentense();setTimeout(audition_yes_no_cod, 500);return;}
+            if ($game=="sound_yes_no"){right_answer_sound_yes_no_game();return;}
             if (cycle==0){setTimeout(hide_training, 500);return;}
                if (task_new>=max_task-1){   show_training=1  }
                 if(show_training==1){
@@ -1381,6 +1444,7 @@ function audition_letters_yes_no()   {
                 }
         }else{
                $yes_no=1; $(this).removeClass("btn-info").addClass("btn-warning");  $mistake++;mistake()//$falseSentence1= 'no';
+               if ($game=="sound_yes_no"){false_answer_sound_yes_no_game();return;}
             };
             });
 }

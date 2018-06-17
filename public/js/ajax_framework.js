@@ -1,4 +1,25 @@
+function leader_sound_game() {
+  $.ajax({        
+    type:'get',
+    url:'/ajaxRequestSoundGame',
+    data:{user_id:$user_id,  _token: '{{csrf_token()}}'},
 
+    success:function(data){
+      $user_record=data['$user_record'];
+      $site_record=data['$site_record'];
+      $("#site_record").text($site_record);
+      $("#user_record").text($user_record);
+    }
+  });   
+}
+
+function insert_statistics_sound_game() {
+  $.ajax({        
+    type:'get',
+    url:'/ajaxRequestSoundGame',
+    data:{user_id:$user_id, user_record:$user_record, _token: '{{csrf_token()}}'},
+  });   
+}
 
 function row_is_learned() {
 

@@ -568,6 +568,7 @@ meter{height: 7px; margin-bottom: 5px; padding: 0 7px 0 7px; border-radius: 3px;
 .footer {height: 38px; width: 100%; position: fixed;bottom: 0px;left: 0px; background: rgb(80, 180, 121);z-index: 1000000 !important;}
 .defender_footer {height: 40px; position: relative;top:-8px; }
 .xp {font-size: 15px; position: relative; bottom: -10px;left: 20px;color: white; font-family: 'Source Sans Pro', sans-serif}
+#result_for_sound_game, #user_record {font-size: 20px; border:1px solid; border-radius: 3px; padding: 0px 4px; margin: 2px; background: rgb(120, 220, 161);}
 .level{width: 100px ; text-align: center; position: relative;left:  10px;color: white;font-family: 'Century Gothic', sans-serif;}
 .mistake2 {width: 220px ; font-size: 12px;}
 .size_big {font-size: 30px; color: white; padding: 10px;position: relative;top:8px;}

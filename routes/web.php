@@ -37,6 +37,8 @@ Route::post('ajaxRequest', 'AjaxController@ajaxRequestPost');
 
 Route::get('ajaxRequest', 'AjaxController@ajaxRequest');
 
+Route::get('ajaxRequestSoundGame', 'AjaxController@ajaxRequestSoundGame');
+
 
 Auth::routes();
 
