@@ -106,7 +106,7 @@
                                                               <ul class="dropdown-menu sub-menu">
                                                                  <li><a href="#">Beginer</a></li>
                                                                  <li><a href="#">Elementary</a></li>
-                                                                 <li><a href="#">Pre-intermediate</a></li>
+                                                                 <li><a href="course?course=Intermediate_Murphy_Unit_3_Present_continuous_and_present_simple">Pre-intermediate</a></li>
                                                                  <li><a href="#">Intermediate</a></li>
                                                                  <li><a href="#">Upper-intermediate</a></li>
                                                                  <li><a href="#">Advanced</a></li>

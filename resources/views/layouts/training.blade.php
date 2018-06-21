@@ -292,14 +292,14 @@
 </p>
 
   
-<p class="timer_sound_game"  style="display: none;">
+<div class="timer_sound_game"  style="display: none;">
   <center>осталось <span id = "time_for_sound_game">60</span> сек </center>
   <center>
   рекорд сайта <span id = "site_record">60</span>/<span id = "user_record">60</span> ваш рекорд
   <meter class="meter3" value="0" max="100"  optimum="1"></meter>
   добавится +<span id = "add_for_sound_game">1</span>/ <span id = "result_for_sound_game">0</span> ваш результат
   </center>
-</p>
+</div>
 
 <div class="height320">
 <div class="container">
