@@ -40,42 +40,44 @@ function meter_()   {
   $("#meter").text($("#meter2").val()+" из "+$meter_max)
 
   if ($("meter").val()>$meter_max-max_task) { 
-    if (row_mistake[task_new]==1) {$getQuantity=1*$getQuantity} else {$getQuantity=1*$getQuantity+1}
-      if ($getQuantity==0) {$getQuantity=1}
-        polygon()
-      if ($getQuantity==1) {var $polygon_number=".polygon_1"}
-        if ($getQuantity==2) {var $polygon_number=".polygon_2"}
-          if ($getQuantity==3) {var $polygon_number=".polygon_3"}
-            if ($getQuantity==4) {var $polygon_number=".polygon_4"} 
-              if ($getQuantity==5) {var $polygon_number=".polygon_5"} 
-                if ($getQuantity==6) {var $polygon_number=".polygon_6"} 
+    if (row_mistake[task_new]==1) {$getQuantity=1*$getQuantity} else {$getQuantity=1*$getQuantity+1};
+    if ($getQuantity==0) {$getQuantity=1};
+    polygon();
+    if ($getQuantity==1) {var $polygon_number=".polygon_1"};
+    if ($getQuantity==2) {var $polygon_number=".polygon_2"};
+    if ($getQuantity==3) {var $polygon_number=".polygon_3"};
+    if ($getQuantity==4) {var $polygon_number=".polygon_4"} ;
+    if ($getQuantity==5) {var $polygon_number=".polygon_5"}; 
+    if ($getQuantity==6) {var $polygon_number=".polygon_6"} ;
 
-                  $($polygon_number).css("opacity","0.01")
-                $($polygon_number).css("fill","rgb(150,150,250)")
-                $($polygon_number).animate({opacity: "1"},500 );
-                $($polygon_number).animate({opacity: "0.5"},500 );
+    $($polygon_number).css("opacity","0.01");
+    $($polygon_number).css("fill","rgb(150,150,250)");
+    $($polygon_number).animate({opacity: "1"},500 );
+    $($polygon_number).animate({opacity: "0.5"},500 );
 
-              }}}
+  }
+}
+}
 
-              function sound()   {    
+function sound()   {    
 
-                $(".sound").on("click", function () {
-                  random_voice();  
-                });
-              };
+  $(".sound").on("click", function () {
+    random_voice();  
+  });
+};
 
-              function try_training()   {  
+function try_training()   {  
 
-                $(".training").on("click", function () {
-                  try_training_cod()
-                });
-              };
+  $(".training").on("click", function () {
+    try_training_cod()
+  });
+};
 
-              function try_training_cod()   {        
-                $(".costumer").hide();
-                $(".height320").css("display","block");
-                $(".rus" ).show();
-                $(".input" ).show();
+function try_training_cod()   {        
+  $(".costumer").hide();
+  $(".height320").css("display","block");
+  $(".rus" ).show();
+  $(".input" ).show();
                //$(".input2" ).css("opacity","0.01")
                $(".prompt").css("opacity","0.01")
                $(".prompt2" ).css("opacity","1");
@@ -695,27 +697,27 @@ function meter_()   {
        try_answer1()       
 
      });
-}
+                              }
 
 
-function test_training()   { 
-  $("#test").on("click", function () {
-    test=1
-    $koef=1
-    $(".try_answer" ).hide();
-    try_answer=0
-    training();
-    $(".progress_").css("opacity","1")
-    repeat_training=2;
-    row_mistake=[];
+                              function test_training()   { 
+                                $("#test").on("click", function () {
+                                  test=1
+                                  $koef=1
+                                  $(".try_answer" ).hide();
+                                  try_answer=0
+                                  training();
+                                  $(".progress_").css("opacity","1")
+                                  repeat_training=2;
+                                  row_mistake=[];
 
-    max_task=$('#select_test option:selected').text()
-    for (var i = 0; i < 60000; i++) {
-     if ((arr_quantity[i]==4) && (today>=arr_date[i])){
-       first_row=i
-       break;
-     }
-   }
+                                  max_task=$('#select_test option:selected').text()
+                                  for (var i = 0; i < 60000; i++) {
+                                   if ((arr_quantity[i]==4) && (today>=arr_date[i])){
+                                     first_row=i
+                                     break;
+                                   }
+                                 }
        //max_task++
 
        training_sentense_test=1
@@ -727,26 +729,26 @@ function test_training()   {
        $("meter").attr("max", $meter_max)
        cycle_for_test_training();
      });
-}
+                              }
 
-function old_training()   { 
-  $("#old").on("click", function () {
-    test=0
-    $koef=1
-    $(".try_answer" ).hide();
-    try_answer=0
-    training();
-    $(".progress_").css("opacity","1")
-    repeat_training=1;
-    row_mistake=[];
+                              function old_training()   { 
+                                $("#old").on("click", function () {
+                                  test=0
+                                  $koef=1
+                                  $(".try_answer" ).hide();
+                                  try_answer=0
+                                  training();
+                                  $(".progress_").css("opacity","1")
+                                  repeat_training=1;
+                                  row_mistake=[];
 
-    max_task=$('#select_repeat option:selected').text()
-    for (var i = 0; i < 60000; i++) {
-     if ((arr_quantity[i]>=1) && (arr_quantity[i]<=3) && (today>=arr_date[i])){
-       first_row=i
-       break;
-     }
-   }
+                                  max_task=$('#select_repeat option:selected').text()
+                                  for (var i = 0; i < 60000; i++) {
+                                   if ((arr_quantity[i]>=1) && (arr_quantity[i]<=3) && (today>=arr_date[i])){
+                                     first_row=i
+                                     break;
+                                   }
+                                 }
        //max_task++
 
 
@@ -768,161 +770,161 @@ function old_training()   {
        $("meter").attr("max", $meter_max)
        cycle_for_old_training();
      });
-}
+                              }
 
 
 
-function cycle_for_test_training(){
+                              function cycle_for_test_training(){
 
- show_training=0; 
- select_test_sentense() ;
-
-
- if(training_sentense_test==1){
-  try_training_cod();
-  if ($sentense==0){letter___written_cod();return;}
-  if ($sentense==1){first_letter_written_cod();return ;}
-}
+                               show_training=0; 
+                               select_test_sentense() ;
 
 
-row_is_learned_old()
-quantity_test()
-quantity_leanrt() 
-new_task=0
-setTimeout(hide_training, 1000)
-
-}
+                               if(training_sentense_test==1){
+                                try_training_cod();
+                                if ($sentense==0){letter___written_cod();return;}
+                                if ($sentense==1){first_letter_written_cod();return ;}
+                              }
 
 
-function cycle_for_old_training(){
+                              row_is_learned_old()
+                              quantity_test()
+                              quantity_leanrt() 
+                              new_task=0
+                              setTimeout(hide_training, 1000)
 
- show_training=0; 
- select_old_sentense() ;
- if(($("#Sentence23_1").prop('checked') == true) && (training_sentense_1==1)) {try_training_cod(); put_words_right_written_cod();return;}
- if(($("#Sentence23_2").prop('checked') == true) && (training_sentense_2==1)) {try_training_cod(); written_yes_no_cod();return;}
- if(($("#Sentence23_3").prop('checked') == true) && (training_sentense_3==1)) {try_training_cod(); put_words_right_audition_cod();return;}
- if(($("#Sentence23_4").prop('checked') == true) && (training_sentense_4==1)) {try_training_cod(); audition_yes_no_cod();return;}
-
- if(($("#Sentence23_5").prop('checked') == true) && (training_sentense_5==1)) {
-   try_training_cod();
-   if ($sentense==0){letter___written_cod();return;}
-   if ($sentense==1){first_letter___written_cod();return;}
- }
-
- if(($("#Sentence23_6").prop('checked') == true) && (training_sentense_6==1)) {
-  try_training_cod();
-  if ($sentense==0){one_rus_4_eng_cod();return;}
-  if ($sentense==1){first_letter_written_cod();return ;}
-}
-if(($("#Sentence23_7").prop('checked') == true) && (training_sentense_7==1)) {
-  try_training_cod();
-  if ($sentense==0){letter___audition_cod();return;}
-  if ($sentense==1){ first_letter___audition_cod();return;}
-}
-if(($("#Sentence23_8").prop('checked') == true) && (training_sentense_8==1)) {
-  try_training_cod();
-  if ($sentense==0){one_eng_4_rus_cod();return;}
-  if ($sentense==1){ first_letter_audition_cod();return;}
-}
-
-if(($("#Sentence23_9").prop('checked') == true) && (training_sentense_9==1)) {try_training_cod(); four_rus_audition_cod();return;}
-if(($("#Sentence23_10").prop('checked') == true) && (training_sentense_10==1)) {try_training_cod(); dictophon___cod2();return;}
-
-row_is_learned_old()
-quantity_repeat()
-quantity_test()
-quantity_leanrt() 
-new_task=0
-setTimeout(hide_training, 1000)
-
-}
+                            }
 
 
-function cycle_for_training(){
+                            function cycle_for_old_training(){
 
- show_training=0; 
- select_sentense() ;
- if(($("#Sentence1_10").prop('checked') == true) && (training_sentense_10==1)) {try_training_cod(); dictophon___cod2();return;}  
- if(($("#Sentence1_1").prop('checked') == true) && (training_sentense_1==1)) {try_training_cod(); put_words_right_written_cod();return;}
- if(($("#Sentence1_2").prop('checked') == true) && (training_sentense_2==1)) {try_training_cod(); written_yes_no_cod();return;}
- if(($("#Sentence1_3").prop('checked') == true) && (training_sentense_3==1)) {try_training_cod(); put_words_right_audition_cod();return;}
- if(($("#Sentence1_4").prop('checked') == true) && (training_sentense_4==1)) {try_training_cod(); audition_yes_no_cod();return;}
+                             show_training=0; 
+                             select_old_sentense() ;
+                             if(($("#Sentence23_1").prop('checked') == true) && (training_sentense_1==1)) {try_training_cod(); put_words_right_written_cod();return;}
+                             if(($("#Sentence23_2").prop('checked') == true) && (training_sentense_2==1)) {try_training_cod(); written_yes_no_cod();return;}
+                             if(($("#Sentence23_3").prop('checked') == true) && (training_sentense_3==1)) {try_training_cod(); put_words_right_audition_cod();return;}
+                             if(($("#Sentence23_4").prop('checked') == true) && (training_sentense_4==1)) {try_training_cod(); audition_yes_no_cod();return;}
 
- if(($("#Sentence1_5").prop('checked') == true) && (training_sentense_5==1)) {
-   try_training_cod();
-   if ($sentense==0){letter___written_cod();return;}
-   if ($sentense==1){first_letter___written_cod();return;}
- }
- if(($("#Sentence1_6").prop('checked') == true) && (training_sentense_6==1)) {
-  try_training_cod();
-  if ($sentense==0){one_rus_4_eng_cod();return;}
-  if ($sentense==1){first_letter_written_cod();return ;}
-}
-if(($("#Sentence1_7").prop('checked') == true) && (training_sentense_7==1)) {
-  try_training_cod();
-  if ($sentense==0){letter___audition_cod();return;}
-  if ($sentense==1){ first_letter___audition_cod();return;}
-}
-if(($("#Sentence1_8").prop('checked') == true) && (training_sentense_8==1)) {
- try_training_cod();
- if ($sentense==0){letter___audition_cod();return;}
- if ($sentense==1){ first_letter___audition_cod();return;}
-}
+                             if(($("#Sentence23_5").prop('checked') == true) && (training_sentense_5==1)) {
+                               try_training_cod();
+                               if ($sentense==0){letter___written_cod();return;}
+                               if ($sentense==1){first_letter___written_cod();return;}
+                             }
 
-if(($("#Sentence1_9").prop('checked') == true) && (training_sentense_9==1)) {try_training_cod(); four_rus_audition_cod();return;}
-if(($("#Sentence1_10").prop('checked') == true) && (training_sentense_10==1)) {try_training_cod(); dictophon___cod2();return;}
+                             if(($("#Sentence23_6").prop('checked') == true) && (training_sentense_6==1)) {
+                              try_training_cod();
+                              if ($sentense==0){one_rus_4_eng_cod();return;}
+                              if ($sentense==1){first_letter_written_cod();return ;}
+                            }
+                            if(($("#Sentence23_7").prop('checked') == true) && (training_sentense_7==1)) {
+                              try_training_cod();
+                              if ($sentense==0){letter___audition_cod();return;}
+                              if ($sentense==1){ first_letter___audition_cod();return;}
+                            }
+                            if(($("#Sentence23_8").prop('checked') == true) && (training_sentense_8==1)) {
+                              try_training_cod();
+                              if ($sentense==0){one_eng_4_rus_cod();return;}
+                              if ($sentense==1){ first_letter_audition_cod();return;}
+                            }
+
+                            if(($("#Sentence23_9").prop('checked') == true) && (training_sentense_9==1)) {try_training_cod(); four_rus_audition_cod();return;}
+                            if(($("#Sentence23_10").prop('checked') == true) && (training_sentense_10==1)) {try_training_cod(); dictophon___cod2();return;}
+
+                            row_is_learned_old()
+                            quantity_repeat()
+                            quantity_test()
+                            quantity_leanrt() 
+                            new_task=0
+                            setTimeout(hide_training, 1000)
+
+                          }
 
 
+                          function cycle_for_training(){
+
+                           show_training=0; 
+                           select_sentense() ;
+                           if(($("#Sentence1_10").prop('checked') == true) && (training_sentense_10==1)) {try_training_cod(); dictophon___cod2();return;}  
+                           if(($("#Sentence1_1").prop('checked') == true) && (training_sentense_1==1)) {try_training_cod(); put_words_right_written_cod();return;}
+                           if(($("#Sentence1_2").prop('checked') == true) && (training_sentense_2==1)) {try_training_cod(); written_yes_no_cod();return;}
+                           if(($("#Sentence1_3").prop('checked') == true) && (training_sentense_3==1)) {try_training_cod(); put_words_right_audition_cod();return;}
+                           if(($("#Sentence1_4").prop('checked') == true) && (training_sentense_4==1)) {try_training_cod(); audition_yes_no_cod();return;}
+
+                           if(($("#Sentence1_5").prop('checked') == true) && (training_sentense_5==1)) {
+                             try_training_cod();
+                             if ($sentense==0){letter___written_cod();return;}
+                             if ($sentense==1){first_letter___written_cod();return;}
+                           }
+                           if(($("#Sentence1_6").prop('checked') == true) && (training_sentense_6==1)) {
+                            try_training_cod();
+                            if ($sentense==0){one_rus_4_eng_cod();return;}
+                            if ($sentense==1){first_letter_written_cod();return ;}
+                          }
+                          if(($("#Sentence1_7").prop('checked') == true) && (training_sentense_7==1)) {
+                            try_training_cod();
+                            if ($sentense==0){letter___audition_cod();return;}
+                            if ($sentense==1){ first_letter___audition_cod();return;}
+                          }
+                          if(($("#Sentence1_8").prop('checked') == true) && (training_sentense_8==1)) {
+                           try_training_cod();
+                           if ($sentense==0){letter___audition_cod();return;}
+                           if ($sentense==1){ first_letter___audition_cod();return;}
+                         }
+
+                         if(($("#Sentence1_9").prop('checked') == true) && (training_sentense_9==1)) {try_training_cod(); four_rus_audition_cod();return;}
+                         if(($("#Sentence1_10").prop('checked') == true) && (training_sentense_10==1)) {try_training_cod(); dictophon___cod2();return;}
 
 
 
 
-row_is_learned()
-quantity_new()
-quantity_repeat()
-quantity_test()
-new_task=0
-setTimeout(hide_training, 1000)
-}
 
 
-function show_training1()   {     
- $(".progress_").css("opacity","0.01")
- $getQuantity=0
- cycle=0
- row_new=0
- max_task=0
- task_new=0
- show_training=1;
- repeat_training=0;
- random_selelect_sentense();
-}
-
-function put_words_right_written()   {        
-  $("#put_words_right_written").on("click", function () {
-    $sentense=1
-    show_training1() 
-    put_words_right_written_cod() 
-  });
-};
-function put_letters_right_written()   {        
-  $("#put_letters_right_written").on("click", function () {
-    $sentense=0
-    show_training1() 
-    put_words_right_written_cod() 
-  });
-};
+                         row_is_learned()
+                         quantity_new()
+                         quantity_repeat()
+                         quantity_test()
+                         new_task=0
+                         setTimeout(hide_training, 1000)
+                       }
 
 
-function put_words_right_written_cod()   {
+                       function show_training1()   {     
+                         $(".progress_").css("opacity","0.01")
+                         $getQuantity=0
+                         cycle=0
+                         row_new=0
+                         max_task=0
+                         task_new=0
+                         show_training=1;
+                         repeat_training=0;
+                         random_selelect_sentense();
+                       }
 
- training_type=1
- clear_table()   
- $el=0;
- $mistake=0;
+                       function put_words_right_written()   {        
+                        $("#put_words_right_written").on("click", function () {
+                          $sentense=1
+                          show_training1() 
+                          put_words_right_written_cod() 
+                        });
+                      };
+                      function put_letters_right_written()   {        
+                        $("#put_letters_right_written").on("click", function () {
+                          $sentense=0
+                          show_training1() 
+                          put_words_right_written_cod() 
+                        });
+                      };
 
 
- $(".rus" ).append('<button class="btn btn-info btn-large">'+ $getRus+'</button>')
+                      function put_words_right_written_cod()   {
+
+                       training_type=1
+                       clear_table()   
+                       $el=0;
+                       $mistake=0;
+
+
+                       $(".rus" ).append('<button class="btn btn-info btn-large">'+ $getRus+'</button>')
 
                 // $(".rus" ).show(); 
                 
@@ -1018,9 +1020,9 @@ function put_words_right_written_cod()   {
                             mistake()
                           };
                         });
-}
+                  }
 
-function addClass_animated()   {
+                  function addClass_animated()   {
   //polygon();
   $(".height320").addClass('animated fadeIn')
 }
@@ -1117,10 +1119,10 @@ function written_yes_no_cod()   {
 
        });
 
-$("#Yes").on("click", function () {
+              $("#Yes").on("click", function () {
 
-  if (randIndex==1){
-    meter_();
+                if (randIndex==1){
+                  meter_();
 
             $yes_no=1; $false_sent=0; $(this).removeClass("btn-info").addClass("btn-success");  $('#time_game').text(1*$('#time_game').text()+25*$koef) //random_voice(); $falseSentence1= 'right';
             if (video_==1) { number_video++;if (number_video<arr_English.length) {$video_.attr('src', src + '?autoplay=1&rel=0&start='+start_video[number_video]+'&end='+end_video[number_video]+'&rel=0');} setTimeout(select_type_training_, 1000);  return;}
@@ -1152,46 +1154,46 @@ $("#Yes").on("click", function () {
 
          });
 
-}
+            }
 
 
 
-function put_words_right_audition()   {        
-  $("#put_words_right_audition").on("click", function () {
-    $sentense=1
-    show_training1() ;
-    put_words_right_audition_cod() ;
-  });
-};
+            function put_words_right_audition()   {        
+              $("#put_words_right_audition").on("click", function () {
+                $sentense=1
+                show_training1() ;
+                put_words_right_audition_cod() ;
+              });
+            };
 
 
 
-function put_letters_right_audition()   {        
-  $("#put_letters_right_audition").on("click", function () {
-    $sentense=0
-    show_training1() ;
-    put_words_right_audition_cod() ;
-  });
-};
+            function put_letters_right_audition()   {        
+              $("#put_letters_right_audition").on("click", function () {
+                $sentense=0
+                show_training1() ;
+                put_words_right_audition_cod() ;
+              });
+            };
 
 
 
-function put_words_right_audition_cod()   { 
+            function put_words_right_audition_cod()   { 
 
-  training_type=3  
-  clear_table()
-  $(".sound" ).show();
-  $(".rus" ).append('<button class="btn btn-info btn-large">'+ $getRus+'</button>')
+              training_type=3  
+              clear_table()
+              $(".sound" ).show();
+              $(".rus" ).append('<button class="btn btn-info btn-large">'+ $getRus+'</button>')
 
-  $el=0;
-  $mistake=0;
-  random_voice();
-  if ($sentense==1) {var $newText3=   $getSentence.split(" ");
-}else{
-  var $newText3=   $getSentence.split("");
-}
+              $el=0;
+              $mistake=0;
+              random_voice();
+              if ($sentense==1) {var $newText3=   $getSentence.split(" ");
+            }else{
+              var $newText3=   $getSentence.split("");
+            }
 
-var $RightLenght=$newText3.length
+            var $RightLenght=$newText3.length
               //иногда добавлять левое слово из базы
               var randIndex = Math.floor(Math.random() * 4);
               if (randIndex==2) {
@@ -1264,138 +1266,138 @@ var $RightLenght=$newText3.length
                mistake()
              };
            });
-};
+             };
 
-function audition_yes_no()   {        
-  $("#audition_yes_no, #sound_yes_no").on("click", function () {
-    $game=$(this).attr('name');
+             function audition_yes_no()   {        
+              $("#audition_yes_no, #sound_yes_no").on("click", function () {
+                $game=$(this).attr('name');
 
-    if ($game=="sound_yes_no"){
-      sound_yes_no_game();
-    }
-    $sentense=1
-    show_training1() 
+                if ($game=="sound_yes_no"){
+                  sound_yes_no_game();
+                }
+                $sentense=1
+                show_training1() 
 
-    audition_yes_no_cod() 
-  });
-};
+                audition_yes_no_cod() 
+              });
+            };
 
-function timer_sound_game() {
+            function timer_sound_game() {
 
-  MyIntervalID =  setInterval (function(){
-    $myTimer=$myTimer+100;
-    $(".meter3").val($myTimer) 
-    if ($myTimer>=$Time_sound_game){
-      clearInterval(MyIntervalID);
-      clearInterval(timer_60_sec);
-    }
-  }, 100);
+              MyIntervalID =  setInterval (function(){
+                $myTimer=$myTimer+100;
+                $(".meter3").val($myTimer) 
+                if ($myTimer>=$Time_sound_game){
+                  clearInterval(MyIntervalID);
+                  clearInterval(timer_60_sec);
+                }
+              }, 100);
 
-  timer_60_sec =  setInterval (function(){
+              timer_60_sec =  setInterval (function(){
 
-    $("#time_for_sound_game").text($sec_left--);
+                $("#time_for_sound_game").text($sec_left--);
 
-  }, 1000);
-}
+              }, 1000);
+            }
 
-function sound_yes_no_game()   { 
+            function sound_yes_no_game()   { 
 
-  $Time_sound_game=60000;
+              $Time_sound_game=60000;
 
-  leader_sound_game();
+              leader_sound_game();
 
-  $(".meter3").val(0);
-  $("#time_for_sound_game").text(60);
-  $(".timer_sound_game").css("display","block");
-  $(".timer_sound_game").show();
-  $(".meter3").attr('max',$Time_sound_game);
+              $(".meter3").val(0);
+              $("#time_for_sound_game").text(60);
+              $(".timer_sound_game").css("display","block");
+              $(".timer_sound_game").show();
+              $(".meter3").attr('max',$Time_sound_game);
 
-  $myTimer=0;
-  timer_sound_game();
+              $myTimer=0;
+              timer_sound_game();
 
-  setTimeout(function(){
+              setTimeout(function(){
 
-    if ($result_sound_game>$user_record){
-      $user_record=$result_sound_game;
-      insert_statistics_sound_game();
-    }
+                if ($result_sound_game>$user_record){
+                  $user_record=$result_sound_game;
+                  insert_statistics_sound_game();
+                }
 
-    $game="";
-    hide_training();
-    $(".timer_sound_game").css("display","none");
-  }, $Time_sound_game);
+                $game="";
+                hide_training();
+                $(".timer_sound_game").css("display","none");
+              }, $Time_sound_game);
 
-  $add_sound_game=$Time_sound_game/1000;
-  $result_sound_game=0;
-  $sec_left=60;
-  $add_sound_game=1;
-  print_result_for_sound_game();
-
-
-}
-
-function right_answer_sound_yes_no_game()   {
-  $result_sound_game=$result_sound_game+$add_sound_game;
-  $add_sound_game++;
-  print_result_for_sound_game();
-  random_selelect_sentense();
-  setTimeout(audition_yes_no_cod, 500);
-}
-
-function false_answer_sound_yes_no_game()   {
-  $add_sound_game=0;
-  print_result_for_sound_game();
-}
-
-function print_result_for_sound_game(){
-  $("#result_for_sound_game").text($result_sound_game);
-  $("#add_for_sound_game").text($add_sound_game);
-}
-
-function audition_letters_yes_no()   {        
-  $("#audition_letters_yes_no").on("click", function () {
-    $sentense=0
-    show_training1() 
-    audition_yes_no_cod() 
-  });
-};
+              $add_sound_game=$Time_sound_game/1000;
+              $result_sound_game=0;
+              $sec_left=60;
+              $add_sound_game=1;
+              print_result_for_sound_game();
 
 
+            }
 
-function audition_yes_no_cod()   { 
+            function right_answer_sound_yes_no_game()   {
+              $result_sound_game=$result_sound_game+$add_sound_game;
+              $add_sound_game++;
+              print_result_for_sound_game();
+              random_selelect_sentense();
+              setTimeout(audition_yes_no_cod, 500);
+            }
 
-  training_type=4
-  clear_table()
+            function false_answer_sound_yes_no_game()   {
+              $add_sound_game=0;
+              print_result_for_sound_game();
+            }
 
-  $(".sound" ).show();
+            function print_result_for_sound_game(){
+              $("#result_for_sound_game").text($result_sound_game);
+              $("#add_for_sound_game").text($add_sound_game);
+            }
 
-  var $el=0;
-  $mistake=0;
+            function audition_letters_yes_no()   {        
+              $("#audition_letters_yes_no").on("click", function () {
+                $sentense=0
+                show_training1() 
+                audition_yes_no_cod() 
+              });
+            };
 
 
 
-  $(".rus" ).append('<button class="btn btn-info btn-large">'+ $getRus+'</button>')
-  var randIndex = Math.floor(Math.random() * 2);
+            function audition_yes_no_cod()   { 
 
+              training_type=4
+              clear_table()
 
-  if ($getSentence.indexOf(' ') > 0 ) {$sentense=1} else{$sentense=0}
-    if (randIndex==1) {$false_sent=1;random_selelect_false_sentense()}
-  random_voice()
-  $(".prompt3" ).hide();
+              $(".sound" ).show();
 
-  $(".prompt2" ).empty().append('<button class="prompt_button btn btn-info btn-large" id="No">&lArr; Нет</button> <button class="prompt_button btn btn-info btn-large" id="Yes">Да &rArr;</button>')
-
-  $(".prompt2" ).css("opacity","1");
-
-  $(".height320").addClass('animated fadeIn')
-  setTimeout(removeClass_animated,300)
-
-  $("#No").on("click", function () {
+              var $el=0;
+              $mistake=0;
 
 
 
-    if ($false_sent==1){
-      meter_();
+              $(".rus" ).append('<button class="btn btn-info btn-large">'+ $getRus+'</button>')
+              var randIndex = Math.floor(Math.random() * 2);
+
+
+              if ($getSentence.indexOf(' ') > 0 ) {$sentense=1} else{$sentense=0}
+                if (randIndex==1) {$false_sent=1;random_selelect_false_sentense()}
+              random_voice()
+              $(".prompt3" ).hide();
+
+              $(".prompt2" ).empty().append('<button class="prompt_button btn btn-info btn-large" id="No">&lArr; Нет</button> <button class="prompt_button btn btn-info btn-large" id="Yes">Да &rArr;</button>')
+
+              $(".prompt2" ).css("opacity","1");
+
+              $(".height320").addClass('animated fadeIn')
+              setTimeout(removeClass_animated,300)
+
+              $("#No").on("click", function () {
+
+
+
+                if ($false_sent==1){
+                  meter_();
           $yes_no=1;  $yes_no=0; $false_sent=0;$(this).removeClass("btn-info").addClass("btn-success");  $('#time_game').text(1*$('#time_game').text()+25*$koef)//random_voice(); $falseSentence1= 'right';
 
           if ($game=="sound_yes_no"){right_answer_sound_yes_no_game();return;}
@@ -1422,9 +1424,9 @@ function audition_yes_no_cod()   {
               if ($game=="sound_yes_no"){false_answer_sound_yes_no_game();return;}
             };
           });
-$("#Yes").on("click", function () {       
-  if ($false_sent==0){
-    meter_();
+              $("#Yes").on("click", function () {       
+                if ($false_sent==0){
+                  meter_();
            $yes_no=1; $yes_no=0;$(this).removeClass("btn-info").addClass("btn-success");  $('#time_game').text(1*$('#time_game').text()+25*$koef)// random_voice(); $falseSentence1= 'right'
            if ($game=="sound_yes_no"){right_answer_sound_yes_no_game();return;}
            if (cycle==0){setTimeout(hide_training, 500);return;}
@@ -1447,109 +1449,109 @@ $("#Yes").on("click", function () {
                if ($game=="sound_yes_no"){false_answer_sound_yes_no_game();return;}
              };
            });
-}
+            }
 
 
-function letter___written()   {        
-  $("#letter___written").on("click", function () {
-    $sentense=0
-    show_training1() 
-    letter___written_cod() ;
-  });
-};
+            function letter___written()   {        
+              $("#letter___written").on("click", function () {
+                $sentense=0
+                show_training1() 
+                letter___written_cod() ;
+              });
+            };
 
 
-function letter___written_cod()   { 
+            function letter___written_cod()   { 
 
- training_type=5
- clear_table()
- edit_base()
- var $el=0;
- $mistake=0;
- $(".rus" ).append('<button class="btn btn-info btn-large">'+ $getRus+'</button>')
+             training_type=5
+             clear_table()
+             edit_base()
+             var $el=0;
+             $mistake=0;
+             $(".rus" ).append('<button class="btn btn-info btn-large">'+ $getRus+'</button>')
 
- var $RightLenght=$getSentence.length;
+             var $RightLenght=$getSentence.length;
 
- var $newText3=$getSentence.replace(/[a-zA-Z]/g,".")
-
-
- $(".prompt2" ).append( '<button class="press btn_green">'+ $newText3+'</button>' );
+             var $newText3=$getSentence.replace(/[a-zA-Z]/g,".")
 
 
- $(".prompt2" ).css("opacity","1");
-
- $(".btn_input2" ).text(' ')
- $(".input" ).append('<textarea class="press" id="firstLetter" value="" placeholder="напишите первую букву слова"></textarea>' );
+             $(".prompt2" ).append( '<button class="press btn_green">'+ $newText3+'</button>' );
 
 
- $(".height320").addClass('animated fadeIn')
- setTimeout(removeClass_animated,500)
- $("#firstLetter").focus();
+             $(".prompt2" ).css("opacity","1");
 
- $(".press").on('input', function () {
+             $(".btn_input2" ).text(' ')
+             $(".input" ).append('<textarea class="press" id="firstLetter" value="" placeholder="напишите первую букву слова"></textarea>' );
 
-   letter=$(this).val().toUpperCase();
-   changeLan();
-   if ($getSentence.substr($el, 1)=="(") {var firstLetter_=$getSentence.substr($el+1, 1)}else{var firstLetter_=$getSentence.substr($el, 1)}
+
+             $(".height320").addClass('animated fadeIn')
+             setTimeout(removeClass_animated,500)
+             $("#firstLetter").focus();
+
+             $(".press").on('input', function () {
+
+               letter=$(this).val().toUpperCase();
+               changeLan();
+               if ($getSentence.substr($el, 1)=="(") {var firstLetter_=$getSentence.substr($el+1, 1)}else{var firstLetter_=$getSentence.substr($el, 1)}
                 //console.log(firstLetter_)
-                if (firstLetter_==letter) {
-                  $("#firstLetter").attr("placeholder","молодец");
-                  $("#firstLetter").css("background","white");
-                  $(".input2" ).css("opacity","1")
-                  $(".btn_input2" ).text($(".btn_input2" ).text()+letter )
-                  $(".prompt2").children("button:first").remove();
-                  $("#firstLetter").val("");
-                  $el++;
-                  if ($el==$RightLenght) {
-                   $('#time_game').text(1*$('#time_game').text()+25*$koef)
-                   if(try_answer!=1){meter_();}
-                   $(".prompt2" ).append( '<button class="press btn_green">1</button>' ).css("opacity","0.01");
-                   if (video_==1) { number_video++;if (number_video<arr_English.length) {$video_.attr('src', src + '?autoplay=1&rel=0&start='+start_video[number_video]+'&end='+end_video[number_video]+'&rel=0');} setTimeout(select_type_training_, 1000);  return;}
-                   if (cycle==0){random_voice();setTimeout(hide_training, 1300);return;}
-                   if (task_new>=max_task-1){   show_training=1  }          
-                    if(show_training==1){
-                      row_new=first_row;
-                      task_new=0;
-                      training_sentense_5=0;
-                      training_sentense_test=0;
-                      random_voice();
-                      if (cycle==1){
-                        if  (repeat_training==0){setTimeout(cycle_for_training,1500) ;}
-                        if  (repeat_training==1){setTimeout(cycle_for_old_training,1500) ;}
-                        if  (repeat_training==2){setTimeout(cycle_for_test_training,1500) ;}
-                      }
-                      return;
+              if (firstLetter_==letter) {
+                $("#firstLetter").attr("placeholder","молодец");
+                $("#firstLetter").css("background","white");
+                $(".input2" ).css("opacity","1")
+                $(".btn_input2" ).text($(".btn_input2" ).text()+letter )
+                $(".prompt2").children("button:first").remove();
+                $("#firstLetter").val("");
+                $el++;
+                if ($el==$RightLenght) {
+                 $('#time_game').text(1*$('#time_game').text()+25*$koef)
+                 if(try_answer!=1){meter_();}
+                 $(".prompt2" ).append( '<button class="press btn_green">1</button>' ).css("opacity","0.01");
+                 if (video_==1) { number_video++;if (number_video<arr_English.length) {$video_.attr('src', src + '?autoplay=1&rel=0&start='+start_video[number_video]+'&end='+end_video[number_video]+'&rel=0');} setTimeout(select_type_training_, 1000);  return;}
+                 if (cycle==0){random_voice();setTimeout(hide_training, 1300);return;}
+                 if (task_new>=max_task-1){   show_training=1  }          
+                  if(show_training==1){
+                    row_new=first_row;
+                    task_new=0;
+                    training_sentense_5=0;
+                    training_sentense_test=0;
+                    random_voice();
+                    if (cycle==1){
+                      if  (repeat_training==0){setTimeout(cycle_for_training,1500) ;}
+                      if  (repeat_training==1){setTimeout(cycle_for_old_training,1500) ;}
+                      if  (repeat_training==2){setTimeout(cycle_for_test_training,1500) ;}
                     }
-                    if(try_answer==1) {
+                    return;
+                  }
+                  if(try_answer==1) {
 
-                      i_know_this();
-                      first_time=0;
-                      number_button=IknowButton
-                      IknowButton=0;
-                      $getQuantity=3;
-                      meter_();
-                      for ( var i=1; i <= 12; i++){ $(".try_answer"+i ).empty() }
-                        random_voice();
-                      setTimeout(try_answer1, 1500);
-                      setTimeout(replaceButton, 1500);
-                      return;}
-                      if(show_training==0){
-                        task_new++    
-                        row_new++
-                        random_voice(); 
-                        if  (repeat_training==0){ select_sentense() ;}
-                        if  (repeat_training==1){select_old_sentense();}
-                        if  (repeat_training==2){select_test_sentense();}
+                    i_know_this();
+                    first_time=0;
+                    number_button=IknowButton
+                    IknowButton=0;
+                    $getQuantity=3;
+                    meter_();
+                    for ( var i=1; i <= 12; i++){ $(".try_answer"+i ).empty() }
+                      random_voice();
+                    setTimeout(try_answer1, 1500);
+                    setTimeout(replaceButton, 1500);
+                    return;}
+                    if(show_training==0){
+                      task_new++    
+                      row_new++
+                      random_voice(); 
+                      if  (repeat_training==0){ select_sentense() ;}
+                      if  (repeat_training==1){select_old_sentense();}
+                      if  (repeat_training==2){select_test_sentense();}
 
 
 
-                        if ($sentense==0){setTimeout(letter___written_cod, 1500);}  
-                        if (($sentense==1)&&(test==0)){setTimeout(first_letter___written_cod, 1500);} 
-                        if (($sentense==1)&&(test==1)){setTimeout(first_letter_written_cod, 1500);}           
-                      }
-                    };
-                  }else{
-                   $("#firstLetter").val("");
+                      if ($sentense==0){setTimeout(letter___written_cod, 1500);}  
+                      if (($sentense==1)&&(test==0)){setTimeout(first_letter___written_cod, 1500);} 
+                      if (($sentense==1)&&(test==1)){setTimeout(first_letter_written_cod, 1500);}           
+                    }
+                  };
+                }else{
+                 $("#firstLetter").val("");
                //$(".input2").children("button").remove();
                for(var i = $el; i < $getSentence.length; i++) 
                {
@@ -1559,106 +1561,106 @@ function letter___written_cod()   {
               mistake();
             };
           });
-};
+           };
 
-function first_letter___written()   {        
-  $("#first_letter___written").on("click", function () {
-    $sentense=1
-    show_training1() 
-    first_letter___written_cod() ;
+           function first_letter___written()   {        
+            $("#first_letter___written").on("click", function () {
+              $sentense=1
+              show_training1() 
+              first_letter___written_cod() ;
 
-  });
-};
-
-
-function first_letter___written_cod()   { 
-
- training_type=6 
- clear_table()
-
- var $el=0;
- $mistake=0;
- $(".rus" ).append('<button class="btn btn-info btn-large">'+ $getRus+'</button>')
-
- var $newText2=   $getSentence.split(" ");
- var $RightLenght=$newText2.length;
-
- var $newText3=$getSentence.replace(/[a-zA-Z]/g,".")
- var $newText3=  $newText3.split(" ");
- jQuery.each($newText3, function(i, value) {
-
-   $(".prompt2" ).append( '<button class="press btn_green">'+ value+'</button>' );
- });
-
- $(".prompt2" ).css("opacity","1");
-
- $(".input" ).append('<textarea class="press" id="firstLetter" value="" placeholder="напишите первую букву слова"></textarea>' );
+            });
+          };
 
 
- $(".height320").addClass('animated fadeIn')
- setTimeout(removeClass_animated,500)
- $("#firstLetter").focus();
+          function first_letter___written_cod()   { 
 
- $(".press").on('input', function () {
+           training_type=6 
+           clear_table()
 
-   letter=$(this).val().toUpperCase();
-   changeLan();
-   if ($newText2[$el].substr(0, 1)=="(") {var firstLetter_=$newText2[$el].substr(1, 1)}else{var firstLetter_=$newText2[$el].substr(0, 1)}
+           var $el=0;
+           $mistake=0;
+           $(".rus" ).append('<button class="btn btn-info btn-large">'+ $getRus+'</button>')
+
+           var $newText2=   $getSentence.split(" ");
+           var $RightLenght=$newText2.length;
+
+           var $newText3=$getSentence.replace(/[a-zA-Z]/g,".")
+           var $newText3=  $newText3.split(" ");
+           jQuery.each($newText3, function(i, value) {
+
+             $(".prompt2" ).append( '<button class="press btn_green">'+ value+'</button>' );
+           });
+
+           $(".prompt2" ).css("opacity","1");
+
+           $(".input" ).append('<textarea class="press" id="firstLetter" value="" placeholder="напишите первую букву слова"></textarea>' );
+
+
+           $(".height320").addClass('animated fadeIn')
+           setTimeout(removeClass_animated,500)
+           $("#firstLetter").focus();
+
+           $(".press").on('input', function () {
+
+             letter=$(this).val().toUpperCase();
+             changeLan();
+             if ($newText2[$el].substr(0, 1)=="(") {var firstLetter_=$newText2[$el].substr(1, 1)}else{var firstLetter_=$newText2[$el].substr(0, 1)}
                 //console.log(firstLetter_)
-                if (firstLetter_==letter) {
-                  $("#firstLetter").attr("placeholder","молодец");
-                  $("#firstLetter").css("background","white");
-                  $(".input2" ).css("opacity","1")
-                  $(".btn_input2" ).text($(".btn_input2" ).text()+$newText2[$el]+' ' );
-                  $(".prompt2").children("button:first").remove();
-                  $("#firstLetter").val("");
-                  $el++;
-                  if ($el==$RightLenght) {
-                   $('#time_game').text(1*$('#time_game').text()+25*$koef)
-                   if(try_answer!=1){meter_();}
+              if (firstLetter_==letter) {
+                $("#firstLetter").attr("placeholder","молодец");
+                $("#firstLetter").css("background","white");
+                $(".input2" ).css("opacity","1")
+                $(".btn_input2" ).text($(".btn_input2" ).text()+$newText2[$el]+' ' );
+                $(".prompt2").children("button:first").remove();
+                $("#firstLetter").val("");
+                $el++;
+                if ($el==$RightLenght) {
+                 $('#time_game').text(1*$('#time_game').text()+25*$koef)
+                 if(try_answer!=1){meter_();}
 
-                   $(".prompt2" ).append( '<button class="press btn_green">1</button>' ).css("opacity","0.01");
-                   if (video_==1) { number_video++;if (number_video<arr_English.length) {$video_.attr('src', src + '?autoplay=1&rel=0&start='+start_video[number_video]+'&end='+end_video[number_video]+'&rel=0');} setTimeout(select_type_training_, 1000);  return;}
-                   if (cycle==0){random_voice();setTimeout(hide_training, 1300);return;}
+                 $(".prompt2" ).append( '<button class="press btn_green">1</button>' ).css("opacity","0.01");
+                 if (video_==1) { number_video++;if (number_video<arr_English.length) {$video_.attr('src', src + '?autoplay=1&rel=0&start='+start_video[number_video]+'&end='+end_video[number_video]+'&rel=0');} setTimeout(select_type_training_, 1000);  return;}
+                 if (cycle==0){random_voice();setTimeout(hide_training, 1300);return;}
 
-                   if (task_new>=max_task-1){   show_training=1  }          
+                 if (task_new>=max_task-1){   show_training=1  }          
 
-                    if(show_training==1){
-                      row_new=first_row;
-                      task_new=0;
-                      training_sentense_5=0;
+                  if(show_training==1){
+                    row_new=first_row;
+                    task_new=0;
+                    training_sentense_5=0;
+                    random_voice();
+
+
+                    if (cycle==1){if  (repeat_training==0){ setTimeout(cycle_for_training,1500) ;} else{setTimeout(cycle_for_old_training,1500) ;} }
+
+                    return;
+                  }
+                  if(try_answer==1) {
+
+                    i_know_this();
+                    first_time=0;
+                    number_button=IknowButton
+                    IknowButton=0;
+                    $getQuantity=3;
+                    meter_();
+                    for ( var i=1; i <= 12; i++){ $(".try_answer"+i ).empty() }
                       random_voice();
-
-
-                      if (cycle==1){if  (repeat_training==0){ setTimeout(cycle_for_training,1500) ;} else{setTimeout(cycle_for_old_training,1500) ;} }
-
-                      return;
+                    setTimeout(try_answer1, 1500);
+                    setTimeout(replaceButton, 1500);
+                    return;}
+                    if(show_training==0){
+                      task_new++    
+                      row_new++
+                      random_voice(); 
+                      if  (repeat_training==0){ select_sentense() ;} else{select_old_sentense();}   
+                      if ($sentense==0){setTimeout(letter___written_cod, 1500);}  
+                      if ($sentense==1){setTimeout(first_letter___written_cod, 1500);}            
                     }
-                    if(try_answer==1) {
 
-                      i_know_this();
-                      first_time=0;
-                      number_button=IknowButton
-                      IknowButton=0;
-                      $getQuantity=3;
-                      meter_();
-                      for ( var i=1; i <= 12; i++){ $(".try_answer"+i ).empty() }
-                        random_voice();
-                      setTimeout(try_answer1, 1500);
-                      setTimeout(replaceButton, 1500);
-                      return;}
-                      if(show_training==0){
-                        task_new++    
-                        row_new++
-                        random_voice(); 
-                        if  (repeat_training==0){ select_sentense() ;} else{select_old_sentense();}   
-                        if ($sentense==0){setTimeout(letter___written_cod, 1500);}  
-                        if ($sentense==1){setTimeout(first_letter___written_cod, 1500);}            
-                      }
-
-                    };
-                  }else{
-                   $("#firstLetter").val("");
+                  };
+                }else{
+                 $("#firstLetter").val("");
                //$(".input2").children("button").remove();
                for(var i = $el; i < $newText2.length; i++) 
                {
@@ -1668,79 +1670,79 @@ function first_letter___written_cod()   {
               mistake();
             };
           });
-};
+         };
 
-function first_letter_written()   {        
-  $("#first_letter_written").on("click", function () {
-    $sentense=1
-    show_training1() 
-    first_letter_written_cod() ;
-  });
-};
+         function first_letter_written()   {        
+          $("#first_letter_written").on("click", function () {
+            $sentense=1
+            show_training1() 
+            first_letter_written_cod() ;
+          });
+        };
 
-function first_letter_written_cod()   {  
+        function first_letter_written_cod()   {  
 
-  training_type=7
-  clear_table()
-  var $el=0;
-  $mistake=0;
-  $(".rus" ).append('<button class="btn btn-info btn-large">'+ $getRus+'</button>')
+          training_type=7
+          clear_table()
+          var $el=0;
+          $mistake=0;
+          $(".rus" ).append('<button class="btn btn-info btn-large">'+ $getRus+'</button>')
 
-  var $newText2=   $getSentence.split(" ");
-  var $RightLenght=$newText2.length;
+          var $newText2=   $getSentence.split(" ");
+          var $RightLenght=$newText2.length;
 
-  var $newText3=$getSentence.replace(/[a-zA-Z]/g,".")
-  var $newText3=  $newText3.split(" ");
+          var $newText3=$getSentence.replace(/[a-zA-Z]/g,".")
+          var $newText3=  $newText3.split(" ");
 
 
-  $(".btn_input2" ).text(' ' )
-  $(".input" ).append('<textarea class="press" id="firstLetter" value="" placeholder="напишите первую букву слова"></textarea>' );
+          $(".btn_input2" ).text(' ' )
+          $(".input" ).append('<textarea class="press" id="firstLetter" value="" placeholder="напишите первую букву слова"></textarea>' );
 
-  $(".height320").addClass('animated fadeIn')
-  setTimeout(removeClass_animated,500)
+          $(".height320").addClass('animated fadeIn')
+          setTimeout(removeClass_animated,500)
 
-  $("#firstLetter").focus();
+          $("#firstLetter").focus();
 
-  $(".press").on('input', function () {
+          $(".press").on('input', function () {
 
-   letter=$(this).val().toUpperCase();
-   changeLan();
-   if ($newText2[$el].substr(0, 1)==letter) {
-    $("#firstLetter").attr("placeholder","молодец");
-    $("#firstLetter").css("background","white");
-    $(".input2" ).css("opacity","1")
-    $(".btn_input2" ).text($(".btn_input2" ).text()+$newText2[$el]+' ' )
+           letter=$(this).val().toUpperCase();
+           changeLan();
+           if ($newText2[$el].substr(0, 1)==letter) {
+            $("#firstLetter").attr("placeholder","молодец");
+            $("#firstLetter").css("background","white");
+            $(".input2" ).css("opacity","1")
+            $(".btn_input2" ).text($(".btn_input2" ).text()+$newText2[$el]+' ' )
 
-    $("#firstLetter").val("");
-    $el++;
-    if ($el==$RightLenght) {
-     $('#time_game').text(1*$('#time_game').text()+25*$koef)
-     meter_();
-     if (video_==1) { number_video++;if (number_video<arr_English.length) {$video_.attr('src', src + '?autoplay=1&rel=0&start='+start_video[number_video]+'&end='+end_video[number_video]+'&rel=0');} setTimeout(select_type_training_, 1000);  return;}
-     if (cycle==0){random_voice();setTimeout(hide_training, 1300);return;}
-     if (task_new>=max_task-1){   show_training=1  }          
+            $("#firstLetter").val("");
+            $el++;
+            if ($el==$RightLenght) {
+             $('#time_game').text(1*$('#time_game').text()+25*$koef)
+             meter_();
+             if (video_==1) { number_video++;if (number_video<arr_English.length) {$video_.attr('src', src + '?autoplay=1&rel=0&start='+start_video[number_video]+'&end='+end_video[number_video]+'&rel=0');} setTimeout(select_type_training_, 1000);  return;}
+             if (cycle==0){random_voice();setTimeout(hide_training, 1300);return;}
+             if (task_new>=max_task-1){   show_training=1  }          
 
-      if(show_training==1){
-        row_new=first_row; task_new=0;
-        training_sentense_6=0;
-        training_sentense_test=0;
-        random_voice();
-        if (cycle==1){
-          if  (repeat_training==0){ setTimeout(cycle_for_training,1500) ;} 
-          if  (repeat_training==1){setTimeout(cycle_for_old_training,1500) ;}
-          if  (repeat_training==2){setTimeout(cycle_for_test_training,1500) ;}
-        }
+              if(show_training==1){
+                row_new=first_row; task_new=0;
+                training_sentense_6=0;
+                training_sentense_test=0;
+                random_voice();
+                if (cycle==1){
+                  if  (repeat_training==0){ setTimeout(cycle_for_training,1500) ;} 
+                  if  (repeat_training==1){setTimeout(cycle_for_old_training,1500) ;}
+                  if  (repeat_training==2){setTimeout(cycle_for_test_training,1500) ;}
+                }
 
-        return;
-      }
+                return;
+              }
 
-      if(show_training==0){
-        task_new++    
-        row_new++
-        random_voice(); 
-        if  (repeat_training==0){ select_sentense() ;}
-        if  (repeat_training==1){select_old_sentense();}
-        if  (repeat_training==2){select_test_sentense();}
+              if(show_training==0){
+                task_new++    
+                row_new++
+                random_voice(); 
+                if  (repeat_training==0){ select_sentense() ;}
+                if  (repeat_training==1){select_old_sentense();}
+                if  (repeat_training==2){select_test_sentense();}
                  //$(".input2" ).empty();    
                  if (($sentense==0)&&(test==0)){setTimeout(one_rus_4_eng_cod, 300);} 
                  if (($sentense==0)&&(test==1)){setTimeout(letter___written_cod, 300);} 
@@ -1766,81 +1768,81 @@ function first_letter_written_cod()   {
               mistake();
             };
           });
-};
+        };
 
-function first_letter___audition()   {        
-  $("#first_letter___audition").on("click", function () {
-    $sentense=1
-    show_training1() ;
-    first_letter___audition_cod()
-  });
-};
+        function first_letter___audition()   {        
+          $("#first_letter___audition").on("click", function () {
+            $sentense=1
+            show_training1() ;
+            first_letter___audition_cod()
+          });
+        };
 
-function first_letter___audition_cod()   { 
+        function first_letter___audition_cod()   { 
 
-  training_type=8
-  clear_table()
-  $(".sound" ).show();
-  var $el=0;
-  $mistake=0;
+          training_type=8
+          clear_table()
+          $(".sound" ).show();
+          var $el=0;
+          $mistake=0;
 
-  random_voice();
-  var $newText2=   $getSentence.split(" ");
-  var $RightLenght=$newText2.length;
+          random_voice();
+          var $newText2=   $getSentence.split(" ");
+          var $RightLenght=$newText2.length;
 
-  var $newText3=$getSentence.replace(/[a-zA-Z]/g,".")
-  var $newText3=  $newText3.split(" ");
-  jQuery.each($newText3, function(i, value) {
-   $(".prompt2" ).append( '<button class="press btn_green">'+ value+'</button>' );
- });
-  $(".prompt2" ).css("opacity","1");
-  $(".btn_input2" ).text(' ' )
-  $(".input" ).append('<textarea class="press" id="firstLetter" value="" placeholder="напишите первую букву слова"></textarea>' );
+          var $newText3=$getSentence.replace(/[a-zA-Z]/g,".")
+          var $newText3=  $newText3.split(" ");
+          jQuery.each($newText3, function(i, value) {
+           $(".prompt2" ).append( '<button class="press btn_green">'+ value+'</button>' );
+         });
+          $(".prompt2" ).css("opacity","1");
+          $(".btn_input2" ).text(' ' )
+          $(".input" ).append('<textarea class="press" id="firstLetter" value="" placeholder="напишите первую букву слова"></textarea>' );
 
-  $("#firstLetter").focus();
+          $("#firstLetter").focus();
 
-  $(".press").on('input', function () {
+          $(".press").on('input', function () {
 
-   letter=$(this).val().toUpperCase();
-   changeLan();
-   if ($newText2[$el].substr(0, 1)==letter) {
-    $("#firstLetter").attr("placeholder","молодец");
-    $("#firstLetter").css("background","white");
-    $(".input2" ).css("opacity","1")
-    $(".btn_input2" ).text($(".btn_input2" ).text()+$newText2[$el]+' ' )
-    $(".prompt2").children("button:first").remove();
-    $("#firstLetter").val("");
-    $el++;
-    if ($el==$RightLenght) {
-     $('#time_game').text(1*$('#time_game').text()+25*$koef)
-     meter_();
+           letter=$(this).val().toUpperCase();
+           changeLan();
+           if ($newText2[$el].substr(0, 1)==letter) {
+            $("#firstLetter").attr("placeholder","молодец");
+            $("#firstLetter").css("background","white");
+            $(".input2" ).css("opacity","1")
+            $(".btn_input2" ).text($(".btn_input2" ).text()+$newText2[$el]+' ' )
+            $(".prompt2").children("button:first").remove();
+            $("#firstLetter").val("");
+            $el++;
+            if ($el==$RightLenght) {
+             $('#time_game').text(1*$('#time_game').text()+25*$koef)
+             meter_();
 
-     $(".rus" ).append('<button class="btn btn-info btn-large">'+ $getRus+'</button>');
-     $(".prompt2" ).append( '<button class="press btn_green">1</button>' ).css("opacity","0.01");
-     if (cycle==0){setTimeout(hide_training, 500);return;}
-     if (task_new>=max_task-1){   show_training=1  }           
+             $(".rus" ).append('<button class="btn btn-info btn-large">'+ $getRus+'</button>');
+             $(".prompt2" ).append( '<button class="press btn_green">1</button>' ).css("opacity","0.01");
+             if (cycle==0){setTimeout(hide_training, 500);return;}
+             if (task_new>=max_task-1){   show_training=1  }           
 
-      if(show_training==1){
-        row_new=first_row; task_new=0;
-        training_sentense_7=0;
+              if(show_training==1){
+                row_new=first_row; task_new=0;
+                training_sentense_7=0;
 
-        if (cycle==1){if  (repeat_training==0){ setTimeout(cycle_for_training,1500) ;} else{setTimeout(cycle_for_old_training,1500) ;} }
+                if (cycle==1){if  (repeat_training==0){ setTimeout(cycle_for_training,1500) ;} else{setTimeout(cycle_for_old_training,1500) ;} }
 
-        return;
-      }
+                return;
+              }
 
-      if(show_training==0){
-        task_new++    
-        row_new++
+              if(show_training==0){
+                task_new++    
+                row_new++
 
-        if  (repeat_training==0){ select_sentense() ;} else{select_old_sentense();} 
-        if ($sentense==0){setTimeout(letter___audition_cod, 1500);}  
-        if ($sentense==1){setTimeout(first_letter___audition_cod, 1500);}   
+                if  (repeat_training==0){ select_sentense() ;} else{select_old_sentense();} 
+                if ($sentense==0){setTimeout(letter___audition_cod, 1500);}  
+                if ($sentense==1){setTimeout(first_letter___audition_cod, 1500);}   
 
-      }
-    };
-  }else{
-   $("#firstLetter").val("");
+              }
+            };
+          }else{
+           $("#firstLetter").val("");
                //$(".input2").children("button").remove();
                for(var i = $el; i < $newText2.length; i++) 
                {
@@ -1850,26 +1852,26 @@ function first_letter___audition_cod()   {
               mistake();          
             };
           });
-}
+        }
 
 
-function letter___audition()   {        
-  $("#letter___audition").on("click", function () {
-    $sentense=0
-    show_training1() ;
-    letter___audition_cod()
-  });
-};
+        function letter___audition()   {        
+          $("#letter___audition").on("click", function () {
+            $sentense=0
+            show_training1() ;
+            letter___audition_cod()
+          });
+        };
 
-function letter___audition_cod()   { 
+        function letter___audition_cod()   { 
 
-  training_type=9
-  clear_table()
-  $(".sound" ).show();
-  var $el=0;
-  $mistake=0;
+          training_type=9
+          clear_table()
+          $(".sound" ).show();
+          var $el=0;
+          $mistake=0;
 
-  random_voice();
+          random_voice();
                //var $newText2=   $getSentence.split(" ");
                var $RightLenght=$getSentence.length;
 
@@ -1879,53 +1881,53 @@ function letter___audition_cod()   {
                //jQuery.each($getSentence, function(i, value) {
                  $(".prompt2" ).append( '<button class="press btn_green">'+ $newText3+'</button>' );
              // });
-$(".prompt2" ).css("opacity","1");
-$(".btn_input2" ).text(' ' )
-$(".input" ).append('<textarea class="press" id="firstLetter" value="" placeholder="напишите первую букву слова"></textarea>' );
+             $(".prompt2" ).css("opacity","1");
+             $(".btn_input2" ).text(' ' )
+             $(".input" ).append('<textarea class="press" id="firstLetter" value="" placeholder="напишите первую букву слова"></textarea>' );
 
-$("#firstLetter").focus();
+             $("#firstLetter").focus();
 
-$(".press").on('input', function () {
+             $(".press").on('input', function () {
 
- letter=$(this).val().toUpperCase();
- changeLan();
- if ($getSentence.substr($el, 1)=="(") {var firstLetter_=$getSentence.substr($el+1, 1)}else{var firstLetter_=$getSentence.substr($el, 1)}
-   if (firstLetter_==letter) {
-    $("#firstLetter").attr("placeholder","молодец");
-    $("#firstLetter").css("background","white");
-    $(".input2" ).css("opacity","1")
-    $(".btn_input2" ).text($(".btn_input2" ).text()+letter )
-    $(".prompt2").children("button:first").remove();
-    $("#firstLetter").val("");
-    $el++;
-    if ($el==$RightLenght) {
-     $('#time_game').text(1*$('#time_game').text()+25*$koef)
-     meter_();
-     $(".rus" ).append('<button class="btn btn-info btn-large">'+ $getRus+'</button>');
-     $(".prompt2" ).append( '<button class="press btn_green">1</button>' ).css("opacity","0.01");
-     if (cycle==0){setTimeout(hide_training, 500);return;}
-     if (task_new>=max_task-1){   show_training=1  }           
+               letter=$(this).val().toUpperCase();
+               changeLan();
+               if ($getSentence.substr($el, 1)=="(") {var firstLetter_=$getSentence.substr($el+1, 1)}else{var firstLetter_=$getSentence.substr($el, 1)}
+                 if (firstLetter_==letter) {
+                  $("#firstLetter").attr("placeholder","молодец");
+                  $("#firstLetter").css("background","white");
+                  $(".input2" ).css("opacity","1")
+                  $(".btn_input2" ).text($(".btn_input2" ).text()+letter )
+                  $(".prompt2").children("button:first").remove();
+                  $("#firstLetter").val("");
+                  $el++;
+                  if ($el==$RightLenght) {
+                   $('#time_game').text(1*$('#time_game').text()+25*$koef)
+                   meter_();
+                   $(".rus" ).append('<button class="btn btn-info btn-large">'+ $getRus+'</button>');
+                   $(".prompt2" ).append( '<button class="press btn_green">1</button>' ).css("opacity","0.01");
+                   if (cycle==0){setTimeout(hide_training, 500);return;}
+                   if (task_new>=max_task-1){   show_training=1  }           
 
-      if(show_training==1){
-        row_new=first_row; task_new=0;
-        training_sentense_7=0;
+                    if(show_training==1){
+                      row_new=first_row; task_new=0;
+                      training_sentense_7=0;
 
-        if (cycle==1){if  (repeat_training==0){ setTimeout(cycle_for_training,1500) ;} else{setTimeout(cycle_for_old_training,1500) ;} }
+                      if (cycle==1){if  (repeat_training==0){ setTimeout(cycle_for_training,1500) ;} else{setTimeout(cycle_for_old_training,1500) ;} }
 
-        return;
-      }
+                      return;
+                    }
 
-      if(show_training==0){
-        task_new++    
-        row_new++
+                    if(show_training==0){
+                      task_new++    
+                      row_new++
 
-        if  (repeat_training==0){ select_sentense() ;} else{select_old_sentense();} 
-        if ($sentense==0){setTimeout(letter___audition_cod, 1500);}  
-        if ($sentense==1){setTimeout(first_letter___audition_cod, 1500);}          
-      }
-    };
-  }else{
-   $("#firstLetter").val("");
+                      if  (repeat_training==0){ select_sentense() ;} else{select_old_sentense();} 
+                      if ($sentense==0){setTimeout(letter___audition_cod, 1500);}  
+                      if ($sentense==1){setTimeout(first_letter___audition_cod, 1500);}          
+                    }
+                  };
+                }else{
+                 $("#firstLetter").val("");
                //$(".input2").children("button").remove();
                for(var i = $el; i < $getSentence.length; i++) 
                {
@@ -1935,46 +1937,46 @@ $(".press").on('input', function () {
               mistake();          
             };
           });
-}
+           }
 
 
 
 
-function first_letter_audition()   {        
-  $("#first_letter_audition").on("click", function () {
-    $sentense=1
-    show_training1() ;
-    first_letter_audition_cod()
-  });
-};
+           function first_letter_audition()   {        
+            $("#first_letter_audition").on("click", function () {
+              $sentense=1
+              show_training1() ;
+              first_letter_audition_cod()
+            });
+          };
 
 
 
 
-function first_letter_audition_cod()   {
+          function first_letter_audition_cod()   {
 
- training_type=10 
- clear_table()
- $(".sound" ).show();
- var $el=0;
- $mistake=0;
- random_voice();
- var $newText2=   $getSentence.split(" ");
- var $RightLenght=$newText2.length;
- $(".input" ).children().remove();
- $(".btn_input2" ).text(' ' )
- $(".input" ).append('<textarea class="press" id="firstLetter" value="" placeholder="напишите первую букву слова"></textarea>' );
- $("#firstLetter").focus();     
- $(".height320").addClass('animated fadeIn')
- setTimeout(removeClass_animated,500)
+           training_type=10 
+           clear_table()
+           $(".sound" ).show();
+           var $el=0;
+           $mistake=0;
+           random_voice();
+           var $newText2=   $getSentence.split(" ");
+           var $RightLenght=$newText2.length;
+           $(".input" ).children().remove();
+           $(".btn_input2" ).text(' ' )
+           $(".input" ).append('<textarea class="press" id="firstLetter" value="" placeholder="напишите первую букву слова"></textarea>' );
+           $("#firstLetter").focus();     
+           $(".height320").addClass('animated fadeIn')
+           setTimeout(removeClass_animated,500)
 
- $(".press").on('input', function () {
+           $(".press").on('input', function () {
 
-   letter=$(this).val().toUpperCase();
-   changeLan();
-   if ($newText2[$el].substr(0, 1)==letter) {
-     $(".input2" ).css("opacity","1")
-     $(".btn_input2" ).text($(".btn_input2" ).text()+$newText2[$el]+' ' )
+             letter=$(this).val().toUpperCase();
+             changeLan();
+             if ($newText2[$el].substr(0, 1)==letter) {
+               $(".input2" ).css("opacity","1")
+               $(".btn_input2" ).text($(".btn_input2" ).text()+$newText2[$el]+' ' )
                //$(".input2").children("text:last").after('<text>'+$newText2[$el] +' </text>');
                //$(".input2").children("button:first").remove();
                $("#firstLetter").val("");
@@ -2018,24 +2020,24 @@ function first_letter_audition_cod()   {
               mistake()
             };
           });
-}
+         }
 
-function one_rus_4_eng()   {        
-  $("#one_rus_4_eng").on("click", function () {
-    $sentense=0
-    show_training1() ;
-    one_rus_4_eng_cod()
-  });
-};
+         function one_rus_4_eng()   {        
+          $("#one_rus_4_eng").on("click", function () {
+            $sentense=0
+            show_training1() ;
+            one_rus_4_eng_cod()
+          });
+        };
 
-function one_rus_4_eng_cod()   { 
+        function one_rus_4_eng_cod()   { 
 
- training_type=11
- clear_table()
- var $el=0;
- $mistake=0;
- $(".rus" ).append('<button class="btn btn-info btn-large">'+ $getRus+'</button>')
- $(".input" ).children().remove();
+         training_type=11
+         clear_table()
+         var $el=0;
+         $mistake=0;
+         $(".rus" ).append('<button class="btn btn-info btn-large">'+ $getRus+'</button>')
+         $(".input" ).children().remove();
                // $(".microphon" ).css("display","none");
                var random_number=4
                if (video_==1) {random_number=3}
@@ -2071,24 +2073,24 @@ function one_rus_4_eng_cod()   {
                    mistake()
                  };
                });
-}
+               }
 
-function one_eng_4_rus()   {        
-  $("#one_eng_4_rus").on("click", function () {
-    $sentense=0
-    show_training1() ;
-    one_eng_4_rus_cod()
-  });
-};
+               function one_eng_4_rus()   {        
+                $("#one_eng_4_rus").on("click", function () {
+                  $sentense=0
+                  show_training1() ;
+                  one_eng_4_rus_cod()
+                });
+              };
 
-function one_eng_4_rus_cod()   { 
+              function one_eng_4_rus_cod()   { 
 
- training_type=12
- clear_table()
- var $el=0;
- $mistake=0;
+               training_type=12
+               clear_table()
+               var $el=0;
+               $mistake=0;
 
- $(".input" ).children().remove();
+               $(".input" ).children().remove();
                // $(".microphon" ).css("display","none");
                $(".rus" ).append('<button class="btn btn-info btn-large">'+ $getSentence+'</button>')
                var random_number=4
@@ -2129,35 +2131,35 @@ function one_eng_4_rus_cod()   {
                mistake()
              };
            });
-}
-function four_rus_audition()   {        
-  $("#sound_4_rus").on("click", function () {
-    $sentense=1
-    show_training1() ;
-    four_rus_audition_cod()
-  });
-};
+           }
+           function four_rus_audition()   {        
+            $("#sound_4_rus").on("click", function () {
+              $sentense=1
+              show_training1() ;
+              four_rus_audition_cod()
+            });
+          };
 
-function four_rus_words_audition()   {        
-  $("#sound_4_words_rus").on("click", function () {
-    $sentense=0
-    show_training1() ;
-    four_rus_audition_cod()
-  });
-};
+          function four_rus_words_audition()   {        
+            $("#sound_4_words_rus").on("click", function () {
+              $sentense=0
+              show_training1() ;
+              four_rus_audition_cod()
+            });
+          };
 
 
-function four_rus_audition_cod()   { 
+          function four_rus_audition_cod()   { 
 
-  training_type=13
-  clear_table()
-  $(".sound" ).show();
-  var $el=0;
-  $mistake=0;
-  if (video_==0) {random_voice();}
-  var $newText2=   $getSentence.split(" ");
-  var $RightLenght=$newText2.length;
-  $(".input" ).children().remove();
+            training_type=13
+            clear_table()
+            $(".sound" ).show();
+            var $el=0;
+            $mistake=0;
+            if (video_==0) {random_voice();}
+            var $newText2=   $getSentence.split(" ");
+            var $RightLenght=$newText2.length;
+            $(".input" ).children().remove();
                // $(".microphon" ).css("display","none");
 
                var random_number=4
@@ -2206,123 +2208,137 @@ function four_rus_audition_cod()   {
                      mistake()
                    };
                  });
-}
+               }
 
 
 
-function myInterval2(){$("#microphon2").change()};
-setInterval(myInterval2, 2000)
-yy=0;
+               function myInterval2(){$("#microphon2").change()};
+               setInterval(myInterval2, 2000)
+               yy=0;
 
 
-function dictophon___()   {    
-  $("#dictophon___").on("click", function () {
-    $sentense=1
-    first_row=0;
-    show_training1() 
+               function dictophon___()   {    
+                $("#dictophon___").on("click", function () {
+                  $sentense=1
+                  first_row=0;
+                  show_training1() 
 
-    dictophon___cod2()  
-  });
-};
+                  dictophon___cod2()  
+                });
+              };
 
-function dictophon_word_()   {    
-  $("#dictophon_word_").on("click", function () {
-    $sentense=0
-    first_row=0;
-    show_training1() 
-    dictophon___cod2()  
-  });
-};
+              function dictophon_word_()   {    
+                $("#dictophon_word_").on("click", function () {
+                  $sentense=0
+                  first_row=0;
+                  show_training1() 
+                  dictophon___cod2()  
+                });
+              };
 
-function console2()   {  
-  var $top= $("#dictophon_english").position()['top'];
-  var $left=  $("#dictophon_english").position()['left'];
-  var $width= $("#dictophon_english").width()+40;
-  var $animation_time= 1000*($end-$start);
-  $(".prompt2" ).append( '<span  id="dictophon_karaoke">&nbsp </span>' );
-  $("#dictophon_karaoke").css('top',$top);
-  $("#dictophon_karaoke").css('left',$left);
-
-  $('#dictophon_karaoke').animate({width : $width,},$animation_time,'linear');
-}
-
-function dictophon___cod2()   {    
-  clear_table();
-  stop_dictophon=0;
-  $(".microphon" ).css("display","block");
-  $newText2=0;
-  $el=0;
-  $(".meter2").val(0);
-  $(".microphon" ).show();
-  $(".sound" ).show();
-  $(".prompt3" ).hide(); 
-  $(".rus" ).append('<button class="btn btn-info btn-large">'+ $getRus+'</button>');
-  $(".prompt2" ).append( '<span class="btn btn-large" id="dictophon_english">'+ $getSentence+'</span>' );
-  
-  $(".prompt2" ).css("opacity","1");
-
-  setTimeout(console2,300);
-
-  if (video_==0) {random_voice()};
-  $('#time_game').text(1*$('#time_game').text()+25*$koef)
-  var $newText3=$getSentence.replace(/[a-zA-Z]/g,".")
-  var $newText3=  $newText3.split(" ");
-  $(".title_sound" ).attr("title", $getSentence)
-  $(".microphon" ).attr("title", $getSentence)
-  myTime=$getSentence.length*300
-
-  if ($sound_type=="video" ){myTime=myTime*1.5}
-   if (video_==1 ){myTime=myTime*1.5}
-    if (myTime<3000) {myTime=3000}
-      $(".meter2").attr('max',myTime)
-
-    var MyIntervalID =  setInterval (function(){ $(".meter2").val($(".meter2").val()+10) }, 10);
-
-    setTimeout(function(){ clearInterval (MyIntervalID )},myTime)
-    var myTime2=myTime-2000
-    setTimeout( meter_,myTime2)
+              function stripe()   { 
+                $('#dictophon_karaoke').animate({width : $width,},$animation_time,'linear');
+              }
+              function karaoke()   {  
+               $top= $("#dictophon_english").position()['top'];
+               $left=  $("#dictophon_english").position()['left'];
+               $width= $("#dictophon_english").width()+40;
+               if ($sound_type=="video"){
+                 $animation_time= 1000*($end-$start);
+               }else{
+                $animation_time=$getSentence.length*100
+              }
+              $(".prompt2" ).append( '<span  id="dictophon_karaoke">&nbsp </span>' );
+              $("#dictophon_karaoke").css('top',$top);
+              $("#dictophon_karaoke").css('left',$left);
+              if ($sound_type=="video"){
+               $('#video').load(function () {
+                setTimeout(stripe,500);
+              });
+             }else{
+              stripe();
+            }
 
 
+          }
 
-    setTimeout(function(){
+          function dictophon___cod2()   {    
+            clear_table();
+            stop_dictophon=0;
+            $(".microphon" ).css("display","block");
+            $newText2=0;
+            $el=0;
+            $(".meter2").val(0);
+            $(".microphon" ).show();
+            $(".sound" ).show();
+            $(".prompt3" ).hide(); 
+            $(".rus" ).append('<button class="btn btn-info btn-large">'+ $getRus+'</button>');
+            $(".prompt2" ).append( '<span class="btn btn-large" id="dictophon_english">'+ $getSentence+'</span>' );
 
-      if (video_==1) {
-        console.log( start_video[number_video]+', '+end_video[number_video]);
-        number_video++;
-        if (number_video<arr_English.length) {
-          $video_.attr('src', src + '?autoplay=1&rel=0&start='+start_video[number_video]+'&end='+end_video[number_video]+'&rel=0');
-          console.log( start_video[number_video]+', '+end_video[number_video]);
-        } 
-        setTimeout(select_type_training_, 1000);  return;}
-        if (task_new>=max_task-1){   show_training=1  } 
+            $(".prompt2" ).css("opacity","1");
+
+            setTimeout(karaoke,300);
+
+            if (video_==0) {random_voice()};
+            $('#time_game').text(1*$('#time_game').text()+25*$koef)
+            var $newText3=$getSentence.replace(/[a-zA-Z]/g,".")
+            var $newText3=  $newText3.split(" ");
+            $(".title_sound" ).attr("title", $getSentence)
+            $(".microphon" ).attr("title", $getSentence)
+            myTime=$getSentence.length*300
+
+            if ($sound_type=="video" ){myTime=myTime*1.5}
+             if (video_==1 ){myTime=myTime*1.5}
+              if (myTime<3000) {myTime=3000}
+                $(".meter2").attr('max',myTime)
+
+              var MyIntervalID =  setInterval (function(){ $(".meter2").val($(".meter2").val()+10) }, 10);
+
+              setTimeout(function(){ clearInterval (MyIntervalID )},myTime)
+              var myTime2=myTime-2000
+              setTimeout( meter_,myTime2)
 
 
 
-          if(show_training==1){
+              setTimeout(function(){
 
-            row_new=first_row; task_new=0;
-            training_sentense_10=0;
-
-            if (cycle==1){
-             if  (repeat_training==0){ cycle_for_training()} else{cycle_for_old_training()} 
-
-
-           }
-         if (cycle==0){
-          hide_training()
-
-        }
-        return;
-      }
-
-      if(show_training==0){
+                if (video_==1) {
+                  console.log( start_video[number_video]+', '+end_video[number_video]);
+                  number_video++;
+                  if (number_video<arr_English.length) {
+                    $video_.attr('src', src + '?autoplay=1&rel=0&start='+start_video[number_video]+'&end='+end_video[number_video]+'&rel=0');
+                    console.log( start_video[number_video]+', '+end_video[number_video]);
+                  } 
+                  setTimeout(select_type_training_, 1000);  return;}
+                  if (task_new>=max_task-1){   show_training=1  } 
 
 
-        task_new++    
-        row_new++
-        if  (repeat_training==0){ select_sentense() ;} else{select_old_sentense();} 
-        if (video_==1) { number_video++}
-          dictophon___cod2()
+
+                    if(show_training==1){
+
+                      row_new=first_row; task_new=0;
+                      training_sentense_10=0;
+
+                      if (cycle==1){
+                       if  (repeat_training==0){ cycle_for_training()} else{cycle_for_old_training()} 
+
+
+                     }
+                   if (cycle==0){
+                    hide_training()
+
+                  }
+                  return;
+                }
+
+                if(show_training==0){
+
+
+                  task_new++    
+                  row_new++
+                  if  (repeat_training==0){ select_sentense() ;} else{select_old_sentense();} 
+                  if (video_==1) { number_video++}
+                    dictophon___cod2()
 
 
                 //stop_dictophon=1
@@ -2331,76 +2347,76 @@ function dictophon___cod2()   {
 
 
 
-};
+            };
 
 
-function dictophon___cod()   {    
- clear_table()
- stop_dictophon=0
- $(".microphon" ).css("display","block");
+            function dictophon___cod()   {    
+             clear_table()
+             stop_dictophon=0
+             $(".microphon" ).css("display","block");
 
 
- $(".si-btn").click();
+             $(".si-btn").click();
 
- clear_table()
- $(".rus" ).append('<button class="btn btn-info btn-large">'+ $getRus+'</button>');
- var $newText3=$getSentence.replace(/[a-zA-Z]/g,".")
- var $newText3=  $newText3.split(" ");
- if (video_==0) {jQuery.each($newText3, function(i, value) {
+             clear_table()
+             $(".rus" ).append('<button class="btn btn-info btn-large">'+ $getRus+'</button>');
+             var $newText3=$getSentence.replace(/[a-zA-Z]/g,".")
+             var $newText3=  $newText3.split(" ");
+             if (video_==0) {jQuery.each($newText3, function(i, value) {
 
-   $(".prompt2" ).append( '<button class="press btn_green">'+ value+'</button>' );
- });
-   $(".prompt2" ).css("opacity","1");}
-   y=0;
+               $(".prompt2" ).append( '<button class="press btn_green">'+ value+'</button>' );
+             });
+               $(".prompt2" ).css("opacity","1");}
+               y=0;
 
-   $(".speech-input, .si-btn" ).css("visibility", 'visible');
-   $(".speech-input").val("")
-   $("#firstLetter2").focus();
+               $(".speech-input, .si-btn" ).css("visibility", 'visible');
+               $(".speech-input").val("")
+               $("#firstLetter2").focus();
 
-   if (yy!=1){$("#microphon2").change(function () {
-     var letter=$(this).val();
-     if (letter.length>=$getSentence.length*1.2) {
-      meter_();
-      stop__dictophon() 
-      if (video_==1) { number_video++;
+               if (yy!=1){$("#microphon2").change(function () {
+                 var letter=$(this).val();
+                 if (letter.length>=$getSentence.length*1.2) {
+                  meter_();
+                  stop__dictophon() 
+                  if (video_==1) { number_video++;
 
-        if (number_video<arr_English.length) {
-          $video_.attr('src', src + '?autoplay=1&rel=0&start='+start_video[number_video]+'&end='+end_video[number_video]+'&rel=0');$(".si-btn").click(); } setTimeout(select_type_training_, 1000); 
-          return;}
-          $(".speech-input, .si-btn" ).css("visibility", 'hidden')
+                    if (number_video<arr_English.length) {
+                      $video_.attr('src', src + '?autoplay=1&rel=0&start='+start_video[number_video]+'&end='+end_video[number_video]+'&rel=0');$(".si-btn").click(); } setTimeout(select_type_training_, 1000); 
+                      return;}
+                      $(".speech-input, .si-btn" ).css("visibility", 'hidden')
 
-          if (y==0){
+                      if (y==0){
 
-           $(".input2" ).append( $getSentence)
-           if (task_new>=max_task-1){   show_training=1  } 
-            if (stop_dictophon==1) {stop_dictophon=0;$("#microphon2").val(""); return}          
+                       $(".input2" ).append( $getSentence)
+                       if (task_new>=max_task-1){   show_training=1  } 
+                        if (stop_dictophon==1) {stop_dictophon=0;$("#microphon2").val(""); return}          
 
-          random_voice();
-          if(show_training==1){
+                      random_voice();
+                      if(show_training==1){
 
-            row_new=first_row; task_new=0;
-            training_sentense_10=0;
+                        row_new=first_row; task_new=0;
+                        training_sentense_10=0;
 
-            if (cycle==1){
-              stop__dictophon() 
-              if  (repeat_training==0){ setTimeout(cycle_for_training,1500) ;} else{setTimeout(cycle_for_old_training,1500) ;} 
+                        if (cycle==1){
+                          stop__dictophon() 
+                          if  (repeat_training==0){ setTimeout(cycle_for_training,1500) ;} else{setTimeout(cycle_for_old_training,1500) ;} 
 
-            }
-            if (cycle==0){
+                        }
+                        if (cycle==0){
 
-              stop__dictophon() 
+                          stop__dictophon() 
 
-              setTimeout(hide_training, 1500);
-            }
-            stop_dictophon=1
-            return;
-          }
-          if(show_training==0){
-            task_new++    
-            row_new++
-            if  (repeat_training==0){ select_sentense() ;} else{select_old_sentense();} 
-            $(".si-btn").click(); 
-            setTimeout(dictophon___cod, 1500);
+                          setTimeout(hide_training, 1500);
+                        }
+                        stop_dictophon=1
+                        return;
+                      }
+                      if(show_training==0){
+                        task_new++    
+                        row_new++
+                        if  (repeat_training==0){ select_sentense() ;} else{select_old_sentense();} 
+                        $(".si-btn").click(); 
+                        setTimeout(dictophon___cod, 1500);
                 //stop_dictophon=1
                 return;         
               };
@@ -2411,37 +2427,37 @@ function dictophon___cod()   {
             }  
           }
         });
-};
-};
+             };
+           };
 
 
-function changeLan()   {
-  if (letter=="Й"){letter="Q"};
-  if (letter=="Ц"){letter="W"};
-  if (letter=="У"){letter="E"};
-  if (letter=="К"){letter="R"};
-  if (letter=='Е'){letter="T"};
-  if (letter=="Н"){letter="Y"};
-  if (letter=="Г"){letter="U"};
-  if (letter=="Ш"){letter="I"};
-  if (letter=="Щ"){letter="O"};
-  if (letter=="З"){letter="P"};
-  if (letter=="Ф"){letter="A"};
-  if (letter=="І"){letter="S"};
-  if (letter=="Ы"){letter="S"};
-  if (letter=="В"){letter="D"};
-  if (letter=="А"){letter="F"};
-  if (letter=="П"){letter="G"};
-  if (letter=="Р"){letter="H"};
-  if (letter=="О"){letter="J"};
-  if (letter=="Л"){letter="K"};
-  if (letter=="Д"){letter="L"};
-  if (letter=="Я"){letter="Z"};
-  if (letter=="Ч"){letter="X"};
-  if (letter=="С"){letter="C"};
-  if (letter=="М"){letter="V"};
-  if (letter=="И"){letter="B"};
-  if (letter=="Т"){letter="N"};
-  if (letter=="Ь"){letter="M"};
-  if (letter=="Э"){letter="'"};
-};
+           function changeLan()   {
+            if (letter=="Й"){letter="Q"};
+            if (letter=="Ц"){letter="W"};
+            if (letter=="У"){letter="E"};
+            if (letter=="К"){letter="R"};
+            if (letter=='Е'){letter="T"};
+            if (letter=="Н"){letter="Y"};
+            if (letter=="Г"){letter="U"};
+            if (letter=="Ш"){letter="I"};
+            if (letter=="Щ"){letter="O"};
+            if (letter=="З"){letter="P"};
+            if (letter=="Ф"){letter="A"};
+            if (letter=="І"){letter="S"};
+            if (letter=="Ы"){letter="S"};
+            if (letter=="В"){letter="D"};
+            if (letter=="А"){letter="F"};
+            if (letter=="П"){letter="G"};
+            if (letter=="Р"){letter="H"};
+            if (letter=="О"){letter="J"};
+            if (letter=="Л"){letter="K"};
+            if (letter=="Д"){letter="L"};
+            if (letter=="Я"){letter="Z"};
+            if (letter=="Ч"){letter="X"};
+            if (letter=="С"){letter="C"};
+            if (letter=="М"){letter="V"};
+            if (letter=="И"){letter="B"};
+            if (letter=="Т"){letter="N"};
+            if (letter=="Ь"){letter="M"};
+            if (letter=="Э"){letter="'"};
+          };
