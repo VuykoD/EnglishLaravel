@@ -713,7 +713,7 @@ function try_training_cod()   {
 
                                   max_task=$('#select_test option:selected').text()
                                   for (var i = 0; i < 60000; i++) {
-                                   if ((arr_quantity[i]==4) && (today>=arr_date[i])){
+                                   if ((arr_quantity[i]==3) && (today>=arr_date[i])){
                                      first_row=i
                                      break;
                                    }
@@ -744,8 +744,10 @@ function try_training_cod()   {
 
                                   max_task=$('#select_repeat option:selected').text()
                                   for (var i = 0; i < 60000; i++) {
-                                   if ((arr_quantity[i]>=1) && (arr_quantity[i]<=3) && (today>=arr_date[i])){
-                                     first_row=i
+                                   if ((arr_quantity[i]>=1) && (arr_quantity[i]<=2) && (today>=arr_date[i])){
+                                    first_row=i
+                                    console.log(first_row);
+                                     
                                      break;
                                    }
                                  }
