@@ -18,7 +18,6 @@
           </a>
 
           <select class="select" id="select_new">
-            <option  hidden>5</option>
             <option>3</option> <option>4</option> <option>5</option> <option>6</option>
             <option>7</option> <option>8</option> <option>9</option> <option>10</option>
             <option>11</option> <option>12</option> 
@@ -28,18 +27,16 @@
 
           <a class="btn btn-info btn-large centered_menu_2" id="old">Повторить</a>
           <select class="select" id="select_repeat">
-            <option hidden>10</option>
             <option>3</option> <option>4</option> <option>5</option> <option>6</option>
-            <option>7</option> <option>8</option> <option>9</option> <option>10</option>
+            <option>7</option> <option>8</option> <option>9</option> <option selected>10</option>
             <option>11</option> <option>12</option><option>15</option><option>20</option> <option>30</option> 
           </select>
 
 
           <a class="btn btn-info btn-large centered_menu_2" id="test">Экзамен</a>
           <select class="select" id="select_test">
-            <option hidden>10</option>
             <option>3</option> <option>4</option> <option>5</option> <option>6</option>
-            <option>7</option> <option>8</option> <option>9</option> <option>10</option>
+            <option>7</option> <option>8</option> <option>9</option> <option selected>10</option>
             <option>11</option> <option>12</option> 
           </select>
 
@@ -386,8 +383,9 @@ $(".edit_button").click(function(e){
   var start_video = $("input[name=start_video]").val();
   var end_video = $("input[name=end_video]").val();
   var sound_type = $sound_type;
+  var _row="edit";
 
-
+console.log(arr_base_course_id_);
 
   $.ajax({
 
@@ -395,7 +393,7 @@ $(".edit_button").click(function(e){
 
    url:'/ajaxRequest',
 
-   data:{sound_type:sound_type, arr_base_course_id_:arr_base_course_id_, eng_:eng_, rus_:rus_, start_video:start_video, end_video:end_video, _token: '{{csrf_token()}}'},
+   data:{_row:_row, sound_type:sound_type, arr_base_course_id_:arr_base_course_id_, eng_:eng_, rus_:rus_, start_video:start_video, end_video:end_video, _token: '{{csrf_token()}}'},
 
    success:function(data){
     $(".rus_" ).hide();

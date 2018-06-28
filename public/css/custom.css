@@ -482,7 +482,7 @@ img {max-width:100%;height:auto;width:auto;-moz-box-sizing:border-box;-webkit-bo
 
 
    #repeat {width: 300px;font-size: 16px;}
-   #dictophon_karaoke{display: block; position: absolute;opacity: 0.2;background-color: #49afcd;top:458px;left: 703px;width: 1px;line-height: 44px; border-radius: 7px;}
+   #dictophon_karaoke{display: block; position: absolute;opacity: 0.3;background-color: #49afcd;top:458px;left: 703px;width: 1px;line-height: 44px; border-radius: 7px;}
 
    .longer {width: 133px;}
    .short {width: 103px;}

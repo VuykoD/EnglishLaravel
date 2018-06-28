@@ -54,7 +54,8 @@ public function ajaxRequest()
 
 
  if (request('sound_type')=="video"){
-            
+
+             
           if (request('_row')=="edit"){
               DB::table('video_times')->where('id', request('arr_base_course_id_'))->update(['english' => request('eng_'),'russian' => request('rus_'),'start_' => request('start_video'),'end_' => request('end_video')]);
           }

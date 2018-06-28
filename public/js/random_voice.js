@@ -20,6 +20,7 @@ window.speechSynthesis.speak(utterance);
 return;}
 }
 }
+
 if ($sound_type=="video"){
 	src="http://www.youtube.com/embed/" + $adress
 	

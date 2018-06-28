@@ -317,7 +317,7 @@ function try_training_cod()   {
         function select_old_sentense()   {
 
          for (var i = row_new; i < 60000; i++) {
-           if ((arr_English[i].indexOf(' ') > 0 )&&(arr_quantity[i]>=1) && (arr_quantity[i]<=2) && (today>=arr_date[i])&&($meter_max>0)){$sentense=1;
+           if ((arr_English[i].indexOf(' ') > 0 )&&(arr_quantity[i]>=1) && (arr_quantity[i]<=3) && (today>=arr_date[i])&&($meter_max>0)){$sentense=1;
             $getSentence= arr_English[i].toUpperCase();
             $getSentence=$getSentence.replace(/\./g, "");
             $getRus=arr_Rus[i].toUpperCase();
@@ -342,7 +342,7 @@ function try_training_cod()   {
 
            break;
          }
-         if ((arr_English[i].indexOf(' ') == -1 )&&(arr_quantity[i]>=1) && (arr_quantity[i]<=2) && (today>=arr_date[i])&&($meter_max>0)){$sentense=0;
+         if ((arr_English[i].indexOf(' ') == -1 )&&(arr_quantity[i]>=1) && (arr_quantity[i]<=3) && (today>=arr_date[i])&&($meter_max>0)){$sentense=0;
           $getSentence= arr_English[i].toUpperCase();
           $getSentence=$getSentence.replace(/\./g, "");
           $getRus=arr_Rus[i].toUpperCase();
@@ -379,7 +379,7 @@ function try_training_cod()   {
    function select_test_sentense()   {
 
      for (var i = row_new; i < 60000; i++) {
-       if ((arr_English[i].indexOf(' ') > 0 )&&(arr_quantity[i]==3)&& (today>=arr_date[i])&&($meter_max>0)){$sentense=1;
+       if ((arr_English[i].indexOf(' ') > 0 )&&(arr_quantity[i]==4)&& (today>=arr_date[i])&&($meter_max>0)){$sentense=1;
         $getSentence= arr_English[i].toUpperCase();
         $getSentence=$getSentence.replace(/\./g, "");
         $getRus=arr_Rus[i].toUpperCase();
@@ -405,7 +405,7 @@ function try_training_cod()   {
                       // console.log(row_arr)
                       break;
                     }
-                    if ((arr_English[i].indexOf(' ') == -1 )&&(arr_quantity[i]==3)  && (today>=arr_date[i])&&($meter_max>0)){$sentense=0;
+                    if ((arr_English[i].indexOf(' ') == -1 )&&(arr_quantity[i]==4)  && (today>=arr_date[i])&&($meter_max>0)){$sentense=0;
                       $getSentence= arr_English[i].toUpperCase();
                       $getSentence=$getSentence.replace(/\./g, "");
                       $getRus=arr_Rus[i].toUpperCase();
@@ -470,8 +470,8 @@ function try_training_cod()   {
               for (var i = 0; i <= arr_quantity.length; i++) {
 
 
-               if ((arr_quantity[i]>=1) && (arr_quantity[i]<=2) && (today>=arr_date[i])){ $quantity_repeat++}
-                 if ((arr_quantity[i]>=1) && (arr_quantity[i]<=2)){ $quantity_repeat_All++} 
+               if ((arr_quantity[i]>=1) && (arr_quantity[i]<=3) && (today>=arr_date[i])){ $quantity_repeat++}
+                 if ((arr_quantity[i]>=1) && (arr_quantity[i]<=3)){ $quantity_repeat_All++} 
 
                }
 
@@ -485,10 +485,10 @@ function try_training_cod()   {
             for (var i = 0; i <= arr_quantity.length; i++) {
 
 
-             if ((arr_quantity[i]==3) && (today>=arr_date[i])){
+             if ((arr_quantity[i]==4) && (today>=arr_date[i])){
               $quantity_test++
             }
-            if ((arr_quantity[i]==3)){
+            if ((arr_quantity[i]==4)){
               $quantity_test_All++
             }
           }
@@ -502,7 +502,7 @@ function try_training_cod()   {
           for (var i = 0; i <= arr_quantity.length; i++) {
 
 
-           if ((arr_quantity[i]>=4)){
+           if ((arr_quantity[i]>=5)){
             $quantity_learnt++
           }
 
