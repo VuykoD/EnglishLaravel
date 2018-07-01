@@ -1,7 +1,7 @@
 @extends('app')
 @section('content')
 <br>
-
+<video class="unvisible" controls="" name="media" id="sound_mistake"><source src="/sounds/Sound_08515.mp3" type="audio/mpeg"></video>
 <div class="costumer">    
   <form>
    <div class="container">

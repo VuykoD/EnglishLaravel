@@ -146,7 +146,9 @@ function try_training_cod()   {
              });
             };            
 
-            function mistake()   {   
+            function mistake()   { 
+
+                $('#sound_mistake').get(0).play();
              $mistake++
              $("#firstLetter").attr("placeholder","неправильно");
              $("#firstLetter").css("background","rgb(250,250,100)");
