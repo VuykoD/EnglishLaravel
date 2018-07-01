@@ -39,6 +39,11 @@ Route::get('ajaxRequest', 'AjaxController@ajaxRequest');
 
 Route::get('ajaxRequestSoundGame', 'AjaxController@ajaxRequestSoundGame');
 
+Route::get('star_war', function()
+{
+     return view('layouts.star_war');
+});
+
 
 Auth::routes();
 

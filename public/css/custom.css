@@ -555,7 +555,7 @@ img {max-width:100%;height:auto;width:auto;-moz-box-sizing:border-box;-webkit-bo
 
 
   /*svg{width: 390px; height: 390px;position: absolute;top: -150px; left: -150px; bottom: 0; right: 0;z-index: 7}*/
-  .map{ border: 1px solid lightgrey; padding: 5px; min-width: 1240px !important; width: 1240px !important; margin-top: 10px; position: absolute; left:10px;z-index: 0 !important;}
+  .map{ border: 1px solid lightgrey; padding: 5px; min-width: 1240px !important; width: 1240px !important; margin-top: 10px; position: absolute; z-index: 0 !important;}
   .enemy{width: 80px; position: absolute; text-align: center;}
   .absolute_auth {position: absolute; top:100px; left: 50}
   .opasity_04 {opacity: 0.2;}
@@ -564,7 +564,7 @@ img {max-width:100%;height:auto;width:auto;-moz-box-sizing:border-box;-webkit-bo
   .meter2, .meter3 {width: 300px  !important; border-radius: 3px; }
 
 
-  #startGame{z-index: 1000 !important; position: absolute; width: 14%; top: 120px; left: 43%;}
+  #startGame{z-index: 1000 !important; position: absolute; width: 14%; top: 120px;}
   .enemy b{color: rgb(230,230,230);}
   .defender{width: 390px; height: 390px; position: relative; }
   .footer {height: 38px; width: 100%; position: fixed;bottom: 0px;left: 0px; background: rgb(80, 180, 121);z-index: 1000000 !important;}

@@ -667,7 +667,7 @@ function try_training_cod()   {
                                  repeat_training=0;
 
                                  max_task=$('#select_new option:selected').text()
-
+if (max_task>$quantity_new){max_task=$quantity_new}
                                  for (var i = 0; i < 60000; i++) {
                                    if ((arr_quantity[i]==0)){
                                      first_row=i
@@ -712,6 +712,7 @@ function try_training_cod()   {
                                   row_mistake=[];
 
                                   max_task=$('#select_test option:selected').text()
+                                  if (max_task>$quantity_test){max_task=$quantity_test}
                                   for (var i = 0; i < 60000; i++) {
                                    if ((arr_quantity[i]==3) && (today>=arr_date[i])){
                                      first_row=i
@@ -743,6 +744,7 @@ function try_training_cod()   {
                                   row_mistake=[];
 
                                   max_task=$('#select_repeat option:selected').text()
+                                  if (max_task>$quantity_repeat){max_task=$quantity_repeat}
                                   for (var i = 0; i < 60000; i++) {
                                    if ((arr_quantity[i]>=1) && (arr_quantity[i]<=2) && (today>=arr_date[i])){
                                     first_row=i

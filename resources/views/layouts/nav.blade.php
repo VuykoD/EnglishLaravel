@@ -148,7 +148,7 @@
                                     <a  class="dropdown-toggle">Игры<br><b class="caret"></b></a>
                                     <ul class="dropdown-menu">
 
-                                                        <li><a href="game.php">Star wars</a></li>
+                                                        <li><a href="star_war">Star wars</a></li>
                                                         <li><a href="#game.php">Иследователи</a></li>
                                                         <li><a href="@guest # @else training?user={{Auth::user()->id}}&type=video @endguest">ЗвукоДанетка</a></li>
                                                         <li><a href="#2-column.html" disabled>Тесты</a></li>
