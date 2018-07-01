@@ -154,7 +154,7 @@ function try_training_cod()   {
             function mistake()   { 
               $('.sweet-overlay').css('display','block');
               setTimeout(sweet,500);
-              // $('#sound_mistake').get(0).play();
+              $('#sound_mistake').get(0).play();
               $mistake++
               $("#firstLetter").attr("placeholder","неправильно");
               $("#firstLetter").css("background","rgb(250,250,100)");
