@@ -128,6 +128,7 @@ select:focus { outline: none; }
 .margin_top_20 {margin-top: -20px;}
 .margin_l__10_ {margin-left: -20px !important; padding-bottom: 54px !important;}
 .centered_menu_2 {width: 65%;z-index: 1032 !important;}
+.centered_menu_4 {width: 195px;z-index: 1032 !important;}
 .centered_menu_3 {width: 85%; margin-left: 15%}
 .four_block {opacity: 0.2; height: 260px; border-radius: 10px; border: 1px solid rgba(0, 0, 0,0.3); margin-top: 15px;margin-right: 15px; padding: 5px; background-color: rgb(120, 180, 130);box-shadow: 11px 11px 10px rgba(0,0,0,0.7);}
 

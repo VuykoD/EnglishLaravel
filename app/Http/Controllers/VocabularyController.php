@@ -71,44 +71,44 @@ class VocabularyController extends Controller
            //запускаю цикл по добавлению каждого предложения в свой словарь
            foreach ($sentenses as $sentense){
             
-           if (request('GetWords')==1) {
-            //раскладываю предложения на слова, с удалением всех ненужных знаков.
-            $words = CourseService::getWordsFromSentense($sentense);
+           // if (request('GetWords')==1) {
+           //  //раскладываю предложения на слова, с удалением всех ненужных знаков.
+           //  $words = CourseService::getWordsFromSentense($sentense);
 
-                //запускаю цикл по добавлению каждого слова в свой словарь
-                foreach ($words as $el){
-                  //узнаю есть ли такое слово в таблице Base_word 
-                  $word_id = Base_course::where('english',$el)->get()->toarray();
-                  $y= count($word_id);
-                  // если есть то выполняется дальнешший сценарий
-                  if ($y>=1){
+           //      //запускаю цикл по добавлению каждого слова в свой словарь
+           //      foreach ($words as $el){
+           //        //узнаю есть ли такое слово в таблице Base_word 
+           //        $word_id = Base_course::where('english',$el)->get()->toarray();
+           //        $y= count($word_id);
+           //        // если есть то выполняется дальнешший сценарий
+           //        if ($y>=1){
 
-                  // там массивы в масссиве, мне нужен первый массив
-                  $word_id = $word_id[0];
+           //        // там массивы в масссиве, мне нужен первый массив
+           //        $word_id = $word_id[0];
                   
                     
-                    //узнаю есть ли такое слово в моем словаре
+           //          //узнаю есть ли такое слово в моем словаре
                     
-           	        $z = Progress::where('base_course_id',$word_id['id'])->where('id_users',request('id_user'))->count();
+           // 	        $z = Progress::where('base_course_id',$word_id['id'])->where('id_users',request('id_user'))->count();
            	        
                     
-           	         // если нет то выполняется дальнешший сценарий
-           	        if ($z<1){
-                      // добавляем в  мой словарь текущее слово
-                    $i++;
-                    $id=$max_id+$i*10;
+           // 	         // если нет то выполняется дальнешший сценарий
+           // 	        if ($z<1){
+           //            // добавляем в  мой словарь текущее слово
+           //          $i++;
+           //          $id=$max_id+$i*10;
                    
-                     Progress::insert([
-                     'id' => $id, 
-                    'id_base'  => request('id_course'),
-                     'id_users'  => request('id_user'),  
-                    'base_course_id' => $word_id['id'],
-                    'quantity'   => '0',
-                    'next_date' => $date
-                     ]);
-                     }}
-                }
-             }
+           //           Progress::insert([
+           //           'id' => $id, 
+           //          'id_base'  => request('id_course'),
+           //           'id_users'  => request('id_user'),  
+           //          'base_course_id' => $word_id['id'],
+           //          'quantity'   => '0',
+           //          'next_date' => $date
+           //           ]);
+           //           }}
+           //      }
+           //   }
                 //конец цикла по добавлению слов на каждое предложение
 
              

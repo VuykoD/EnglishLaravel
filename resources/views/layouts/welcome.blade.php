@@ -72,7 +72,7 @@
                                </div>
                           </a>
 
-                          <a href="star_war">
+                          <a href="@guest # @else star_war?user={{Auth::user()->id}}&type=video @endguest">
                                <div class=" span8 text_black four_block pull-right" id="block4">
                                <center><h4 style="color:white">Изучение с помощью игр.</h4>           
                                 <img src="images/15.jpg" class="img-polaroid " >  

@@ -2253,7 +2253,7 @@ function stripe()   {
 }
 function karaoke()   {  
  $top= $("#dictophon_english").position()['top'];
- $left=  $("#dictophon_english").position()['left'];
+ $left2=  $("#dictophon_english").position()['left'];
  $width= $("#dictophon_english").width()+40;
  if ($sound_type=="video"){
    $animation_time= 1000*($end-$start);
@@ -2262,7 +2262,7 @@ function karaoke()   {
 }
 $(".prompt2" ).append( '<span  id="dictophon_karaoke">&nbsp </span>' );
 $("#dictophon_karaoke").css('top',$top);
-$("#dictophon_karaoke").css('left',$left);
+$("#dictophon_karaoke").css('left',$left2);
 if ($sound_type=="video"){
  $('#video').load(function () {
   setTimeout(stripe,500);

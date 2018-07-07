@@ -121,7 +121,6 @@
              <li><a href="#">Advanced</a></li>
            </ul>
          </li> 
-         <li><a href="#3-column.html">Грамматика</a></li>
          <li class="dropdown">
           <a class="dropdown-toggle">Разговорник &nbsp;&raquo;</a>
           <ul class="dropdown-menu sub-menu">
@@ -157,7 +156,7 @@
     <a  class="dropdown-toggle">Игры<br><b class="caret"></b></a>
     <ul class="dropdown-menu">
 
-      <li><a href="star_war">Star wars</a></li>
+      <li><a href="@guest # @else star_war?user={{Auth::user()->id}}&type=video @endguest">Star wars</a></li>
       <li><a href="@guest # @else training?user={{Auth::user()->id}}&type=video @endguest">ЗвукоДанетка</a></li>
       <li><a href="#2-column.html" disabled>Тесты</a></li>
       <li><a href="@guest # @else training?user={{Auth::user()->id}}&type=video @endguest">Тренажеры</a></li>

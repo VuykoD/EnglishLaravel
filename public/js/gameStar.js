@@ -75,26 +75,7 @@ flight=0;
 //enemy1();
 //enemy11(); 
 
-$("#startGame").on("click", function () {
-  $(".Game").addClass("btn_Game");
-  $(".training_hide").addClass("Game2");
-  $("p").css("text-align","left");
-  $(".input2").css( "color","rgb(170,220,170)" );
-  $(".prompt").css( "color","white" );
-  $(".input2").css( "padding-top","0px" );
-  $(".prompt").css( "padding-top","0px" );
-  $(".prompt").css( "padding-bottom","0px" );
-  $(".prompt2").css( "padding-top","0px" );
-  $(".prompt2").css( "padding-top","0px" );
-  $(".prompt3").css( "padding-top","0px" );
-  $("svg").css( "margin-left","0px" );
-  $("polygon").css( "stroke","rgb(170,220,170)" );
-  $("#meter").css( "color","rgb(170,220,170)" );
-  setTimeout(myInterval,1000);
-  setInterval(myInterval, 15000);
-  $(this).hide();
-  $(".btn_Game").show();
-});
+
 
 
 
