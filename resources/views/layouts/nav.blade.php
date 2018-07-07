@@ -102,12 +102,20 @@
            <li><a href="#3-column.html">9-ый</a></li>
            <li><a href="#3-column.html">10-ый</a></li>
            <li><a href="#3-column.html">11-ый</a></li>
+            <li class="dropdown">
+            <a href="#" class="dropdown-toggle">Murphy &nbsp;&raquo;</a>
+            <ul class="dropdown-menu sub-menu">
+              <li><a href="course?course=Intermediate_Murphy_Unit_1_Present_continuous">Unit 1: Present continuous (I'm doing)</a></li>
+              <li><a href="course?course=Intermediate_Murphy_Unit_2_Present_simple">Unit 2: Present simple (I do)</a></li>
+             <li><a href="course?course=Intermediate_Murphy_Unit_3_Present_continuous_and_present_simple">Unit 3 Present continuous and present simple</a></li>
+
+           </ul>
+         </li> 
            <li class="dropdown">
             <a href="#" class="dropdown-toggle">Курсы &nbsp;&raquo;</a>
             <ul class="dropdown-menu sub-menu">
              <li><a href="#">Beginer</a></li>
              <li><a href="#">Elementary</a></li>
-             <li><a href="course?course=Intermediate_Murphy_Unit_3_Present_continuous_and_present_simple">Pre-intermediate</a></li>
              <li><a href="#">Intermediate</a></li>
              <li><a href="#">Upper-intermediate</a></li>
              <li><a href="#">Advanced</a></li>
@@ -150,7 +158,6 @@
     <ul class="dropdown-menu">
 
       <li><a href="star_war">Star wars</a></li>
-      <li><a href="#game.php">Иследователи</a></li>
       <li><a href="@guest # @else training?user={{Auth::user()->id}}&type=video @endguest">ЗвукоДанетка</a></li>
       <li><a href="#2-column.html" disabled>Тесты</a></li>
       <li><a href="@guest # @else training?user={{Auth::user()->id}}&type=video @endguest">Тренажеры</a></li>
