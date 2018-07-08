@@ -23,37 +23,37 @@
 
 
 </style>
-<body id="pageBody">
 
 
 
 
 
 
-  <div class="container">
-    <div class="row-fluid">
 
-      <div>
+<div class="container">
+  <div class="row-fluid">
 
-
-       <img src="images/game/background/1.jpg" alt="загружается карта" class="map"/>
-       <svg><line x1="190" y1="190" x2="590" y2="590" stroke="yellow" stroke-width="2"/></svg>
-
-       <div class="base base1"></div>
-       <div class="base base2"></div>
-       <div class="base base3"></div>
-       <div class="base base4"></div>
-       <div class="base base5"></div>
-       <div class="base base6"></div>
-       <div class="base base7"></div>
-       <div class="base base8"></div>
-       <div class="base base9"></div>
-       <div class="base base10"></div>
-       <a class="btn btn-info btn-large" id="startGame">Старт</a>
+    <div>
 
 
+     <img src="images/game/background/1.jpg" alt="загружается карта" class="map"/>
+     <svg><line x1="190" y1="190" x2="590" y2="590" stroke="yellow" stroke-width="2"/></svg>
 
-<div class="costumer">  
+     <div class="base base1"></div>
+     <div class="base base2"></div>
+     <div class="base base3"></div>
+     <div class="base base4"></div>
+     <div class="base base5"></div>
+     <div class="base base6"></div>
+     <div class="base base7"></div>
+     <div class="base base8"></div>
+     <div class="base base9"></div>
+     <div class="base base10"></div>
+     <a class="btn btn-info btn-large" id="startGame">Старт</a>
+
+
+
+     <div class="costumer">  
 
        <div class="Game"> 
         <a href="star_war?user=@guest none @else{{Auth::user()->id}}@endguest&type=video" class="btn btn-primary btn-large" style="margin: 0px 5px 5px 0px;">из видео</a>
@@ -392,7 +392,64 @@
   <!-- include ('layouts.training')  -->
   <script>
 
-  $left=$('.map').position()['left'];
+
+  $width_map=$('.map').width();
+  $width_body=$("body").width();
+  $width_for_star=(1*$width_body-$width_map)/2
+  $height_for_star=1*$(".map").height()-130;
+  IDstar=0;
+
+  // $(".bg").css('backgroundImage','url(images/game/background/body2.jpg)');
+
+
+
+//   function star(){
+//     IDstar++;
+//     $("body").append('<div  class="star" id ="idstar'+IDstar+'"></div>');
+//     $PositionStarRight= Math.floor(Math.random() * 2);
+//     $PositionStarLeft = Math.floor(Math.random() * $width_for_star);
+//     if ($PositionStarRight==1){$PositionStarLeft=1*$PositionStarLeft+$width_map+$width_for_star}
+//       if ($PositionStarLeft>$width_body-5){1*$PositionStarLeft-5}
+//     $PositionStarTop = Math.floor(Math.random() * $height_for_star);
+//     $('#idstar'+IDstar).css('left',$PositionStarLeft);
+//     $('#idstar'+IDstar).css('top',1*$PositionStarTop+90);
+//     $('#idstar'+IDstar).animate({opacity: "1"},4000 );
+//     if (IDstar==100){clearInterval($starfunction);}
+//   }
+
+// if ($width_for_star>100) {
+//   function star(){
+//     IDstar++;
+//     $("body").append('<div  class="star" id ="idstar'+IDstar+'"></div>');
+//     $PositionStarRight= Math.floor(Math.random() * 2);
+//     $PositionStarLeft = Math.floor(Math.random() * $width_for_star);
+//     if ($PositionStarRight==1){$PositionStarLeft=1*$PositionStarLeft+$width_map+$width_for_star}
+//       if ($PositionStarLeft>$width_body-5){1*$PositionStarLeft-5}
+//         $PositionStarTop = Math.floor(Math.random() * $height_for_star);
+//       $('#idstar'+IDstar).css('left',$PositionStarLeft);
+//       $('#idstar'+IDstar).css('top',1*$PositionStarTop+90);
+//       $('#idstar'+IDstar).animate({opacity: "1"},4000 );
+//       if (IDstar==150){clearInterval($starfunction);}
+//     }
+//   $starfunction= setInterval(star,1);
+
+//   setTimeout(function(){setInterval(blink,500)},500)
+
+//   function blink(){
+//     $idstar= Math.floor(Math.random() * 100);
+//     $duration1= Math.floor(Math.random() * 1000);
+//     $duration2= Math.floor(Math.random() * 1000);
+
+//     $('#idstar'+$idstar).animate({height: "3px", width: "3px",},500 );
+//     $('#idstar'+$idstar).animate({opacity: "0"},1000+1*$duration1 );
+//     $('#idstar'+$idstar).animate({height: "1px",width: "1px"},1000+1*$duration2 );    
+//     $('#idstar'+$idstar).animate({opacity: "1"},1000+1*$duration2 );
+
+
+//   }
+// }
+
+  $left=$width_for_star;
 
   $('.map').css('left',1*$left);
   $('#startGame').css('left',1*$left+850);

@@ -19,7 +19,8 @@
 </head>
 
 
-<body id="pageBody">
+<body id="pageBody" >
+  <div class="bg"></div>
   <div class="sweet-overlay" style="display: none;"></div>
   <div id="decorative2">
     <div class="container">

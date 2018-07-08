@@ -57,6 +57,7 @@ function enemy11(){
   var l=330; var t= 140 ; myDuration=speed*Math.sqrt(l*l+t*t);
   $(".enemy11").animate({left: '+='+l+'px', top: '+='+t+'px',},myDuration,'linear');
   
+  
 };
 
 function myInterval(){
