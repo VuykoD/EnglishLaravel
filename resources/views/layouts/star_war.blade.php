@@ -28,7 +28,7 @@
 
 
 
-
+<div class="bg"></div>
 
 <div class="container">
   <div class="row-fluid">

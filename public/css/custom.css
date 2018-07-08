@@ -255,7 +255,7 @@ img {max-width:100%;height:auto;width:auto;-moz-box-sizing:border-box;-webkit-bo
  border-radius: 200px;outline: none; font-size: 16pt; padding: 4px 9px; margin: 2px; margin-bottom: 10px;}
 
 
- body{background-image: none; background-position: initial initial; background-repeat: initial initial; }
+
 
  #divLogo{margin-top: 9px; margin-bottom: 0px; margin-left: -3px;}
 
@@ -506,7 +506,6 @@ img {max-width:100%;height:auto;width:auto;-moz-box-sizing:border-box;-webkit-bo
  .dropdown-menu li:hover .sub-menu {visibility:visible;}
  .navbar .btn-navbar-highlight {display:none;width:100%}
 
-
  .margin_b_2 {
   margin-bottom: 3px; padding:5px 10px;
 }
@@ -696,7 +695,6 @@ small {color: rgb(150,150,150); font-size: 13px; padding-left: 25px ;  padding-r
 
   .fixed {position:static; }
 
-  body {padding-top:0px}
 
 
 }
@@ -734,7 +732,6 @@ small {color: rgb(150,150,150); font-size: 13px; padding-left: 25px ;  padding-r
 
  #decorative2 {position:static}
 
- body {padding-top:0px}
 
 
  #divFooter {margin-left:-20px;margin-right:-20px;padding-left:20px;padding-right:20px;}
