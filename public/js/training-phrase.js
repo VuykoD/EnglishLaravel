@@ -154,7 +154,7 @@ function try_training_cod()   {
             function mistake()   { 
               $('.sweet-overlay').css('display','block');
               setTimeout(sweet,500);
-            $('#sound_mistake').get(0).play();
+              $('#sound_mistake').get(0).play();
               $mistake++
               $("#firstLetter").attr("placeholder","неправильно");
               $("#firstLetter").css("background","rgb(250,250,100)");
@@ -981,11 +981,11 @@ function put_words_right_written_cod()   {
 
 
                      if ($newText2[$el]==word) {
-
-                       $(this).remove();
-                       $el++;
-                       $(".input2" ).css("opacity","1")
-                       if ($sentense==1) {$(".btn_input2" ).text($(".btn_input2" ).text()+word+' ' )}else{$(".btn_input2" ).append($(".btn_input2" ).text($(".btn_input2" ).text()+ word))}
+                      $('#time_game').text(1*$('#time_game').text()+5*$koef)
+                      $(this).remove();
+                      $el++;
+                      $(".input2" ).css("opacity","1")
+                      if ($sentense==1) {$(".btn_input2" ).text($(".btn_input2" ).text()+word+' ' )}else{$(".btn_input2" ).append($(".btn_input2" ).text($(".btn_input2" ).text()+ word))}
 
                         if ($el==$RightLenght) {
                           $('#time_game').text(1*$('#time_game').text()+25*$koef)
@@ -1238,11 +1238,11 @@ var $RightLenght=$newText3.length
                  var word=$(this).text();
 
                  if ($newText2[$el]==word) {
-
-                   $(this).remove();
-                   $el++;
-                   $(".input2" ).css("opacity","1")
-                   if ($sentense==1) {$(".btn_input2" ).text($(".btn_input2" ).text()+word+' ' )}else{$(".btn_input2" ).append($(".btn_input2" ).text($(".btn_input2" ).text()+ word))}
+                  $('#time_game').text(1*$('#time_game').text()+5*$koef)
+                  $(this).remove();
+                  $el++;
+                  $(".input2" ).css("opacity","1")
+                  if ($sentense==1) {$(".btn_input2" ).text($(".btn_input2" ).text()+word+' ' )}else{$(".btn_input2" ).append($(".btn_input2" ).text($(".btn_input2" ).text()+ word))}
                     if ($el==$RightLenght) {
                      $('#time_game').text(1*$('#time_game').text()+25*$koef)
                      meter_();
@@ -1507,6 +1507,7 @@ function letter___written_cod()   {
    if ($getSentence.substr($el, 1)=="(") {var firstLetter_=$getSentence.substr($el+1, 1)}else{var firstLetter_=$getSentence.substr($el, 1)}
                 //console.log(firstLetter_)
                 if (firstLetter_==letter) {
+                  $('#time_game').text(1*$('#time_game').text()+5*$koef)
                   $("#firstLetter").attr("placeholder","молодец");
                   $("#firstLetter").css("background","white");
                   $(".input2" ).css("opacity","1")
@@ -1620,6 +1621,7 @@ function first_letter___written_cod()   {
    if ($newText2[$el].substr(0, 1)=="(") {var firstLetter_=$newText2[$el].substr(1, 1)}else{var firstLetter_=$newText2[$el].substr(0, 1)}
                 //console.log(firstLetter_)
                 if (firstLetter_==letter) {
+                  $('#time_game').text(1*$('#time_game').text()+5*$koef)
                   $("#firstLetter").attr("placeholder","молодец");
                   $("#firstLetter").css("background","white");
                   $(".input2" ).css("opacity","1")
@@ -1720,6 +1722,7 @@ function first_letter_written_cod()   {
    letter=$(this).val().toUpperCase();
    changeLan();
    if ($newText2[$el].substr(0, 1)==letter) {
+    $('#time_game').text(1*$('#time_game').text()+5*$koef)
     $("#firstLetter").attr("placeholder","молодец");
     $("#firstLetter").css("background","white");
     $(".input2" ).css("opacity","1")
@@ -1818,6 +1821,7 @@ function first_letter___audition_cod()   {
    letter=$(this).val().toUpperCase();
    changeLan();
    if ($newText2[$el].substr(0, 1)==letter) {
+    $('#time_game').text(1*$('#time_game').text()+5*$koef)
     $("#firstLetter").attr("placeholder","молодец");
     $("#firstLetter").css("background","white");
     $(".input2" ).css("opacity","1")
@@ -1905,6 +1909,7 @@ $(".press").on('input', function () {
  changeLan();
  if ($getSentence.substr($el, 1)=="(") {var firstLetter_=$getSentence.substr($el+1, 1)}else{var firstLetter_=$getSentence.substr($el, 1)}
    if (firstLetter_==letter) {
+    $('#time_game').text(1*$('#time_game').text()+5*$koef)
     $("#firstLetter").attr("placeholder","молодец");
     $("#firstLetter").css("background","white");
     $(".input2" ).css("opacity","1")
@@ -1987,8 +1992,9 @@ function first_letter_audition_cod()   {
    letter=$(this).val().toUpperCase();
    changeLan();
    if ($newText2[$el].substr(0, 1)==letter) {
-     $(".input2" ).css("opacity","1")
-     $(".btn_input2" ).text($(".btn_input2" ).text()+$newText2[$el]+' ' )
+    $('#time_game').text(1*$('#time_game').text()+5*$koef)
+    $(".input2" ).css("opacity","1")
+    $(".btn_input2" ).text($(".btn_input2" ).text()+$newText2[$el]+' ' )
                //$(".input2").children("text:last").after('<text>'+$newText2[$el] +' </text>');
                //$(".input2").children("button:first").remove();
                $("#firstLetter").val("");

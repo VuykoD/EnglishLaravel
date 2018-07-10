@@ -29,7 +29,7 @@
 
 
 <div class="bg"></div>
-
+<video class="unvisible" controls="" name="media" id="sound_mistake"><source src="/sounds/Sound_08515.mp3" type="audio/mpeg"></video>
 <div class="container">
   <div class="row-fluid">
 
@@ -358,7 +358,7 @@
        <p align="center" class="input2"><button class="btn btn-secondary btn-large btn_input2"></button></p>
        <p align="center" class="input" id="focus"></p>
        <p align="center" class="prompt font_green "></p>
-       <p align="center" class="microphon"><span id ="repeat">Повторите сколько успеете...</span><br><meter class="meter2" value="0" max="100"  optimum="1"></meter></p>
+       <p align="center" class="microphon"><span class="btn">Повторите сколько успеете...</span><br><meter class="meter2" value="0" max="100"  optimum="1"></meter></p>
        <p align="center" class="prompt2"></p>
        <p align="center" class="prompt3"><button class="prompt_button btn btn-info btn-large">Подсказка</button></p>
 
@@ -484,11 +484,10 @@
   $('.base10').css('left',1*$left+850);
   $('.base10').css('top',740);
 
-  $(".btn_Game").hide()
+
   $(".hidden3").hide()
 
-  $("#startGame").on("click", function () {
-    $(".Game").addClass("btn_Game");
+  $(".Game").addClass("btn_Game");
     $(".training_hide").addClass("Game2");
     $("p").css("text-align","left");
     $(".input2").css( "color","rgb(170,220,170)" );
@@ -502,10 +501,13 @@
     $("svg").css( "margin-left","0px" );
     $("polygon").css( "stroke","rgb(170,220,170)" );
     $("#meter").css( "color","rgb(170,220,170)" );
+
+  $("#startGame").on("click", function () {
+    
     setTimeout(myInterval,1000);
     setInterval(myInterval, 15000);
     $(this).hide();
-    $(".btn_Game").show();
+
   });
 
 

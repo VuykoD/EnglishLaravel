@@ -20,7 +20,7 @@
 
 
 <body id="pageBody" >
-  
+
   <div class="sweet-overlay" style="display: none;"></div>
   <div id="decorative2">
     <div class="container">
@@ -47,8 +47,8 @@
                   <a href="#about.html" class="dropdown-toggle">{{ Auth::user()->name }}<br><b class="caret"></b></a>
                   <ul class="dropdown-menu">
                     <li disabled><a href="myvocabulary?user=@guest none @else{{Auth::user()->id}}@endguest&type=video">Мой словарь</a></li>
-                    <li><a href="#" class="disabled" >История</a></li>
-                    <li><a href="#2-column.html" class="disabled">Настройки</a></li>
+                    <!-- <li><a href="#" class="disabled" >История</a></li>
+                    <li><a href="#2-column.html" class="disabled">Настройки</a></li> -->
                     <li> <a class="dropdown-item" href="{{ route('logout') }}"
                       onclick="event.preventDefault();
                       document.getElementById('logout-form').submit();">
@@ -79,6 +79,15 @@
           <li class="dropdown ">
             <a class="dropdown-toggle">Курсы<br><b class="caret"></b></a>
             <ul class="dropdown-menu ">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle">Murphy &nbsp;&raquo;</a>
+                <ul class="dropdown-menu sub-menu">
+                  <li><a href="course?course=Intermediate_Murphy_Unit_1_Present_continuous">Unit 1: Present continuous (I'm doing)</a></li>
+                  <li><a href="course?course=Intermediate_Murphy_Unit_2_Present_simple">Unit 2: Present simple (I do)</a></li>
+                  <li><a href="course?course=Intermediate_Murphy_Unit_3_Present_continuous_and_present_simple">Unit 3 Present continuous and present simple</a></li>
+
+                </ul>
+              </li>
               <li><a href="course?course=English_before_school">Раннее развитие</a></li>
               <li><a href="#full.html">1-ый класс</a></li>
               <li class="dropdown">
@@ -103,15 +112,7 @@
            <li><a href="#3-column.html">9-ый</a></li>
            <li><a href="#3-column.html">10-ый</a></li>
            <li><a href="#3-column.html">11-ый</a></li>
-            <li class="dropdown">
-            <a href="#" class="dropdown-toggle">Murphy &nbsp;&raquo;</a>
-            <ul class="dropdown-menu sub-menu">
-              <li><a href="course?course=Intermediate_Murphy_Unit_1_Present_continuous">Unit 1: Present continuous (I'm doing)</a></li>
-              <li><a href="course?course=Intermediate_Murphy_Unit_2_Present_simple">Unit 2: Present simple (I do)</a></li>
-             <li><a href="course?course=Intermediate_Murphy_Unit_3_Present_continuous_and_present_simple">Unit 3 Present continuous and present simple</a></li>
 
-           </ul>
-         </li> 
            <li class="dropdown">
             <a href="#" class="dropdown-toggle">Курсы &nbsp;&raquo;</a>
             <ul class="dropdown-menu sub-menu">
@@ -142,25 +143,25 @@
     </ul>
   </li>
   <li class="dropdown ">
-    <a href="video?user=@guest none @else{{Auth::user()->id}}@endguest&type=9" class="dropdown-toggle">Видео<br><b class="caret"></b></a>
+    <a href="@guest # @else video?user={{Auth::user()->id}}&type=9 @endguest" class="dropdown-toggle @guest alert_script @endguest">Видео<br><b class="caret"></b></a>
     <ul class="dropdown-menu">
-      <li><a href="video?user=@guest none @else{{Auth::user()->id}}@endguest&type=9">Все видео</a></li>
-      <li><a href="video?user=@guest none @else{{Auth::user()->id}}@endguest&type=1">Мультфильмы</a></li>
-      <li><a href="video?user=@guest none @else{{Auth::user()->id}}@endguest&type=2">Интересное</a></li>
-      <li><a href="video?user=@guest none @else{{Auth::user()->id}}@endguest&type=3">Видеоуроки</a></li>
-      <li><a href="video?user=@guest none @else{{Auth::user()->id}}@endguest&type=4">Музыка</a></li>
-      <li><a href="video?user=@guest none @else{{Auth::user()->id}}@endguest&type=5">Фильмы</a></li>
+      <li><a href="@guest # @else video?user={{Auth::user()->id}}&type=9 @endguest" class="@guest alert_script @endguest">Все видео</a></li>
+      <li><a href="@guest # @else video?user={{Auth::user()->id}}&type=1 @endguest" class="@guest alert_script @endguest">Мультфильмы</a></li>
+      <li><a href="@guest # @else video?user={{Auth::user()->id}}&type=2 @endguest" class="@guest alert_script @endguest">Интересное</a></li>
+      <li><a href="@guest # @else video?user={{Auth::user()->id}}&type=3 @endguest" class="@guest alert_script @endguest">Видеоуроки</a></li>
+      <li><a href="@guest # @else video?user={{Auth::user()->id}}&type=4 @endguest" class="@guest alert_script @endguest">Музыка</a></li>
+      <li><a href="@guest # @else video?user={{Auth::user()->id}}&type=5 @endguest" class="@guest alert_script @endguest">Фильмы</a></li>
     </ul>
 
   </li>
   <li class="dropdown ">
-    <a  class="dropdown-toggle">Игры<br><b class="caret"></b></a>
+    <a href="@guest # @else star_war?user={{Auth::user()->id}}&type=video @endguest" class="dropdown-toggle @guest alert_script @endguest">Игры<br><b class="caret"></b></a>
     <ul class="dropdown-menu">
 
-      <li><a href="@guest # @else star_war?user={{Auth::user()->id}}&type=video @endguest">Star wars</a></li>
-      <li><a href="@guest # @else training?user={{Auth::user()->id}}&type=video @endguest">ЗвукоДанетка</a></li>
-      <li><a href="#2-column.html" disabled>Тесты</a></li>
-      <li><a href="@guest # @else training?user={{Auth::user()->id}}&type=video @endguest">Тренажеры</a></li>
+      <li><a href="@guest # @else star_war?user={{Auth::user()->id}}&type=video @endguest" class="@guest alert_script @endguest">Star wars</a></li>
+      <li><a href="@guest # @else training?user={{Auth::user()->id}}&type=video @endguest" class="@guest alert_script @endguest">ЗвукоДанетка</a></li>
+      <!-- <li><a href="#2-column.html" disabled>Тесты</a></li> -->
+      <li><a href="@guest # @else training?user={{Auth::user()->id}}&type=video @endguest" class="@guest alert_script @endguest">Тренажеры</a></li>
 
 
 
@@ -178,5 +179,7 @@
 </div>
 </div>
 <script>
-$('.disabled').attr('title',"на стадии разработки");
+$(".alert_script").on("click", function () {
+  alert("необходимо зарегестрироваться/залогиниться")
+})
 </script>
