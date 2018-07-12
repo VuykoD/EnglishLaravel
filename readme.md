@@ -1,3 +1,7 @@
+<p align="center">This is my first project</p>
+<p align="center">I like programing and cteate this site for my sons</p>
+<p align="center">My sons inspirate me to do it. They leart english very bad. Now thier knowledge of the english is much more better</p>
+
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
