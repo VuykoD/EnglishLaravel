@@ -35,6 +35,8 @@ Route::post('/training', 'ChangeBaseController@ChangeSentenseOrWord');
 
 Route::post('ajaxRequest', 'AjaxController@ajaxRequestPost');
 
+Route::post('ajaxRequestAddOneString', 'AjaxController@ajaxRequestAddOneString');
+
 Route::get('ajaxRequest', 'AjaxController@ajaxRequest');
 
 Route::get('ajaxRequestSoundGame', 'AjaxController@ajaxRequestSoundGame');

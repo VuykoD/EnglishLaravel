@@ -536,7 +536,8 @@ button.list-group-item:focus {
   text-decoration: none;
 }
 button.list-group-item {
-  width: 100%;
+  
+  width: 90%;
   text-align: left;
 }
 .list-training button {
@@ -651,11 +652,14 @@ small {color: rgb(150,150,150); font-size: 13px; padding-left: 25px ;  padding-r
 .hide_subtitle{position: absolute;width: 100%;height: 7%;opacity: 0.95; top:80%; color:  black;}
 .accordion-heading {height: 60px; width: 95%;border-radius: 25px; margin-bottom: 5px; }
 .accordion-group{border-radius: 35px; margin-bottom: 5px;}
-.naming_reading_2{border-bottom: rgb(190,190,190) 1px dashed; color:rgb(120,120,210);width:100% !important; white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+.naming_reading_2{border-bottom: rgb(190,190,190) 1px dashed; color:rgb(120,120,210);width:70% !important; white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
 .naming_reading{ color:rgb(120,120,210); width: 67%; white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
-.naming_reading_3{width: 100%; white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
-
-
+.naming_reading_3{width: 100%; white-space: nowrap;overflow: hidden;text-overflow: ellipsis;display: inline-block;}
+.add{width: 37px; height: 37px; display: inline-block;   margin-right: 5px; margin-top: 5px; border-radius: 45%; font-size: 20px;outline: none; float: left;}
+.add:active, .add:hover, .add:focus {
+    outline: 0;
+    outline-offset: 0;
+}
 .accordion-heading>a:hover, .accordion-group:hover {text-decoration: none !important; background: rgb(245,245,245);}
 .height_45 {height: 45px;}
 .height_25 {padding: 4px 20px; margin-bottom: 10px; margin-right: 20px; }
