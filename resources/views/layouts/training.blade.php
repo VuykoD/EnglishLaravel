@@ -387,7 +387,7 @@ $(".edit_button").click(function(e){
   var sound_type = $sound_type;
   var _row="edit";
 
-console.log(arr_base_course_id_);
+
 
   $.ajax({
 
@@ -405,10 +405,13 @@ console.log(arr_base_course_id_);
     $getRus=rus_;
     arr_English[$number_in_array]=eng_;
     arr_Rus[$number_in_array]=rus_;
-    arr_start[$number_in_array]=start_video;
-    arr_end[$number_in_array]=end_video;
-    $start=start_video;
-    $end=end_video;
+
+    if ($sound_type=='video'){
+      arr_start[$number_in_array]=start_video;
+      arr_end[$number_in_array]=end_video;
+      $start=start_video;
+      $end=end_video;
+    }
 
     if (training_type==1){put_words_right_written_cod()}
       if (training_type==2){written_yes_no_cod()}

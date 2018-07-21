@@ -24,15 +24,16 @@ class CourseController extends Controller
 
 			// array_push($value, "apple", "raspberry");
 
-
-			$progress=Progress::where('id_users',Auth::user()->id)->where('base_course_id',$value['id'])->get();
-			if (count($progress)>0) {
-			$progress=$progress[0]->id_users;
-		}else{
-			$progress=0;
-		}
-			$value['progress'] = $progress;
-			$course[$key]=$value;
+			if(Auth::user()!=null){
+				$progress=Progress::where('id_users',Auth::user()->id)->where('base_course_id',$value['id'])->get();
+				if (count($progress)>0) {
+					$progress=$progress[0]->id_users;
+				}else{
+					$progress=0;
+				}
+				$value['progress'] = $progress;
+				$course[$key]=$value;
+			}
 		}
 
 		return view('layouts/course')->with(['course'=>$course,'id_course'=>$id_course]);
