@@ -135,7 +135,7 @@ function row_is_learned_old() {
          $.ajax({        
            type:'get',
            url:'/ajaxRequest',
-           data:{i1:row_arr_id_base[i], next_date:arr_date[row_arr[i]-1], quantity:arr_quantity[row_arr[i]-1],  sound_type:$sound_type, _token: '{{csrf_token()}}'},
+           data:{i1:row_arr_id_base[i], next_date:arr_date[row_arr[i]-1], quantity:arr_quantity[row_arr[i]-1], mistake:row_mistake[i], sound_type:$sound_type, _token: '{{csrf_token()}}'},
            success:function(success){
            }
         });
