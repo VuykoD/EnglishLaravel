@@ -47,8 +47,8 @@
                   <a href="#about.html" class="dropdown-toggle">{{ Auth::user()->name }}<br><b class="caret"></b></a>
                   <ul class="dropdown-menu">
                     <li disabled><a href="myvocabulary?user=@guest none @else{{Auth::user()->id}}@endguest&type=video">Мой словарь</a></li>
-                    <!-- <li><a href="#" class="disabled" >История</a></li>
-                    <li><a href="#2-column.html" class="disabled">Настройки</a></li> -->
+                    <li><a href="statistic" class="disabled" >Статистика</a></li>
+                    <!-- <li><a href="#2-column.html" class="disabled">Настройки</a></li> -->
                     <li> <a class="dropdown-item" href="{{ route('logout') }}"
                       onclick="event.preventDefault();
                       document.getElementById('logout-form').submit();">

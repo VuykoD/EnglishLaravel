@@ -30,6 +30,6 @@ class Progress extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('progresses');
     }
 }

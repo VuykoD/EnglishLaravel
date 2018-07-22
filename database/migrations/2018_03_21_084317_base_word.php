@@ -27,6 +27,6 @@ class BaseWord extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('base_words');
     }
 }

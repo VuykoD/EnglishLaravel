@@ -43,6 +43,8 @@ Route::get('ajaxRequestSoundGame', 'AjaxController@ajaxRequestSoundGame');
 
 Route::get('star_war', 'GameController@general');
 
+Route::get('statistic', 'StatisticController@index');
+
 // {
 //      return view('layouts.star_war');
 // });

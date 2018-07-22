@@ -20,6 +20,7 @@
           </a>
 
           <select class="select" id="select_new">
+            <option>1</option>
             <option>3</option> <option>4</option> <option>5</option> <option>6</option>
             <option>7</option> <option>8</option> <option>9</option> <option>10</option>
             <option>11</option> <option>12</option> 
@@ -181,7 +182,7 @@
           </button>
         </div>
         <div class="span1 border_1"> 
-          <label class="checkbox inline"><input type="checkbox" id="Sentence1_3" value="option1" checked disabled>1 новое</label><br>
+          <label class="checkbox inline"><input type="checkbox" id="Sentence1_3" value="option1"  disabled>1 новое</label><br>
           <label class="checkbox inline "><input type="checkbox" id="Sentence23_3" value="option2">2-6 повт.</label>  
         </div>
 
@@ -552,9 +553,7 @@ quantity_new();
 quantity_repeat() ;
 quantity_test();
 quantity_leanrt();
-row_is_learned();
-row_is_learned_old();
-i_know_this();
+
 IDontknow111();
 sound();
 GoOn_();

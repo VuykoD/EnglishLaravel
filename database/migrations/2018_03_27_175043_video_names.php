@@ -31,6 +31,6 @@ class VideoNames extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('video_names');
     }
 }

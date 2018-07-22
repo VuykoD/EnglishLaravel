@@ -30,6 +30,6 @@ class ProgresOfVideos extends Migration
      */
     public function down()
     {
-        //
+         Schema::dropIfExists('ProgresOfVideos');
     }
 }

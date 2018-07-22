@@ -30,6 +30,6 @@ class VideoTimes extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('video_times');
     }
 }

@@ -117,7 +117,7 @@ function row_is_learned_old() {
        if  (arr_quantity[row_arr[i]-1]==1)   {d1.setDate(d1.getDate() + 2);} 
        if  (arr_quantity[row_arr[i]-1]==2)   {d1.setDate(d1.getDate() + 5);}
        if  (arr_quantity[row_arr[i]-1]==3)   {d1.setDate(d1.getDate() + 7);}
-       if  (arr_quantity[row_arr[i]-1]==4)   {d1.setDate(d1.getDate() + 3);}
+       if  (arr_quantity[row_arr[i]-1]==4)   {d1.setDate(d1.getDate() + 5);}
        if  (arr_quantity[row_arr[i]-1]==5)   {d1.setDate(d1.getDate() + 100);}
 
 
@@ -131,7 +131,7 @@ function row_is_learned_old() {
         if (row_arr_id_base[i]==row_arr_id_base[0]){
              if (i>=1){return;}
          }
-         console.log(row_arr_id_base[i])
+
          $.ajax({        
            type:'get',
            url:'/ajaxRequest',

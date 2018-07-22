@@ -29,6 +29,6 @@ class Readings extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('readings');
     }
 }
