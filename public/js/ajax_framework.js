@@ -99,16 +99,14 @@ function row_is_learned_old() {
 
    for (var i=0; i<max_task;i++) {   
    	   
-
-
-
-        if (row_mistake[i]==0) {
-
-
+console.log(row_mistake[i])
+console.log(max_task)
+    if (row_mistake[i]==0) {
         arr_quantity[row_arr[i]-1]=1*arr_quantity[row_arr[i]-1]+1
-    }else{
-        if ((arr_quantity[row_arr[i]-1]>=2)&&(test==0)) {arr_quantity[row_arr[i]-1]=1*arr_quantity[row_arr[i]-1]-1}
     }
+    // else{
+    //     if ((arr_quantity[row_arr[i]-1]>=2)&&(test==0)) {arr_quantity[row_arr[i]-1]=1*arr_quantity[row_arr[i]-1]-1}
+    // }
 
 
 
@@ -128,11 +126,9 @@ function row_is_learned_old() {
         next_day = d1.getFullYear() + '-' + month+ '-' + day  ;
         arr_date[row_arr[i]-1]=next_day;
 
-        if (row_arr_id_base[i]==row_arr_id_base[0]){
-             if (i>=1){return;}
-         }
 
-         $.ajax({        
+
+         $.ajax({
            type:'get',
            url:'/ajaxRequest',
            data:{i1:row_arr_id_base[i], next_date:arr_date[row_arr[i]-1], quantity:arr_quantity[row_arr[i]-1], mistake:row_mistake[i], sound_type:$sound_type, _token: '{{csrf_token()}}'},

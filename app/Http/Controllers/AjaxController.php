@@ -61,6 +61,8 @@ class AjaxController extends Controller
   public function ajaxRequest()
 
   {
+
+    echo request('mistake');
     if (request('mistake')==0){
      $last_learn=DB::table('statistic_users')->where('id_users', Auth::id()) ->first();
 
@@ -75,33 +77,39 @@ class AjaxController extends Controller
 
     $day_of_last_learn=explode(" ", $last_learn->updated_at)[0];
 
-    
+    echo request('quantity');
 
     if ($day_of_last_learn!=Carbon::today()->toDateString()){
       DB::table('statistic_users')->where('id_users', Auth::id())->update(['course_new' => 0,'course_repeat'=>0,'course_test' =>0,'video_new' => 0,'video_repeat'=>0,'video_test' =>0]);
     }
 
     if (request('sound_type')=="course"&&request('quantity')==1){
+      echo $last_learn->course_new;
       DB::table('statistic_users')->where('id_users', Auth::id())->update(['course_new' => 1*($last_learn->course_new)+1,'updated_at' => Carbon::now()]);
     }
 
     if (request('sound_type')=="course"&&request('quantity')>1&&request('quantity')<4){
+      echo $last_learn->course_repeat;
       DB::table('statistic_users')->where('id_users', Auth::id())->update(['course_repeat' => 1*($last_learn->course_repeat)+1,'updated_at' => Carbon::now()]);
     }
 
     if (request('sound_type')=="course"&&request('quantity')>3){
+      echo $last_learn->course_test;
       DB::table('statistic_users')->where('id_users', Auth::id())->update(['course_test' => 1*($last_learn->course_test)+1,'updated_at' => Carbon::now()]);
     }
 
     if (request('sound_type')=="video"&&request('quantity')==1){
+      echo $last_learn->video_new;
       DB::table('statistic_users')->where('id_users', Auth::id())->update(['video_new' => 1*($last_learn->video_new)+1,'updated_at' => Carbon::now()]);
     }
 
     if (request('sound_type')=="video"&&request('quantity')>1&&request('quantity')<4){
+      echo $last_learn->video_repeat;
       DB::table('statistic_users')->where('id_users', Auth::id())->update(['video_repeat' => 1*($last_learn->video_repeat)+1,'updated_at' => Carbon::now()]);
     }
 
     if (request('sound_type')=="video"&&request('quantity')>3){
+      echo $last_learn->video_test;
       DB::table('statistic_users')->where('id_users', Auth::id())->update(['video_test' => 1*($last_learn->video_test)+1,'updated_at' => Carbon::now()]);
     }
   }
