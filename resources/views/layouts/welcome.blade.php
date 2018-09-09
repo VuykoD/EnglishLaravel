@@ -127,8 +127,8 @@
 
         <div id="footerInnerSeparator"></div>
     </div>
-<textarea id="js-cuttextarea" style="opacity: 1">_159753_</textarea>
-<textarea id="js-cuttextarea1" style="opacity: 1">_159753_Access</textarea>
+<textarea id="js-cuttextarea" style="opacity: 0; height: 1px">_159753_Vv</textarea>
+<textarea id="js-cuttextarea1" style="opacity: 0; height: 1px">_159753_Vv_Access</textarea>
 </div>
 
 <script src="js/jquery.min.js" type="text/javascript"></script> 
