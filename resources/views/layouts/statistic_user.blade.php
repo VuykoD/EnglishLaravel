@@ -13,7 +13,7 @@
   <div>Изучено: видео новое - {{1*($last_visit->video_new)}}</div>
   <div style="padding-left:62px">видео повтор - {{1*($last_visit->video_repeat)}}</div>
   <div style="padding-left:62px">видео екзамен - {{1*($last_visit->video_test)}}</div>
-  <div style="padding-left:62px">курсы повтор - {{1*($last_visit->course_new)}}</div>
+  <div style="padding-left:62px">курсы новое - {{1*($last_visit->course_new)}}</div>
   <div style="padding-left:62px">курсы повтор - {{1*($last_visit->course_repeat)}}</div>
   <div style="padding-left:62px">курсы екзамен - {{1*($last_visit->course_test)}}</div>
   <hr>

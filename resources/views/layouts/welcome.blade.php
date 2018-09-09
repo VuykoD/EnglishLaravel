@@ -96,7 +96,19 @@
 
                 <div class="span12" id="divMain">
                    
-                    <h2>На заметку родителям</h2>
+                    <h2 style="display:inline;">На заметку родителям</h2>
+
+                    @guest
+                      <button class="btn btn-info btn-large " style="margin-left: 20px">Блокировать игры до выполнения домашнего задания и английского</button>              
+                    @else
+                      @if (Auth::user()->access_chrome==1)
+                        <button class="btn btn-success btn-large " style="margin-left: 20px" id="unlock_chrome">Разблокировать Chrome</button>
+                      @endif
+                      @if (Auth::user()->access_game==1)
+                        <button class="btn btn-success btn-large " style="margin-left: 10px" id="unlock_game">Разблокировать игры</button>
+                      @endif      
+                    @endguest
+                    
 
                     <p>Многие из детей очень любят играть в различные иргы типа Minecraft или WoT. Вы можете <a href="#">скачать приложение</a>, которое будет блокировать всё, пока ребенок не позанимался. И будет открывать ребенку доступ к играм на час или два после того, как он набрал необходимое количество баллов.</p>
 
@@ -115,7 +127,8 @@
 
         <div id="footerInnerSeparator"></div>
     </div>
-
+<textarea id="js-cuttextarea" style="opacity: 1">_159753_</textarea>
+<textarea id="js-cuttextarea1" style="opacity: 1">_159753_Access</textarea>
 </div>
 
 <script src="js/jquery.min.js" type="text/javascript"></script> 
@@ -138,5 +151,24 @@ $('#block4').mouseleave(function(){$(this).animate({opacity: ".2"},300,"swing" )
 
 
 
+</script>
+<script type="text/javascript">
+  window.onload = function() {
+    var cutTextareaBtn = document.querySelector('#unlock_chrome');
+
+    cutTextareaBtn.addEventListener('click', function(event) {  
+      var cutTextarea = document.querySelector('#js-cuttextarea');  
+      cutTextarea.select();
+      document.execCommand('copy');  
+    });
+
+    var cutTextareaBtn = document.querySelector('#unlock_game');
+
+    cutTextareaBtn.addEventListener('click', function(event) {  
+      var cutTextarea = document.querySelector('#js-cuttextarea1');  
+      cutTextarea.select();
+      document.execCommand('copy');  
+    });
+}
 </script>
 @endsection

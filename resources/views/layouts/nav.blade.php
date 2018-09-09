@@ -182,4 +182,5 @@
 $(".alert_script").on("click", function () {
   alert("необходимо зарегестрироваться/залогиниться")
 })
+
 </script>
