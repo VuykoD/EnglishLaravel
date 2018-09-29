@@ -172,8 +172,8 @@ function try_training_cod()   {
 
                   if (try_answer==0) {random_voice()};
                   $(".prompt").empty().append('<button class="btn btn-secondary btn-large  height_25 Iknow">'+ $getSentence+'</button>');
-                  $(".prompt").animate({opacity: "1"},700 );
-                  $(".prompt").animate({opacity: "0.01"},2300 );
+                  $(".prompt").animate({opacity: "1"},1500 );
+                  $(".prompt").animate({opacity: "0.01"},4500 );
                 }
               }
 

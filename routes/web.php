@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('layouts/welcome');
-});
+Route::get('/', 'WelcomeController@index');
 
 Route::get('/course', 'CourseController@name');
 
@@ -45,11 +43,6 @@ Route::get('star_war', 'GameController@general');
 
 Route::get('statistic', 'StatisticController@index');
 
-// {
-//      return view('layouts.star_war');
-// });
-
 
 Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');

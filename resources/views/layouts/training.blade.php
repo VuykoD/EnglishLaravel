@@ -159,7 +159,7 @@
           </button>
         </div>
         <div class="span1 border_1"> 
-          <label class="checkbox inline"><input type="checkbox" id="Sentence1_1">1 новое</label><br>
+          <label class="checkbox inline"><input type="checkbox" id="Sentence1_1" checked disabled>1 новое</label><br>
           <label class="checkbox inline "><input type="checkbox" id="Sentence23_1">2-6 повт.</label>
         </div>
 
@@ -181,7 +181,7 @@
           </button>
         </div>
         <div class="span1 border_1"> 
-          <label class="checkbox inline"><input type="checkbox" id="Sentence1_3" value="option1" checked disabled>1 новое</label><br>
+          <label class="checkbox inline"><input type="checkbox" id="Sentence1_3" value="option1">1 новое</label><br>
           <label class="checkbox inline "><input type="checkbox" id="Sentence23_3" value="option2">2-6 повт.</label>  
         </div>
 
