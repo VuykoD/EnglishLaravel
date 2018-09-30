@@ -130,10 +130,10 @@
   @guest
   @else
     @if (Auth::user()->access_chrome==1)
-      <textarea id="js-cuttextarea" style="opacity: 1; height: 1px">{{$accessCrome}}</textarea>
+      <textarea id="js-cuttextarea" style="opacity: 0; height: 1px">{{$accessCrome}}</textarea>
     @endif
     @if (Auth::user()->access_game==1)
-      <textarea id="js-cuttextarea1" style="opacity: 1; height: 1px">{{$accessGame}}</textarea>
+      <textarea id="js-cuttextarea1" style="opacity: 0; height: 1px">{{$accessGame}}</textarea>
     @endif
   @endguest
 </div>
